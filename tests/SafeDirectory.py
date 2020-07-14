@@ -8,7 +8,7 @@ class SafeDirectory:
         '''this class creates the directory if it does'nt exists, otherwise it does'nt modify the directory'''    
         def __init__(self, newpath):
            self.path = newpath
-           self.logging = PersonalLogging("CreateDirectorySafely")
+           self.logging = PersonalLogging("SafeDirectory")
            #self.mappa = newmappa
         
         def create(self):
