@@ -14,18 +14,16 @@ import unittest
 class Month:
     ''' @overview this class has the dat aof year and month'''
 
-    def init_old(self, newmonth):
-        self.month = newmonth
-        self.log = PersonalLogging("Month", False)
-
 
     def __init__(self, newformattedtimestamp):
         self.timefile = newformattedtimestamp
+        self.log = PersonalLogging("Month", False)
 
 
     def show(self):
         '''@return creation month as string '''
         date = self.timefile
+        self.log.print("Month.show():" + str(date))
         tmp = date.split(" ")
         return tmp[1]
     

@@ -30,7 +30,6 @@ class Transfert:
         '''copy one file'''
         msg_source = "" + str(self.source) + ""
         msg_destination = "" + str(self.destination) + ""
-        #self.logging.print("copy(" + msg_source + ", " + msg_destination+")")
         if self.alreadyCopied() :
             self.logging.print("Already existing file: %s" % self.destination)
         else:

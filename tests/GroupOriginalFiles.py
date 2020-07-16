@@ -17,14 +17,13 @@ class GroupOriginalFiles:
     def map(self, output_dir):
         '''@return la mappa tra persorso assoluto del file letto e dati disaggregati del file da copiare'''
         result = {}
-        self.logging.print(str(self.map_originalfiles))
+        self.logging.print("map: " + str(self.map_originalfiles))
         for filetmp in self.map_originalfiles.keys():
            disaggregated_data = self.map_originalfiles[filetmp] 
            self.logging.print( "filetmp: " + str(filetmp) )
            self.logging.print( "disaggregated_data: " + str(disaggregated_data) )
            var = SingleFinalData(output_dir, disaggregated_data.tupla())
            result[filetmp] = var
-
         self.logging.print( "result: " + str(result) )
         return result
 

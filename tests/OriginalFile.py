@@ -10,6 +10,7 @@ from Month import Month
 from Root import Root
 from Filename import Filename
 from TimeFile import TimeFile
+from Day import Day
 
 class OriginalFile:
     '''@overview this class represent the logical representation of a file to copy'''
@@ -29,7 +30,8 @@ class OriginalFile:
         filename = Filename(self.filename)
         extension = Extension(self.filename)
         root = Root(self.absolutepath )
-        res = (year, month, topic, filename, extension, root)
+        day = Day(completeDateTime)
+        res = (year, month, topic, filename, extension, root, day)
         self.log.print("<" + str(res))
         return res
 

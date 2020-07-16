@@ -15,7 +15,7 @@ class Extension:
     def show(self):
         pieces = self.file.split(".")
         if ( 1 < len (pieces)) :
-            file_extension = pieces[1]
+            file_extension = pieces[1].upper()
         else:
             self.log.warn( "non ha estensione :" + str(pieces) )
             file_extension = "UNSUPPORTED-EXTENSION"
@@ -37,7 +37,7 @@ class TestExtension(unittest.TestCase):
     def test_show(self):
         absolutepath = "ecchia.jpg"
         result = Extension(absolutepath).show()
-        expected = "jpg"
+        expected = "JPG"
         self.assertEqual(result, expected)
     
     def test_media_supported(self):

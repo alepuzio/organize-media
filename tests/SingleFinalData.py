@@ -5,7 +5,8 @@ import os
 import unittest
 from Month import Month
 from Media import Media
-from YearMonth import YearMonth
+#from YearMonth import YearMonth
+from MonthFinal import MonthFinal
 from OriginalFile import OriginalFile
 
 class SingleFinalData:
@@ -26,91 +27,33 @@ class SingleFinalData:
         self.log.print("year:" + year.show())
         month = self.originaltupla[1]
         self.log.print("month:" + month.show()) 
-        yearmonth = YearMonth(year, month)
+        month = MonthFinal ( month )
+        #yearmonth = YearMonth(year, month)
         topic = self.originaltupla[2] 
         filename = self.originaltupla[3]
         extension = self.originaltupla[4]
         root = self.root
         media = Media(self.originaltupla[4]).directory()
-        return (root, year, yearmonth, topic, media, filename, extension)
+        day = self.originaltupla[6]
+        return (root, year, month, topic, media, filename, extension, day)
 
     def physicalFile(self):
-        '''return the complete path as String'''
+        '''@return the complete path as String'''
         data = self.tupla()
         listdata = [data[0], data[1].show(), data[2].show(), data[3].show(), data[4], data[5].show()]
         path = os.sep.join(listdata[0:6])
         return AsString(path + "." + data[6].show() ).show()
+    
+    def physicalPath(self):
+        '''@return the complete path as String, no filename and extension'''
+        data = self.tupla()
+        listdata = [data[0], data[1].show(), data[2].show(), data[3].show(), data[4], data[5].show()]
+        path = os.sep.join(listdata[0:5])
+        return AsString(path).show()
         
     def __repr__(self):
         return "SingleFinalData[" + self.physicalFile() + "]\n>>>" + str(self.tupla())
 
     def __eq__(self, other):
         return self.physicalFile() == other.physicalFile()
-
-class TestSingleFinalData(unittest.TestCase):
-        
-        def test_tupla_yearmonth(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[2].show(), "202006")
-
-        def test_tupla_name(self): 
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[5].show(), "vecchia")
-
-        def test_tupla_year(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[1].show(), "2020")
-
-        def test_tupla_topic(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[3].show(), "lugano")
-        
-        def test_tupla_extension(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[6].show(), "jpg")
-            
-        def test_tupla_year(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[1].show(), "2020")
-
-        def test_tupla_directory_from_extension(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-            result = filename.tupla()
-            self.assertEqual(result[4], "JPG")
-        
-        def test_tupla_physicalFile(self):
-            pathtmp = "D:\\workspacePython\\organize-set-microstock\\tests\\resources\\lugano"
-            filetmp = "vecchia.jpg"
-            originalFile = OriginalFile(pathtmp, filetmp)
-            filename = SingleFinalData("C:\\users\\microstock\\newoutput", originalFile.tupla())
-            result = filename.physicalFile()
-            self.assertEqual(result, "C:\\users\\microstock\\newoutput\\2020\\202006\\lugano\\JPG\\vecchia.jpg")
-
 

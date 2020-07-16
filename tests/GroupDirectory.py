@@ -48,7 +48,7 @@ class GroupDirectory:
         list_dir = self.various_directory()
         to_write = self.unique(list_dir)
         self.createDirectories(to_write)
-
+        return to_write
 
 class TestGroupDirectory(unittest.TestCase):
 
@@ -64,9 +64,9 @@ class TestGroupDirectory(unittest.TestCase):
         expected = []
         expected.append(".\\newoutput")
         expected.append(".\\newoutput\\2020")
-        expected.append(".\\newoutput\\2020\\202006")
-        expected.append(".\\newoutput\\2020\\202006\\lugano")
-        expected.append(".\\newoutput\\2020\\202006\\lugano\\JPG")
+        expected.append(".\\newoutput\\2020\\202007")
+        expected.append(".\\newoutput\\2020\\202007\\lugano")
+        expected.append(".\\newoutput\\2020\\202007\\lugano\\JPG")
         for place in range(0, len(result)):
             print(str(place) + ">" + str(result[place]) )
             

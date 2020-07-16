@@ -11,7 +11,7 @@ from GroupReadFiles import TestGroupReadFiles
 from ImageJPG import TestImageJPG
 from Field import TestField
 
-
+from Day import TestDay
 
 
 
