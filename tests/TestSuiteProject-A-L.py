@@ -1,13 +1,19 @@
 import unittest 
 
-from AbsolutePath import TestAbsolutePath
+#from AbsolutePath import TestAbsolutePath
 from AsString import TestAsString
 from Control import TestControl
 from Extension import TestExtension
 from Filename import TestFilename
 from GroupDirectory import TestGroupDirectory
-from GroupOriginalFiles import TestGroupOriginalFiles
+#from GroupOriginalFiles import TestGroupOriginalFiles
 from GroupReadFiles import TestGroupReadFiles
+from ImageJPG import TestImageJPG
+from Field import TestField
+
+
+
+
 
 
 class ConfigTestCase(unittest.TestCase):
