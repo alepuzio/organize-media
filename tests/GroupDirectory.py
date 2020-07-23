@@ -19,9 +19,12 @@ class GroupDirectory:
             self.logging.print("filetmp:" + str(filetmp))
             data_tmp = filetmp.tupla()
             self.logging.print("filetmp[0]:" + str(filetmp.tupla()[0]))
-            data = ( data_tmp[0], data_tmp[1].show(), data_tmp[2].show(), data_tmp[3].show(), data_tmp[4], data_tmp[5].show() )
+            data = ( data_tmp[0], data_tmp[1].show(),  data_tmp[1].show() + data_tmp[2].show(),  data_tmp[3].show(), data_tmp[4], data_tmp[5].show() )
+            self.logging.print("data" + ">" + str(data) )
             limit = len(data)
             for place in range(1, limit ):
+                if (3 == place):
+                    self.logging.print("concateno("  + str(place) + "): " + str(os.sep.join(data[0:place])))
                 result.append(os.sep.join(data[0:place]))
                 self.logging.print(str(place) + ">" + str(result) )
             self.logging.print("filetmp:" + str(result ))

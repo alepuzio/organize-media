@@ -9,13 +9,12 @@ class ImageJPG:
 
     def __init__(self, new_list_singledata_or_final_files):
         self.data =  new_list_singledata_or_final_files
-        self.logging = PersonalLogging ("ImageJPG", True)
+        self.logging = PersonalLogging ("ImageJPG", False)
 
     def destination_single_data(self):
         '''@return the absolute paht of the copied files'''
         typemedia = ["jpg", "JPG"]
         self.logging.print("destination_single_data():" + str( self.data))
-        #result = list(map(lambda x: typemedia in x[6].show(), self.data))
         filter_extension = list ( filter ( lambda x: x.tupla()[6].show() in typemedia, self.data))
         self.logging.print("filter_extension:" + str(filter_extension))
         directory =  reduce ( lambda x : x.tupla()[5].show(), filter_extension)
