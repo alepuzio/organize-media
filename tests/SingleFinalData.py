@@ -1,11 +1,9 @@
 from PersonalLogging import PersonalLogging
-#from Name import Name
 from AsString import AsString
 import os
 import unittest
 from Month import Month
 from Media import Media
-#from YearMonth import YearMonth
 from MonthFinal import MonthFinal
 from OriginalFile import OriginalFile
 
@@ -21,14 +19,11 @@ class SingleFinalData:
     def tupla(self):
         '''trasform data of the original file in tupla'''
         self.log.print("tupla iniziale:\n" + AsString(self.originaltupla).show())
-        #        self.log.print("tupla iniziale:-" + self.originaltupla + "-")
-        # originaltupla (year, month, topic, filename, extension, root)
         year = self.originaltupla[0]
         self.log.print("year:" + year.show())
         month = self.originaltupla[1]
         self.log.print("month:" + month.show()) 
         month = MonthFinal ( month )
-        #yearmonth = YearMonth(year, month)
         topic = self.originaltupla[2] 
         filename = self.originaltupla[3]
         extension = self.originaltupla[4]

@@ -27,16 +27,3 @@ class GroupReadFiles:
         return result
 
 
-class TestGroupReadFiles(unittest.TestCase):
-
-    def test_map(self):
-        path = "D:\\workspacePython\\organize-set-microstock\\tests\\resources\\lugano\\vecchia.jpg"
-        list_readfiles = []
-        list_readfiles.append(path)
-        result = GroupReadFiles(list_readfiles).map()
-        expected = {path : OriginalFile("D:\\workspacePython\\organize-set-microstock\\tests\\resources\\lugano", "vecchia.jpg")}
-        
-        self.assertEqual(len(result), len(expected))
-        self.assertEqual(result[path], expected[path])
-
-

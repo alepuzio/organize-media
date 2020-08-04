@@ -28,7 +28,6 @@ class ImageJPG:
         filter_extension = list ( filter ( lambda x: x.tupla()[6].show() in typemedia, self.data))
         self.logging.print("filter_extension:" + str(filter_extension))
         result = []
-        #result = list ( map ( lambda x: x.tupla()[5].show() +"." + x.tupla()[6].show() , filter_extension))
         for tmp in  filter_extension:
             result.append(tmp.tupla()[5].show() +"." + tmp.tupla()[6].show() )
         return result
@@ -41,7 +40,6 @@ class TestImageJPG(unittest.TestCase):
         filetmp = "vecchia.jpg"
         originalFile = OriginalFile(pathtmp, filetmp)
         singledata = SingleFinalData(".\\newoutpiut", originalFile.tupla())
-        #singledata = filename.tupla()
         list_final_data = []
         list_final_data.append(singledata)
         var = ImageJPG(list_final_data)
@@ -58,7 +56,6 @@ class TestImageJPG(unittest.TestCase):
         originalFile2 = OriginalFile(pathtmp, filetmp2)
         singledata1 = SingleFinalData(".\\newoutpiut", originalFile1.tupla())
         singledata2 = SingleFinalData(".\\newoutpiut", originalFile2.tupla())
-        #singledata = filename.tupla()
         list_final_data = []
         list_final_data.append(singledata1)
         list_final_data.append(singledata2)

@@ -1,5 +1,4 @@
 from PersonalLogging import PersonalLogging
-#from Name import Name
 from AsString import AsString
 import os
 import unittest

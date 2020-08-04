@@ -1,7 +1,6 @@
 import os
 from PersonalLogging import PersonalLogging
 from OriginalFile import OriginalFile
-#from DestinationFile import  DestinationFile
 
 import unittest
 

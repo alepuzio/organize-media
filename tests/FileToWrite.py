@@ -13,7 +13,7 @@ class FileToWrite:
 
     def hard_disk(self, list_rows):
         '''crete the physicalfile'''
-        with open(self.path.name(), "w") as fileini:
+        with open(self.path, "w") as fileini:
             for tmp in list_rows:
                 fileini.write(tmp)
                 self.logging.print(tmp)

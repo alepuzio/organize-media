@@ -8,7 +8,6 @@ from AsString import AsString
 
 import unittest
 
-#from Name import Nam
 
 
 class Month:

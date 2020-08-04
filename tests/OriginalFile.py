@@ -6,7 +6,6 @@ from Year import Year
 from Topic import Topic
 import unittest
 from Month import Month
-#from Name import Name
 from Root import Root
 from Filename import Filename
 from TimeFile import TimeFile

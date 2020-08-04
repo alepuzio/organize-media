@@ -1,50 +1,80 @@
 import sys
 import unittest
 from PersonalLogging import PersonalLogging
-
+from Write import Write
+from Copy import Copy
 
 class Control:
     '''@overview the class control the params'''
-    def __init__(self, args):
-        self.args = args
-        self.log = PersonalLogging("Control", True)
+    def __init__(self, new_args):
+        self.arguments = new_args
+        self.log = PersonalLogging("Control2", True)
 
     def act(self):
         '''@return true if the paramers are correct'''
-        numberParams = len(self.args)
-        correctNumberParams =  (3 == numberParams)
-        
-        if not correctNumberParams:
-            self.log.print("The params have to be:")
-            self.log.print("1) name of the program: Main.py ")
-            self.log.print("2) root where there are the original files")
-            self.log.print("2) root where to copy the read files")
-            self.log.print("Now theese are [" + str(numberParams) +"]:" + str(self.args))
-
-        
-        result = correctNumberParams
-        return result
+        var = None
+        opts = [opt for opt in self.arguments[1:] if opt.startswith("-")]
+        args = [arg for arg in self.arguments[1:] if not arg.startswith("-")]
+        print("opts:" +  str(opts))
+        print("args: " + str(args))
+        if "-c" in opts:
+            self.log.print("Copy(" + str(args) +")")
+            var = Copy(args)
+        elif "-w" in opts:
+            self.log.print("Write")
+            var = Write(args)
+        elif "-j" in opts:
+            self.log.print("Join")
+            var = Join(args) 
+        return var
 
         
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
     # altrimenti ci saranno problemi con i file
 
+
+class Join:
+    '''@overview: class to join CSV and INI file'''
+    def __init__(self, new_args ):
+        self.directory = new_args[0]
+
+    def __repr__(self):
+        return 'Join(%s)' % (self.directory)
+
+    def __str__(self):
+        return "Join(%s)" % (self.directory)
+
+    def __eq__(self, other):
+        return self.directory == other.directory
+
+
+
+
 class TestControl(unittest.TestCase):
     '''the class control the params'''
-    def test_act_1_params_ko(self):
-        control = Control(["./"])
+
+ 
+    def test_copy_ok(self):
+        source  = "./aa"
+        dest = "./f"
+        control = Control2(["Main.py", "-c", source, dest])
         result = control.act()
-        expected = False
+        expected = Copy([source, dest])
         self.assertEqual(expected, result)
 
-    def test_act_2_params_ko(self):
-        control = Control(["./", "./aa"])
+
+    def test_Join_ok(self):
+        print("********* test_join_ok***************")
+        source  = "./aa"
+        control = Control2(["Main.py", "-j", source])
         result = control.act()
-        expected = False
+        expected = Join([source])
         self.assertEqual(expected, result)
- 
-    def test_act_3_params_ok(self):
-        control = Control(["Main.py", "./", "./aa"])
+
+    def test_write_ok(self):
+        print("********* test_write_ok***************")
+        source  = "./aa"
+        control = Control2(["Main.py", "-w", source])
         result = control.act()
-        expected = True
+        expected = Write([source])
         self.assertEqual(expected, result)

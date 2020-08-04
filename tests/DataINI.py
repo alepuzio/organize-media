@@ -2,12 +2,12 @@ from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile
 from FileToWrite import FileToWrite
 
-class SafeINI:
+class DataINI:
     '''@class for the initial ini file of properties'''
     
     def __init__(self, new_safe_file):
         self.safefile = new_safe_file
-        self.logging = PersonalLogging("SafeINI")
+        self.logging = PersonalLogging("DataINI")
 
     def data(self):
         '''@return list of the field'''
