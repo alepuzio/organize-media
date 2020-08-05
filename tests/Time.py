@@ -20,7 +20,12 @@ class Time:
         '''@return creationday as 'dd' '''
         date = self.prepare()
         tmp = date.split(" ")
-        return tmp[2]
+        res = None
+        if 1 == len(tmp[2]):
+            res = "0{0}".format(tmp[2])
+        else:
+            res = tmp[2]
+        return res
 
     def month(self):
         '''@return creationday as 'mm' '''
@@ -82,6 +87,12 @@ class TestDatetime(unittest.TestCase):
         year = Time(time)
         expected = "10"
         self.assertEqual(year.day(), expected)
+        time = "Wed Jun 5 17:04:28 2020"
+        year = Time(time)
+        expected = "05"
+        self.assertEqual(year.day(), expected)
+
+
 
     def test_Month(self):
         time = "Wed Jun 10 17:04:28 2020"

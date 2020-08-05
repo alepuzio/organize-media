@@ -10,10 +10,10 @@ class DayMonthYear:
 
     def show(self):
         '''@return creation year as 'dd/mm/yyyy' '''
-        return "/" .join ( [self.day.show(), self.month.show() , self.year.show()] )
+        return "/" .join ( [self.day, self.month , self.year] )
 
     def __repr__(self):
-        return "DayMonthYear[" + self.day.show() +"][" + self.month.show() +  "][" + self.year.show() + "]"
+        return "DayMonthYear[" + self.day +"][" + self.month +  "][" + self.year + "]"
 
 
 class TestDayYearMonth(unittest.TestCase):
@@ -23,8 +23,7 @@ class TestDayYearMonth(unittest.TestCase):
         year = Year(time)
         month = Month (time)
         day = Day(time)
-        dayMonthYear = DayMonthYear(d:q
-                ay, month, year)
+        dayMonthYear = DayMonthYear(day, month, year)
         expected = "10/06/2020"
         self.assertEqual( dayMonthYear.show(), expected)
 

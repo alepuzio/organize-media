@@ -3,7 +3,7 @@ import unittest
 from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile
 from FileToWrite import FileToWrite
-#from DayMonthYear import DayMonthYear
+from DayMonthYear import DayMonthYear
 
 #from Year import Year
 from Month import Month
@@ -27,13 +27,7 @@ class DataCSV:
         self.logging.print("data():" + str(map_file_single_data))
         for tmp_file in map_file_single_data.keys():
             tmp_value = map_file_single_data[tmp_file]
-            self.logging.print("tmp_file:" + str(tmp_file))
-            self.logging.print("tmp_value:" + str(tmp_value))
-            self.logging.print("tupla:" + str(tmp_value.tupla()))
-            filename = self.filename(tmp_value.tupla())
-            self.logging.print("filename:" + filename)
-            #time = self.time(tmp_value)
-            #list_rows.append( "%s,%s,%s,%s\n" % ( self.time( tmp_value ).show(), self.filename( tmp_value ), "  ", "  "))
+            list_rows.append( "%s,%s,%s,%s\n" % ( self.time( tmp_value.tupla() ).show(), self.filename( tmp_value.tupla() ), "  ", "  "))
             self.logging.print( "tmp: %s" % str(list_rows) )
         return self.safefile.safe(list_rows)
         
@@ -41,11 +35,10 @@ class DataCSV:
     def time(self, tmp_value):
         '''@return the day mm year of the file'''
         self.logging.print("TmpValue: " + str(tmp_value))
-        year = tmp_value[0]
-        month = tmp_value[1]
-        day = tmp_value[6]
-        self.logging.print("spezzati:" + str(day) + str(month) + str(year))
-        time = None#DayMonthYear(day, month, year)
+        year = tmp_value.time.year()
+        month = tmp_value.time.month().single_number()
+        day = tmp_value.time.day()
+        time = DayMonthYear(day, month, year)
         self.logging.print( "unito:"+ time.show() )
         return time
 
@@ -60,11 +53,19 @@ class DataCSV:
 
 class TestDataCSV(unittest.TestCase):
 
-    def test_filename(self):
+    def st_filename(self):
+        '''TODO rifare'''
         var = DataCSV(None)
-        tmp_value = ( "2020", Month("03"), "30", "topic", "filename", Extension("jpg") )
+        tmp_value = ( "2020", Month("Jun"), "30", "topic", "filename", Extension("jpg") )
         result = var.filename(tmp_value)
         expected = "filename.jpg"
         self.assertEqual ( result, expected )
 
 
+    def st_time(self):
+        '''TODO rifare'''
+        var = DataCSV(None)
+        tmp_value = ( "2020", Month("Jun"), "30", "topic", "filename", Extension("jpg") )
+        result = var.time(tmp_value)
+        expected = "30/03/2020"
+        self.assertEqual ( result, expected )
