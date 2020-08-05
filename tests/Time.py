@@ -13,7 +13,6 @@ class Time:
     def year(self):
         '''@return creation year as 'yyyy' '''
         date = self.prepare()
-        print("date:"+ date)
         tmp = date.split(" ")
         return tmp[4]
 

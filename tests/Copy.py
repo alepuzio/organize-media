@@ -34,8 +34,7 @@ class Copy:
         map_original_files = GroupReadFiles(begin).map()
         group_original_files = GroupOriginalFiles(map_original_files)
         group_final_files = group_original_files.map( self.dest )
-        dir_to_create = GroupDirectory(group_final_files.values())
-        list_dir = dir_to_create.write()
+        GroupDirectory(group_final_files.values()).write()
         group_files = GroupFiles(group_final_files)
-#        group_files.copy()
+        group_files.copy()
 

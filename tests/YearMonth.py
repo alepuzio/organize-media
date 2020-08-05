@@ -8,7 +8,7 @@ class YearMonth:
 
     def __init__(self, newyear, newmonth):
         self.year = newyear
-        self.month = Month(newmonth)
+        self.month = newmonth
 
 
     def show(self):
@@ -24,7 +24,7 @@ class TestYearMonth(unittest.TestCase):
 
     def test_show(self):
         year = "2020"
-        month = "06"
+        month = Month("Jun")
         yearMonth = YearMonth(year, month)
         expected = "202006"
         self.assertEqual(yearMonth.show(), expected)

@@ -24,7 +24,7 @@ class Transfert:
     def __init__(self, new_source, new_destination):
         self.source = new_source
         self.destination = new_destination
-        self.logging = PersonalLogging("Transfert", False)
+        self.logging = PersonalLogging("Transfert", True)
 
     def copy(self):
         '''copy one file'''
@@ -33,10 +33,11 @@ class Transfert:
         if self.alreadyCopied() :
             self.logging.print("Already existing file: %s" % self.destination)
         else:
+            self.logging.print("copy(" + str(self.source) + "," + str(self.destination) + ")")
             shutil.copy(self.source, self.destination)
                 
         
     def alreadyCopied(self):
         '''@return true if the file already exists''' 
-        exists = os.path.exists(self.destination)
-        return exists
+        return os.path.exists(self.destination)
+

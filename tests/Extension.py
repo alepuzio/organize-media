@@ -18,7 +18,6 @@ class Extension:
     def media(self):
         '''@return True se il fiel e' img o video'''
         typeFile = self.name().upper()
-        print ("type: " + typeFile) 
         allowedExtensions = ["CR2", "JPG", "MOV"]
         return  (typeFile in allowedExtensions)
 

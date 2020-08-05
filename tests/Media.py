@@ -16,16 +16,16 @@ class Media:
         '''@return the name of the directory abotu the media'''
         pieces = self.extension.name().split(".")
         pieces.reverse();
-        ext = pieces[0]
-        self.log.warn("pieces[0]:" + str(ext))
-        return  ext.upper() 
+        return  pieces[0].upper() 
 
     def __eq__(self, other):
-        return self.extension == otehr.extension
+        return self.extension == other.extension
 
     def __str__(self):
-        return "Media[" + self.extension + "]"
+        return "Media[" + str(self.extension) + "]"
 
+    def __repr__(self):
+        return "Media[" + str(self.extension) + "]->[" + self.directory() +"]"
 
 class TestMedia(unittest.TestCase):
 

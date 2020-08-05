@@ -20,31 +20,12 @@ class GroupOriginalFiles:
         self.logging.print("map: " + str(self.map_originalfiles))
         for filetmp in self.map_originalfiles.keys():
            disaggregated_data = self.map_originalfiles[filetmp] 
-           self.logging.print( "filetmp: " + str(filetmp) )
+           #self.logging.print( "filetmp: " + str(filetmp) )
            self.logging.print( "disaggregated_data: " + str(disaggregated_data) )
            var = SingleFinalData(output_dir, disaggregated_data.tupla())
+           self.logging.print( "var: " + str(var))
            result[filetmp] = var
-        self.logging.print( "result: " + str(result) )
+        #self.logging.print( "result: " + str(result) )
         return result
-
-
-class TestGroupOriginalFiles(unittest.TestCase):
-
-    def test_map(self):
-        path = "D:\\workspacePython\\organize-set-microstock\\tests\\resources\\lugano"
-        filename = "vecchia.jpg"
-        originalfile_tmp = OriginalFile(path, 
-                filename)
-        map_readfiles = {}
-        map_readfiles[originalfile_tmp.physicalFile()] = originalfile_tmp
-        
-        root_output = ".\\output-new"
-        result = GroupOriginalFiles(map_readfiles).map(root_output)
-
-        key = originalfile_tmp.physicalFile()
-        expected = {key : SingleFinalData(root_output, 
-            originalfile_tmp.tupla())}
-        
-        self.assertEqual(result[key], expected[key])
 
 

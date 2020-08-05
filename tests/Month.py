@@ -16,7 +16,7 @@ class Month:
 
     def __init__(self, newformattedtimestamp):
         self.timefile = newformattedtimestamp
-        self.log = PersonalLogging("Month", True)
+        self.log = PersonalLogging("Month", False)
 
     def name(self):
         '''@return creation month as string '''
