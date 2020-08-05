@@ -1,1 +1,1 @@
-py Main -w ".\\resources\\lugano"
+python Main.py -w .\\output
