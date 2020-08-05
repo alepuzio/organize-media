@@ -8,7 +8,7 @@ class Control:
     '''@overview the class control the params'''
     def __init__(self, new_args):
         self.arguments = new_args
-        self.log = PersonalLogging("Control2", True)
+        self.log = PersonalLogging("Control", True)
 
     def act(self):
         '''@return true if the paramers are correct'''
@@ -17,6 +17,9 @@ class Control:
         args = [arg for arg in self.arguments[1:] if not arg.startswith("-")]
         print("opts:" +  str(opts))
         print("args: " + str(args))
+        if 0 == len(opts):
+            self.log.warn("Mandatory flas:\n-c(copy the file from source dir to target dir);\n-w(rite) the file CSV and INI in one dir;\n -j(oin) the CSV and INI files in one in one dir")
+            self.log.warn("Exit program")
         if "-c" in opts:
             self.log.print("Copy(" + str(args) +")")
             var = Copy(args)
