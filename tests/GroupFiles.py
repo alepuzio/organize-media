@@ -6,7 +6,7 @@ class GroupFiles:
     '''@overview:  class that copies the file from original path to final path'''
 
     def __init__(self, new_map_files):
-        self.logging = PersonalLogging("GroupFiles", False)
+        self.logging = PersonalLogging("GroupFiles", True)
         self.map_files = new_map_files
 
 

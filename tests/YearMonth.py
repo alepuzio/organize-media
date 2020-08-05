@@ -8,24 +8,23 @@ class YearMonth:
 
     def __init__(self, newyear, newmonth):
         self.year = newyear
-        self.month = newmonth
+        self.month = Month(newmonth)
 
 
     def show(self):
         '''@return creation year as 'yyyymm' '''
-        return self.year.show() + self.month.single_number()
+        return str(self.year) + str(self.month.single_number())
 
 
     def __repr__(self):
-        return "YearMonth[" + self.year.show() +"][" + self.month.show() +  "]"
+        return "YearMonth[" + str(self.year) +"][" + str(self.month) +  "]"
 
 
 class TestYearMonth(unittest.TestCase):
 
     def test_show(self):
-        time = "Wed Jun 10 17:04:28 2020"
-        year = Year(time)
-        month = Month (time)
+        year = "2020"
+        month = "06"
         yearMonth = YearMonth(year, month)
         expected = "202006"
         self.assertEqual(yearMonth.show(), expected)

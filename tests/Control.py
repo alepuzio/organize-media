@@ -1,7 +1,7 @@
 import sys
 import unittest
 from PersonalLogging import PersonalLogging
-from Write import Write
+#from Write import Write
 from Copy import Copy
 
 class Control:
@@ -22,7 +22,7 @@ class Control:
             var = Copy(args)
         elif "-w" in opts:
             self.log.print("Write")
-            var = Write(args)
+       #     var = Write(args)
         elif "-j" in opts:
             self.log.print("Join")
             var = Join(args) 

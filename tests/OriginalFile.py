@@ -2,14 +2,12 @@ from PersonalLogging import PersonalLogging
 from AsString import AsString
 import os
 from Extension import Extension
-from Year import Year
-from Topic import Topic
 import unittest
 from Month import Month
-from Root import Root
-from Filename import Filename
 from TimeFile import TimeFile
-from Day import Day
+from Time import Time
+from Position import Position
+from InitialData import InitialData
 
 class OriginalFile:
     '''@overview this class represent the logical representation of a file to copy'''
@@ -18,23 +16,15 @@ class OriginalFile:
        self.absolutepath = newabsolutepath
        self.filename = newfilename
 
-
     def tupla(self):
         '''@return the elementary data of the original file in tupla'''
         self.log.print(">OriginalFIle.tupla(" + self.physicalFileAsString() + ")")
-        completeDateTime = TimeFile(self.physicalFileAsString()).complete()
-        year = Year(completeDateTime)
-        month = Month(completeDateTime)
-        topic = Topic(self.absolutepath)
-        filename = Filename(self.filename)
-        extension = Extension(self.filename)
-        root = Root(self.absolutepath )
-        day = Day(completeDateTime)
-        res = (year, month, topic, filename, extension, root, day)
-        self.log.print("<" + str(res))
+        completeDateTime = Time(TimeFile(self.physicalFileAsString()).complete())
+        position = Position(self.absolutepath, self.filename)        
+        res = InitialData(position, completeDateTime)
+        self.log.print("<" + str(res.tupla()))
         return res
-
-
+    
     def physicalFile(self):
         '''@return the complete path '''
         return self.absolutepath + os.sep + self.filename
@@ -63,13 +53,7 @@ class TestOriginalFile(unittest.TestCase):
             filename = OriginalFile( pathtmp, filetmp)
             result = filename.tupla() 
             time = "Wed Jun 10 17:04:28 2020"
-            year = Year(time)
-            month = Month(time)
-            topic = Topic (pathtmp)
-            filename = Filename(filetmp)
-            extension = Extension(filetmp)
-            root = Root (pathtmp)
-            expected = (year, month, topic, filename, extension, root)
+            expected = ("2020", "06", "lugano", "vecchia", Extension("JPG"), ".\\resources")
             self.assertEqual(result, expected)
         
         def test_physicalFile(self):

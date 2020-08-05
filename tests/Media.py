@@ -10,11 +10,11 @@ class Media:
 
     def __init__(self, newextension):
         self.extension = newextension
-        self.log = PersonalLogging("Media", False)
+        self.log = PersonalLogging("Media", True)
 
     def directory(self):
         '''@return the name of the directory abotu the media'''
-        pieces = self.extension.show().split(".")
+        pieces = self.extension.name().split(".")
         pieces.reverse();
         ext = pieces[0]
         self.log.warn("pieces[0]:" + str(ext))

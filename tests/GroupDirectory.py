@@ -10,7 +10,7 @@ class GroupDirectory:
 
     def __init__(self, new_list_finaltupla):
         self.list_final_tupla = new_list_finaltupla
-        self.logging = PersonalLogging("GroupDirectory", False)
+        self.logging = PersonalLogging("GroupDirectory", True)
 
     def various_directory(self):
         '''@return  the list of the new directory with complete path'''
@@ -19,7 +19,7 @@ class GroupDirectory:
             self.logging.print("filetmp:" + str(filetmp))
             data_tmp = filetmp.tupla()
             self.logging.print("filetmp[0]:" + str(filetmp.tupla()[0]))
-            data = ( data_tmp[0], data_tmp[1].show(),  data_tmp[1].show() + data_tmp[2].show(),  data_tmp[3].show(), data_tmp[4], data_tmp[5].show() )
+            data = ( data_tmp[0], data_tmp[1],  data_tmp[1] + data_tmp[2].name(),  data_tmp[3], data_tmp[4], data_tmp[5] )
             self.logging.print("data" + ">" + str(data) )
             limit = len(data)
             for place in range(1, limit ):

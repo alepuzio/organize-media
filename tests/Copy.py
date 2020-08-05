@@ -1,7 +1,5 @@
 import sys
 import unittest
-from PersonalLogging import PersonalLogging
-import sys
 import os
 import unittest
 
@@ -11,14 +9,9 @@ from GroupOriginalFiles import GroupOriginalFiles
 from GroupReadFiles import GroupReadFiles
 from GroupFiles import GroupFiles
 from GroupDirectory import GroupDirectory
-from DataINI import DataINI
 from SafeFile import SafeFile
 from FileToWrite import FileToWrite
 
-
-
-
-        
 
 class Copy:
     '''@overview: class to copy file'''
@@ -37,14 +30,12 @@ class Copy:
 
     def run(self):
         '''the copy of the files '''
-        begin = FileSystem( self.source) # m.final() )
-        listfiles = begin.walk()
-        groupReadFiles = GroupReadFiles(listfiles)
-        map_original_files = groupReadFiles.map()
+        begin = FileSystem(self.source).walk()
+        map_original_files = GroupReadFiles(begin).map()
         group_original_files = GroupOriginalFiles(map_original_files)
         group_final_files = group_original_files.map( self.dest )
         dir_to_create = GroupDirectory(group_final_files.values())
         list_dir = dir_to_create.write()
         group_files = GroupFiles(group_final_files)
-        group_files.copy()
+#        group_files.copy()
 

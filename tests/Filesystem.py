@@ -11,14 +11,14 @@ class FileSystem:
         '''It read a directory and the subdirectory
         inputDIr: complete path of the root directory'''
         self.inputDir = newInputDir;
-        self.log = PersonalLogging("FileSystem", False)
+        self.log = PersonalLogging("FileSystem", True)
 
     def walk(self):
         '''@return the list of the read file
         It traverses root directory, and list directories as dirs and files as files
         in recursive way'''
         #TODO concatenation of string
-        self.log.print("Directory.walk("+str(self.inputDir)+")");
+        self.log.print("Filesystem.walk("+str(self.inputDir)+")");
         readfiles = [];
         return self.walksubdir(self.inputDir, readfiles);
        
@@ -27,31 +27,11 @@ class FileSystem:
         for root, dirs, files in os.walk(partialRoot):
             for filetmp in files:
                 readfiles.append (str(root) + os.sep + str(filetmp) ) ;
-                self.log.print("Directory.walksubdir.filetmp(" + str(filetmp) + ")");
+                self.log.print("Filesystem.walksubdir.filetmp(" + str(filetmp) + ")");
             for directory in dirs:
                 self.walksubdir(directory, readfiles)
-        self.log.print("Directory.walksubdir(" + str( readfiles ) + "): li trasformo in OriginalFile in una funzione a parte");
+        self.log.print("Filesystem.walksubdir(" + str( readfiles ) + "): li trasformo in OriginalFile in una funzione a parte");
         return readfiles;
 
          
 
-class TestFileSystem(unittest.TestCase):
-    def test_walk_1_file_no_subdirecotry(self):
-        listfiles = FileSystem(".\\resources\\lugano\\", "\\resources\\output\\").walk()
-        numberelement = len(listfiles)
-        self.assertEqual(numberelement, 6)
-    
-    def test_walk_1_file_1_subdirecotry(self):
-        listfiles = FileSystem(".\\resources\\lugano\\jpg\\", "\\resources\\output\\jpg").walk()
-        numberelement = len(listfiles)
-        self.assertEqual(numberelement, 3)
-    
-    def test_walk_0_file_1_subdirecotry(self):
-        listfiles = FileSystem(".\\resources\\lugano\\not-file\\", "\\resources\\output\\").walk()
-        numberelement = len(listfiles)
-        self.assertEqual(numberelement, 0)
-    
-    def test_walk_0_file_0_subdirecotry(self):
-        listfiles = FileSystem(".\\resources\\lugano\\notexisting", "\\resources\\output\\").walk()
-        numberelement = len(listfiles)
-        self.assertEqual(numberelement, 0)
