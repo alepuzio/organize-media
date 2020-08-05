@@ -10,7 +10,7 @@ class Media:
 
     def __init__(self, newextension):
         self.extension = newextension
-        self.log = PersonalLogging("Media", True)
+        self.log = PersonalLogging("Media", False)
 
     def directory(self):
         '''@return the name of the directory abotu the media'''
@@ -19,6 +19,13 @@ class Media:
         ext = pieces[0]
         self.log.warn("pieces[0]:" + str(ext))
         return  ext.upper() 
+
+    def __eq__(self, other):
+        return self.extension == otehr.extension
+
+    def __str__(self):
+        return "Media[" + self.extension + "]"
+
 
 class TestMedia(unittest.TestCase):
 
