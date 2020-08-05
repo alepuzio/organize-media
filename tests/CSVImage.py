@@ -23,7 +23,7 @@ class CSVImage:
         result.append( ) #keywordsCheckbox
         result.append( ) #description
         result.append(Field("photo" ) )#imagetype
-
+        return result
 
         '''
 Clipid: 102140997

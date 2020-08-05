@@ -2,8 +2,14 @@ import unittest
 
 from AsString import TestAsString
 from Control import TestControl
+#from CSVImage import CSVImage
+from DataCSV import DataCSV
 from Extension import TestExtension
 from Field import TestField
+#from ImageData import ImageData
+from InitialData import InitialData
+from LabelImage import LabelImage
+
 
 
 
