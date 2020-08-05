@@ -42,22 +42,3 @@ class OriginalFile:
     def __eq__(self, other):
         return self.physicalFile() == self.physicalFile()
 
-
-
-
-class TestOriginalFile(unittest.TestCase):
-        
-        def test_tupla(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp =  "vecchia.jpg"
-            filename = OriginalFile( pathtmp, filetmp)
-            result = filename.tupla() 
-            time = "Wed Jun 10 17:04:28 2020"
-            expected = ("2020", "06", "lugano", "vecchia", Extension("JPG"), ".\\resources")
-            self.assertEqual(result, expected)
-        
-        def test_physicalFile(self):
-            filename = OriginalFile(".\\resources\\lugano", "vecchia.jpg")
-            result = filename.physicalFile()
-            self.assertEqual(result, ".\\resources\\lugano\\vecchia.jpg")
-

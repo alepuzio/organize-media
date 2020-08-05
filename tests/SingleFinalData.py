@@ -4,9 +4,15 @@ import os
 import unittest
 from Month import Month
 from Media import Media
-#from MonthFinal import MonthFinal
 from OriginalFile import OriginalFile
 from YearMonth import YearMonth 
+from Position import Position
+from Time import Time
+from TimeFile import TimeFile
+from InitialData import InitialData
+
+
+
 class SingleFinalData:
     '''@ovewview this class represent the final data necessaryt ot run the copy of the original file'''
 
@@ -24,7 +30,9 @@ class SingleFinalData:
         filename = self.originaltupla.position.name()
         extension = self.originaltupla.position.extension()
         root = self.root
-        media = Media(extension) #.directory()
+        media = Media(extension)
+
+        self.log.print("tupla day:\n" + extension )
         day = self.originaltupla.time.day()
         return (root, year, month, topic, media, filename, extension, day)
 
@@ -49,14 +57,3 @@ class SingleFinalData:
         return self.physicalFile() == other.physicalFile()
 
 
-class TestSingleData(unittest.TestCase):
-
-    def test_tupla(self):
-        path ="c:\\aaaa\\lugano"
-        name = "filename.ext"
-        position = Position(path, name)
-        time = Time(TimeFile("Wen 10 Jun 16:45:50 2020"))
-        initialdata= InitialData(position, time)
-        var = SingleFinalData("newpath", initialdata)
-        result = var.tupla()
-        self.assertEqual(result, (1,2,3,4,5,6))

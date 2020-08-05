@@ -42,6 +42,7 @@ class Time:
 
     def prepare(self):
         '''@return datetime in format DAY-OF-WEEK-space-month-name-space-dayofmonth-space-hours:minutes:second-space-year because of the different valeu in different OS'''
+        print("prepare:" + str(self.datetime))
         date = self.datetime
         ##remove double space 
         return re.sub(' +', ' ', date)
@@ -56,6 +57,9 @@ class Time:
 
     def __str__(self):
         return "Time[" + self.datetime + "]"
+
+
+
 class TestDatetime(unittest.TestCase):
 
     def test_year(self):

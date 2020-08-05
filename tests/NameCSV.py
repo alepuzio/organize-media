@@ -16,10 +16,10 @@ class NameCSV:
         res = self.directory + os.sep + "images.csv"
         return res
 
-class TestNameINI(unittest.TestCase):
+class TestNameCSV(unittest.TestCase):
 
     def test_name(self):
-        var = NameINI("C:\\fake\\path")
+        var = NameCSV("C:\\fake\\path")
         res = var.name()
-        expected = "C:\\fake\\path\\common.ini"
+        expected = "C:\\fake\\path\\images.csv"
         self.assertEqual(res, expected)

@@ -45,7 +45,7 @@ class Position:
     def __str__(self):
         return "Position[{0}][{1}]".format(self.absolutepath, self.filename) 
 
-class TestRoot(unittest.TestCase):
+class TestPosition(unittest.TestCase):
 
     def test_root(self):
         path = "c:\\path\\absolute\\with\\no\\topic"
@@ -81,7 +81,7 @@ class TestRoot(unittest.TestCase):
         path = "c:\\path\\absolute\\with\\topic\\lugano"
         name = "vecchia.jpg"
         result = Position(path, name)
-        expected = "Position"
+        expected = "Position[c:\\path\\absolute\\with\\topic\\lugano][vecchia.jpg]"
         self.assertEqual(str(result), expected)
 
 
