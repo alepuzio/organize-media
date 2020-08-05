@@ -60,16 +60,16 @@ class TestControl(unittest.TestCase):
     def test_copy_ok(self):
         source  = "./aa"
         dest = "./f"
-        control = Control2(["Main.py", "-c", source, dest])
+        control = Control(["Main.py", "-c", source, dest])
         result = control.act()
         expected = Copy([source, dest])
         self.assertEqual(expected, result)
 
 
-    def test_Join_ok(self):
+    def st_Join_ok(self):
         print("********* test_join_ok***************")
         source  = "./aa"
-        control = Control2(["Main.py", "-j", source])
+        control = Control(["Main.py", "-j", source])
         result = control.act()
         expected = Join([source])
         self.assertEqual(expected, result)
@@ -77,7 +77,7 @@ class TestControl(unittest.TestCase):
     def test_write_ok(self):
         print("********* test_write_ok***************")
         source  = "./aa"
-        control = Control2(["Main.py", "-w", source])
+        control = Control(["Main.py", "-w", source])
         result = control.act()
         expected = Write([source])
         self.assertEqual(expected, result)
