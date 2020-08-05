@@ -1,7 +1,4 @@
 import unittest
-from Month import Month
-from Year import Year
-from Day import Day
 
 class DayMonthYear:
     '''@overview: this class incapsulate the data about the year'''
@@ -26,7 +23,8 @@ class TestDayYearMonth(unittest.TestCase):
         year = Year(time)
         month = Month (time)
         day = Day(time)
-        dayMonthYear = DayMonthYear(day, month, year)
+        dayMonthYear = DayMonthYear(d:q
+                ay, month, year)
         expected = "10/06/2020"
         self.assertEqual( dayMonthYear.show(), expected)
 

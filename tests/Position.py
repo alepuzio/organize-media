@@ -18,7 +18,6 @@ class Position:
     def name(self):
         '''@return the name of the file, wit no extension'''
         name = self.filename.split(".")
-       # print ( "filename: "+ str(name))
         return  name[0]
 
     def extension(self):
@@ -41,10 +40,10 @@ class Position:
         return self.absolutepath == other.absolutepath
 
     def __repr__(self):
-        return "Position[" + self.root() + "][" + self.topic() + "][" + self.filename() + "][" + self.extension() + "]"
+        return "Position[{0}][{1}][{2}][{3}]".format(self.root(), self.topic(), self.name(), self.extension() )
 
     def __str__(self):
-        return "Position[" + self.absolutepath + "][" + self.filename + "]"
+        return "Position[{0}][{1}]".format(self.absolutepath, self.filename) 
 
 class TestRoot(unittest.TestCase):
 
@@ -76,6 +75,14 @@ class TestRoot(unittest.TestCase):
         result = Position(path, name).topic()
         expected = "lugano"
         self.assertEqual(result, expected)
+
+
+    def test_str(self):
+        path = "c:\\path\\absolute\\with\\topic\\lugano"
+        name = "vecchia.jpg"
+        result = Position(path, name)
+        expected = "Position"
+        self.assertEqual(str(result), expected)
 
 
 

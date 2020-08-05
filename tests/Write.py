@@ -39,7 +39,7 @@ class Write:
 
     def run(self):
         dest = NameINI ( self.directory )
-        fileini = DataINI ( SafeFile ( FileToWrite (  dest.name() ) ) )
+        fileini = DataINI ( SafeFile ( FileToWrite ( NameINI ( self.directory ).name() ) ) )
         fileini.data()
         filecsv = DataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory). name() ) ) ) 
         map_original_files  = GroupReadFiles ( FileSystem (self.directory).walk()   ).map()          

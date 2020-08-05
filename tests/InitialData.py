@@ -33,7 +33,7 @@ class InitialData:
 
 
     def __str__(self):
-        return self.position
+        return "InitialData[{0}][{1}]".format(self.position, self.time)
     
     def __repr__(self):
        return "InitialData(" +str(self.time) + "," + str(self.position) + ")"

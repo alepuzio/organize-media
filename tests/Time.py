@@ -46,9 +46,11 @@ class Time:
         return self.datetime == other.datetime 
 
     def __repr__(self):
-        return "Datetime[" + self.datetime + "]"
+        return "Time[" + self.datetime + "]"
 
 
+    def __str__(self):
+        return "Time[" + self.datetime + "]"
 class TestDatetime(unittest.TestCase):
 
     def test_year(self):
