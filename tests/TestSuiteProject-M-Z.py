@@ -1,10 +1,5 @@
 import unittest 
 from OriginalFile import TestOriginalFile
-from SingleFinalData import TestSingleFinalData
-from TimeFile import TestTimeFile
-from Year import TestYear
-from Root import TestRoot
-from Topic import TestTopic
 from YearMonth import TestYearMonth
 from Media import TestMedia
 from Month import TestMonth

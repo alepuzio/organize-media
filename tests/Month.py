@@ -41,16 +41,18 @@ class Month:
 class TestMonth(unittest.TestCase):
 
         def test_number(self):
-            result = Month("Wed Jun 10 17:04:28 2020").single_number()
+            result = Month("Jun").single_number()
             self.assertEqual(result, "06")
 
         def test_name(self):
-            result = Month("Wed Jun 10 17:04:28 2020").name()
+            result = Month("Jun").name()
             self.assertEqual(result, "Jun")
                 
         def test_eq(self):
-            time_one = "Wed Jun 10 17:04:28 2020"
-            time_two = "Wed Jun 10 17:04:28 2020"
+            #time_one = "Wed Jun 10 17:04:28 2020"
+            #time_two = "Wed Jun 10 17:04:28 2020"
+            time_one = "Jul"
+            time_two = "Jul"
             month_one = Month(time_one)
             month_two = Month(time_two)
             self.assertEqual(month_one, month_two)
