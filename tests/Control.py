@@ -3,6 +3,8 @@ import unittest
 from PersonalLogging import PersonalLogging
 from Write import Write
 from Copy import Copy
+from Join import Join
+
 
 class Control:
     '''@overview the class control the params'''
@@ -34,24 +36,6 @@ class Control:
         
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
     # altrimenti ci saranno problemi con i file
-
-
-class Join:
-    '''@overview: class to join CSV and INI file'''
-    def __init__(self, new_args ):
-        self.directory = new_args[0]
-
-    def __repr__(self):
-        return 'Join(%s)' % (self.directory)
-
-    def __str__(self):
-        return "Join(%s)" % (self.directory)
-
-    def __eq__(self, other):
-        return self.directory == other.directory
-
-
-
 
 class TestControl(unittest.TestCase):
     '''the class control the params'''

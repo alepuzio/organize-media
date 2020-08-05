@@ -40,7 +40,7 @@ class Write:
     def run(self):
         dest = NameINI ( self.directory )
         fileini = DataINI ( SafeFile ( FileToWrite ( NameINI ( self.directory ).name() ) ) )
-        fileini.data()
+        fileini.data()# TODO put exception o r message if there's any image of video
         filecsv = DataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory). name() ) ) ) 
         map_original_files  = GroupReadFiles ( FileSystem (self.directory).walk()   ).map()          
         filecsv.data ( map_original_files )

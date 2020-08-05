@@ -18,32 +18,28 @@ class DataCSV:
     def data(self, map_file_single_data):
         '''@return list of data file'''
         list_rows = []
-        list_rows.append("Created,FileName,Description,Keywords\n")
+        list_rows.append("Created\t\t,FileName\t,Description\t,Keywords\n")
         
         self.logging.print("data():" + str(map_file_single_data))
         for tmp_file in map_file_single_data.keys():
             tmp_value = map_file_single_data[tmp_file]
-            list_rows.append( "%s,%s,%s,%s\n" % ( self.time( tmp_value.tupla() ).show(), self.filename( tmp_value.tupla() ), "  ", "  "))
+            list_rows.append( "%s\t,%s\t,%s\t,%s\n" % ( self.time( tmp_value.tupla() ).show(), self.filename( tmp_value.tupla() ), "  ", "  "))
             self.logging.print( "tmp: %s" % str(list_rows) )
         return self.safefile.safe(list_rows)
         
     
     def time(self, tmp_value):
         '''@return the day mm year of the file'''
-        self.logging.print("TmpValue: " + str(tmp_value))
         year = tmp_value.time.year()
         month = tmp_value.time.month().single_number()
         day = tmp_value.time.day()
         time = DayMonthYear(day, month, year)
-        self.logging.print( "unito:"+ time.show() )
         return time
 
 
     def filename(self, tmp_value):
-        self.logging.print(">filename: " + str(tmp_value))
         '''@return thefilename and extensione of the file'''
         filename = "%s.%s"  % (tmp_value.position.name(), tmp_value.position.extension().name() )
-        self.logging.print("<filename: " + filename)
         return filename
 
 
