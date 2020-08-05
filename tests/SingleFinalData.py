@@ -32,7 +32,6 @@ class SingleFinalData:
         root = self.root
         media = Media(extension)
 
-        self.log.print("tupla day:\n" + extension )
         day = self.originaltupla.time.day()
         return (root, year, month, topic, media, filename, extension, day)
 
