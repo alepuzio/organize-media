@@ -15,9 +15,8 @@ class SingleFinalData:
        self.root = newroot
        self.originaltupla = neworiginaltupla
 
-
     def tupla(self):
-        '''trasform data of the original file in tupla'''
+        '''@return  data of the original file as tupla'''
         self.log.print("tupla iniziale:\n" + AsString(self.originaltupla.tupla()[0]).show())
         year = self.originaltupla.time.year()
         month = self.originaltupla.time.month()

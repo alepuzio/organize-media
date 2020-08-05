@@ -27,7 +27,7 @@ class Year:
 
 class TestYear(unittest.TestCase):
 
-    def test_complete(self):
+    def test_show(self):
         time = "Wed Jun 10 17:04:28 2020"
         year = Year(time)
         expected = "2020"

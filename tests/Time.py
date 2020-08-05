@@ -28,7 +28,7 @@ class Time:
         return res
 
     def month(self):
-        '''@return creationday as 'mm' '''
+        '''@return creationday as 'JUN, Jan, Apr, etc' '''
         date = self.prepare()
         tmp = date.split(" ")
         return Month(tmp[1])
@@ -43,7 +43,7 @@ class Time:
     def prepare(self):
         '''@return datetime in format DAY-OF-WEEK-space-month-name-space-dayofmonth-space-hours:minutes:second-space-year because of the different valeu in different OS'''
         date = self.datetime
-        ##remove doubel space 
+        ##remove double space 
         return re.sub(' +', ' ', date)
         
 
@@ -91,8 +91,6 @@ class TestDatetime(unittest.TestCase):
         year = Time(time)
         expected = "05"
         self.assertEqual(year.day(), expected)
-
-
 
     def test_Month(self):
         time = "Wed Jun 10 17:04:28 2020"

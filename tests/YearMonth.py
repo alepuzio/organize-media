@@ -4,7 +4,9 @@ from Year import Year
 
 
 class YearMonth:
-    '''@overview: this class incapsulate the data about the year'''
+    '''@overview: this class incapsulate the data about the year
+        TODO control if logic duplicated in another class or method
+    '''
 
     def __init__(self, newyear, newmonth):
         self.year = newyear

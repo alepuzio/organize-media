@@ -5,11 +5,7 @@ from SafeFile import SafeFile
 from FileToWrite import FileToWrite
 from DayMonthYear import DayMonthYear
 
-#from Year import Year
 from Month import Month
-#from Day import Day
-#from Topic import Topic
-#from Filename import Filename
 from Extension import Extension
 
 class DataCSV:

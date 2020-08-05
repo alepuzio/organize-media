@@ -13,7 +13,6 @@ import unittest
 class Month:
     ''' @overview this class has the dat aof year and month'''
 
-
     def __init__(self, newformattedtimestamp):
         self.timefile = newformattedtimestamp
         self.log = PersonalLogging("Month", False)
@@ -33,7 +32,6 @@ class Month:
         month = AsString ( translateMonths[self.name()] )
         return month.show()
 
-
     def __eq__(self, other):
         return self.timefile == other.timefile 
 
@@ -42,7 +40,6 @@ class Month:
 
 class TestMonth(unittest.TestCase):
 
-
         def test_number(self):
             result = Month("Wed Jun 10 17:04:28 2020").single_number()
             self.assertEqual(result, "06")
@@ -50,7 +47,6 @@ class TestMonth(unittest.TestCase):
         def test_name(self):
             result = Month("Wed Jun 10 17:04:28 2020").name()
             self.assertEqual(result, "Jun")
-
                 
         def test_eq(self):
             time_one = "Wed Jun 10 17:04:28 2020"
