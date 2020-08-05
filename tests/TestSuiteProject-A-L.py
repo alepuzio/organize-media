@@ -3,13 +3,8 @@ import unittest
 from AsString import TestAsString
 from Control import TestControl
 from Extension import TestExtension
-from Filename import TestFilename
-from GroupDirectory import TestGroupDirectory
-from GroupReadFiles import TestGroupReadFiles
-from ImageJPG import TestImageJPG
 from Field import TestField
 
-from Day import TestDay
 
 
 

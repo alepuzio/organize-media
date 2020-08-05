@@ -49,30 +49,3 @@ class GroupDirectory:
         self.createDirectories(to_write)
         return to_write
 
-class TestGroupDirectory(unittest.TestCase):
-
-    def test_various_directory(self):
-        pathtmp = ".\\resources\\lugano"
-        filetmp = "vecchia.jpg"
-        originalFile = OriginalFile(pathtmp, filetmp)
-        filename = SingleFinalData(".\\newoutput", originalFile.tupla())
-        list_singlefinaldata = []
-        list_singlefinaldata.append(filename)
-
-        result = GroupDirectory(list_singlefinaldata).various_directory()
-        expected = []
-        expected.append(".\\newoutput")
-        expected.append(".\\newoutput\\2020")
-        expected.append(".\\newoutput\\2020\\202007")
-        expected.append(".\\newoutput\\2020\\202007\\lugano")
-        expected.append(".\\newoutput\\2020\\202007\\lugano\\JPG")
-        for place in range(0, len(result)):
-            print(str(place) + ">" + str(result[place]) )
-            
-        self.assertEqual(result[0], expected[0])
-        self.assertEqual(result[1], expected[1])
-        self.assertEqual(result[2], expected[2])
-        self.assertEqual(result[3], expected[3]) 
-        self.assertEqual(result[4], expected[4])
-        
-
