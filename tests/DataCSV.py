@@ -18,7 +18,7 @@ class DataCSV:
     def data(self, map_file_single_data):
         '''@return list of data file'''
         list_rows = []
-        list_rows.append("Created\t\t,FileName\t,Description\t,Keywords\n")
+        list_rows.append("Created,FileName,Description,Keywords")
         
         self.logging.print("data():" + str(map_file_single_data))
         for tmp_file in map_file_single_data.keys():
