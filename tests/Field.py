@@ -9,7 +9,13 @@ class Field:
 
     def csv(self):
         '''@return the field offo the CSV'''
-        return "%s, " %self.value
+        return "%s, " %(self.value)
+
+    def __str__(self):
+        return "Field({0})".format(self.value)
+    
+    def __repr__(self):
+        return "Field( {0} ) -> [ {1} ]".format(self.value, self.csv() )
 
 class TestField (unittest.TestCase):
 

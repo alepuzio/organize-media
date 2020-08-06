@@ -1,6 +1,7 @@
 import unittest 
 from YearMonth import TestYearMonth
 from Media import TestMedia
+from ManualDataCSV import ManualDataCSV
 from Month import TestMonth
 from NameCSV import TestNameCSV
 from NameINI import TestNameINI

@@ -7,14 +7,33 @@ import os
 class NameCSV:
     '''@overview: class about the name of the initial csv file of the files'''
     
-    def __init__(self, new_directory):
-        self.directory = new_directory
+    def __init__(self, new_directory, new_name_csv):
         self.logging = PersonalLogging("NameCSV")
+        self.directory = new_directory
+        self.namecsv = new_name_csv 
 
     def name(self):
         '''@return complete path of the file ini'''    
-        res = self.directory + os.sep + "images.csv"
+        res = self.directory + os.sep + self.namecsv.name()
         return res
+
+class Manual:
+    '''@overview: class with the data about the CSV to write manually'''
+    def __init__(self):
+        self.filename = "images.csv"
+    
+    def name(self):
+        return self.filename
+
+
+class Final:
+    '''@overview: class with the data about the CSV to write automatically'''
+    def __init__(self):
+        self.filename = "final-images.csv"
+    
+    def name(self):
+        return str(self.filename)
+
 
 class TestNameCSV(unittest.TestCase):
 

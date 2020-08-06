@@ -44,7 +44,7 @@ class ReadCSV:
         return self.row['Keywords'].strip()
    
     def __str__(self):
-       return "ReadCSV[0][1][2][3]".format(self.created(), self.fileName(), self.description(), self.keywords())
+        return "ReadCSV:{0}".format(self.row)
     
     def __repr__(self):
        return "ReadCSV[{0}][{1}][{2}][{3}]".format(self.created(), self.fileName(), self.description(), self.keywords())

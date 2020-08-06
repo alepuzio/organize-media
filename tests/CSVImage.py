@@ -1,29 +1,49 @@
 import unittest
+from PersonalLogging import PersonalLogging
+from Field import Field
 
 class CSVImage:
-	'''@overview: class that format the rows of the data'''
+    '''@overview: class that format the rows of the data'''
+    def __init__(self, newini, newcsv):
+        self.log = PersonalLogging("CSVImage")
+        self.ini = newini
+        self.manualcsv = newcsv
+        #self.staticsv = CSVImage()
 
-    def __init__(self, new_list_rows):
-        self.list_rows = list_rows
     
-    def format(self):
+    def data(self):
         '''@return list fo the row to be printed'''
         result = []
-        result.append("numero_clip")
-        result.append(filename)
-        result.append( "Alessandro Puzielli") #copyright
-        result.append(Field("5" ) #price
-        result.append(Field(self.compounedName(filename) ) #name
-        result.append( ) #city
-        result.append( ) #Region
-        result.append( ) #Country
-        result.append( self.formattedData(da ) )#created
-        result.append( Field("CANON EOS 1200D") ) #specififedsource
-        result.append(  )#keyword 
-        result.append( ) #keywordsCheckbox
-        result.append( ) #description
-        result.append(Field("photo" ) )#imagetype
-        return result
+        #result.append( Field("numero_clip")
+        
+        
+        result.append( self.manualcsv.fileName() ) 
+        result.append( self.ini.copyright() )  #copyright
+        #       result.append( Field( ) )#price
+        # result.append( Field( self.compounedName(filename) ) #name
+        #       result.append( Field( ) #city
+        #      result.append( Field( ) #Region
+        #     result.append( Field( ) #Country
+        #     result.append( Field( self.formattedData(da ) )#created
+        #    result.append( Field( Field("CANON EOS 1200D") ) #specififedsource
+        #    result.append( Field(  )#keyword 
+        #    result.append( Field( ) #keywordsCheckbox
+        #        result.append( Field(self.manualcsv.description()  )) #description
+        #       result.append( Field( Field( self.init.imagetype()  ) )#imagetype
+        return ",".join(result)
+
+
+    def compounedName(self):
+        '''@return name as concatenation fo Description, date creation , city, country'''
+        pass
+        #     return "{0}, {1} - {2}: {3}".format(self.ini.city(), self.ini.country(), self.manualecsv.date(), self.manualcsv.description())
+
+    def __str__(self):
+        return "CSVImage:[{0}]".format(self.ini)
+
+
+    def __repr__(self):
+        return "[{0}]".format(self.data())
 
         '''
 Clipid: 102140997
@@ -51,12 +71,6 @@ Portugal
 '''
 class TestCSVImage(unittest.TestCase):
 
-    def test_format(self)
-        list_files = []
-	list_files.append("filename.extension")
-	var = CSVImage(list_files)
-        result = var.format()
-        expected = []
-        expected.append("c,ghu, hod")
-        self.assertEqual(len(result), len(expected))
-
+    def test_data(self):
+        print ( "Hard work to create fake object " ) 
+        pass

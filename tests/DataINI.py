@@ -13,11 +13,11 @@ class DataINI:
         '''@return list of the field'''
         list_rows = []
         list_rows.append("Copyright=\n")
-        list_rows.append("City=\n")
+        list_rows.append("City=\n")#TODO in function of the topic
         list_rows.append("Price=\n")
         list_rows.append("SpecifySource=\n")
         list_rows.append("Region=\n")
-        list_rows.append("ImageType=\n")
+        list_rows.append("ImageType=\n")#TODO in function of extension/media, it 's "photo" or "video"
         list_rows.append("Country=\n")
         return self.safefile.safe(list_rows)
         

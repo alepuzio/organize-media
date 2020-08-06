@@ -30,23 +30,25 @@ class ReadINI:
         self.config = newconfig
 
     def copyright(self):
-        return config.get('Image', 'Copyright' )
+        return self.config.get('Image', 'Copyright' )
     
     def city(self):
-        return config.get('Image','City')
+        return self.config.get('Image','City')
     
     def price(self):
-        return config.getInt('Image', 'Price')
+        return self.config.getInt('Image', 'Price')
     
     def specifysource(self):
-        return config.get('Image','SpecifySource')
+        return self.config.get('Image','SpecifySource')
     
     def region(self):
-        return config.get('Image','Region')
+        return self.config.get('Image','Region')
     
     def imagetype(self):
-        return config.get('Image','ImageType')
+        return self.config.get('Image','ImageType')
     
     def country(self):
-        return config.get('Image','Country')
-    
+        return self.config.get('Image','Country')
+   
+    def __str__(self):
+       return "ReadINI:[{0}]".format(self.copyright())
