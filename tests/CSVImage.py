@@ -1,6 +1,6 @@
 import unittest
 from PersonalLogging import PersonalLogging
-from Field import Field
+#from Field import Field
 
 class CSVImage:
     '''@overview: class that format the rows of the data'''
@@ -19,17 +19,17 @@ class CSVImage:
         
         result.append( self.manualcsv.fileName() ) 
         result.append( self.ini.copyright() )  #copyright
-        #       result.append( Field( ) )#price
-        # result.append( Field( self.compounedName(filename) ) #name
-        #       result.append( Field( ) #city
-        #      result.append( Field( ) #Region
-        #     result.append( Field( ) #Country
-        #     result.append( Field( self.formattedData(da ) )#created
-        #    result.append( Field( Field("CANON EOS 1200D") ) #specififedsource
-        #    result.append( Field(  )#keyword 
+        result.append( self.ini.price() )#price
+        #result.append( #self.compounedName(filename) ) #name
+        result.append( self.ini.city() ) #city
+        result.append( self.ini.region() ) #Region
+        result.append( self.ini.country() ) #Country
+        #result.append( Field( self.formattedData(da ) )#created
+        result.append( self.ini.specifysource() ) #specififedsource
+        result.append( self.manualcsv.keywords() )#keyword 
         #    result.append( Field( ) #keywordsCheckbox
-        #        result.append( Field(self.manualcsv.description()  )) #description
-        #       result.append( Field( Field( self.init.imagetype()  ) )#imagetype
+        result.append( self.manualcsv.description() ) #description
+        result.append( self.ini.imagetype()  )#imagetype
         return ",".join(result)
 
 

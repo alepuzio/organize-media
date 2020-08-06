@@ -36,7 +36,7 @@ class ReadINI:
         return self.config.get('Image','City')
     
     def price(self):
-        return self.config.getInt('Image', 'Price')
+        return self.config.get('Image', 'Price')
     
     def specifysource(self):
         return self.config.get('Image','SpecifySource')

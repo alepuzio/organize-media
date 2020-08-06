@@ -18,7 +18,7 @@ class FinalDataCSV:
     def data(self):
         '''@return list of data file'''
         list_rows = []
-        list_rows.append( LabelImage().csv() ) 
+        list_rows.append( "{0}\n".format ( LabelImage().csv() ) ) 
         self.logging.print("data():" + str ( self.list_data ) )
         for tmp_file in self.list_data:
             tmp_value = CSVImage(self.properties_ini, tmp_file)

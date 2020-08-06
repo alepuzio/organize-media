@@ -4,7 +4,7 @@ from AsString import TestAsString
 from Control import TestControl
 from ManualDataCSV import ManualDataCSV
 from Extension import TestExtension
-from Field import TestField
+#from Field import TestField
 from InitialData import InitialData
 from LabelImage import LabelImage
 

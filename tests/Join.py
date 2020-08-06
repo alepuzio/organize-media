@@ -33,24 +33,15 @@ class Join:
     
     def run(self):
         '''run the join between data of INI file and CSV file
-        take the dir and       put the ini inside an object'''
+        take the dir and put the ini inside an object'''
         properties_ini = ReadFileINI(self.directory).read()# has INI 
         '''TODO control that every property has a value, othrwise exception'''
         '''read the CSV'''
-        properties_csv = ReadFileCSV(self.directory).read()# has INI 
+        properties_csv = ReadFileCSV(self.directory).read()# has CSV
         '''  every row-obejct is put inside another object with the optional data and the INI object  
         this object will be in another list
+        the list is passed to a class that creates the file'
+        this object is formatted as CSV
         '''
-
-        list_row = []
-        for element in properties_csv:
-            print ( CSVImage ( properties_ini, element ).data() )
-        '''the list is passed to a class that creates the file'''
-        '''this object is formatted as CSV'''
-        tmp = NameCSV ( self.directory, Final() ).name() 
-        tmp1 = FileToWrite ( tmp ) 
-        filecsv = FinalDataCSV ( 
-                SafeFile ( tmp1 ),
-                properties_csv, 
-                properties_ini ) 
+        filecsv = FinalDataCSV ( SafeFile ( FileToWrite ( NameCSV ( self.directory, Final() ).name() ) ), properties_csv, properties_ini ) 
         filecsv.data ( )
