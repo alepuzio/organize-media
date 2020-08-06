@@ -14,7 +14,6 @@ class ReadFileCSV:
 
     def read(self):
         '''@return the object with the properties'''
-
         path =  self.dir + os.sep+ "images.csv" #TODO concatenation of string to improve
         result = []
         with open(path, newline='') as csvfile:
@@ -23,10 +22,8 @@ class ReadFileCSV:
                 result.append ( ReadCSV(row) )
         return result 
 
-
-
 class ReadCSV:
-    '''overview: this class contains the single row of manual CSV'''
+    '''@overview: this class contains the single row of manual CSV'''
 
     def __init__(self, newrow):
         self.row = newrow
@@ -35,13 +32,13 @@ class ReadCSV:
         return self.row['Created']
     
     def fileName(self):
-        return self.row['FileName'].strip()
+        return self.row['OriginalFilename'].strip()
     
     def description(self):
         return self.row['Description']
     
     def keywords(self):
-        return self.row['Keywords'].strip()
+        return "\"" + self.row['Keywords'].strip() + "\""
    
     def __str__(self):
         return "ReadCSV:{0}".format(self.row)

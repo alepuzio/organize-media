@@ -12,6 +12,7 @@ class DataINI:
     def data(self):
         '''@return list of the field'''
         list_rows = []
+        list_rows.append("[Image]\n")
         list_rows.append("Copyright=\n")
         list_rows.append("City=\n")#TODO in function of the topic
         list_rows.append("Price=\n")

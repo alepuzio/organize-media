@@ -4,6 +4,7 @@ from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile
 from FileToWrite import FileToWrite
 from DayMonthYear import DayMonthYear
+from DayMonthYear import Dash
 
 from Month import Month
 from Extension import Extension
@@ -18,13 +19,11 @@ class ManualDataCSV:
     def data(self, map_file_single_data):
         '''@return list of data file'''
         list_rows = []
-        list_rows.append("Created,OriginalFilename,Description,Keywords")
-        
-        self.logging.print("data():" + str(map_file_single_data))
+        list_rows.append("Created,OriginalFilename,Description,Keywords\n") 
         for tmp_file in map_file_single_data.keys():
             tmp_value = map_file_single_data[tmp_file]
-            list_rows.append( "%s\t,%s\t,%s\t,%s\n" % ( self.time( tmp_value.tupla() ).show(), self.filename( tmp_value.tupla() ), "  ", "  "))
-            self.logging.print( "tmp: %s" % str(list_rows) )
+            list_rows.append( "%s\t,%s\t,%s\t,%s\n" % ( self.time( tmp_value.tupla() ).inverse(), self.filename( tmp_value.tupla() ), "  ", "  "))
+            #self.logging.print( "tmp: %s" % str(list_rows) )
         return self.safefile.safe(list_rows)
         
     
@@ -33,7 +32,8 @@ class ManualDataCSV:
         year = tmp_value.time.year()
         month = tmp_value.time.month().single_number()
         day = tmp_value.time.day()
-        time = DayMonthYear(day, month, year)
+        time = Dash(DayMonthYear(day, month, year))
+        self.logging.print( "time.inverse(): %s" % time.inverse() )
         return time
 
 

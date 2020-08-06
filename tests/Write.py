@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from PersonalLogging import PersonalLogging
 
+from PersonalLogging import PersonalLogging
 from Filesystem import FileSystem
 from PersonalLogging import PersonalLogging
 from GroupOriginalFiles import GroupOriginalFiles
@@ -13,14 +13,11 @@ from DataINI import DataINI
 from SafeFile import SafeFile
 from FileToWrite import FileToWrite
 from NameINI import NameINI
-
-
 from NameCSV import NameCSV
 from NameCSV import Manual
-from NameCSV import NameCSV
-
-
 from ManualDataCSV import ManualDataCSV
+
+
 
 class Write:
     '''@overview: class to create CSV and INI file'''
@@ -45,6 +42,6 @@ class Write:
         dest = NameINI ( self.directory )
         fileini = DataINI ( SafeFile ( FileToWrite ( NameINI ( self.directory ).name() ) ) )
         fileini.data()# TODO put exception o r message if there's any image of video
-        filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory). name() ) ) ) 
+        filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files  = GroupReadFiles ( FileSystem (self.directory).walk()   ).map()          
         filecsv.data ( map_original_files )
