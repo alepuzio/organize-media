@@ -19,7 +19,6 @@ class FinalDataCSV:
         '''@return list of data file'''
         list_rows = []
         list_rows.append( "{0}\n".format ( LabelImage().csv() ) ) 
-        self.logging.print("data():" + str ( self.list_data ) )
         for tmp_file in self.list_data:
             tmp_value = CSVImage(self.properties_ini, tmp_file)
             list_rows.append( "{0}\n".format ( tmp_value.data()))

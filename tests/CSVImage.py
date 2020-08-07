@@ -1,6 +1,10 @@
 import unittest
 from PersonalLogging import PersonalLogging
 #from Field import Field
+from DayMonthYear import Space
+from DayMonthYear import Slash
+
+
 
 class CSVImage:
     '''@overview: class that format the rows of the data'''
@@ -14,18 +18,15 @@ class CSVImage:
     def data(self):
         '''@return list fo the row to be printed'''
         result = []
-        #result.append( Field("numero_clip")
-        
-        
+        #result.append( Field("numero_clip") 
         result.append( self.manualcsv.fileName() )#filename 
         result.append( self.ini.copyright() )  #copyright
         result.append( self.ini.price() )#price
-        #result.append( #self.compounedName(filename) ) #name
+        result.append( self.name() ) #name
         result.append( self.ini.city() ) #city
         result.append( self.ini.region() ) #Region
         result.append( self.ini.country() ) #Country
         result.append( self.manualcsv.created() ) #Created
-        #result.append( Field( self.formattedData(da ) )#created
         result.append( self.ini.specifysource() ) #specififedsource
         result.append( self.manualcsv.keywords() )#keyword 
         result.append( self.staticcsv.keywordsCheckbox() )#keywordsCheckbox
@@ -34,10 +35,10 @@ class CSVImage:
         result.append( self.ini.imagetype()  )#imagetype
         return ",".join(result)
 
-    def compounedName(self):
+    def name(self):
         '''@return name as concatenation fo Description, date creation , city, country'''
-        pass
-        #     return "{0}, {1} - {2}: {3}".format(self.ini.city(), self.ini.country(), self.manualecsv.date(), self.manualcsv.description())
+        return "{0}, {1} - {2}: {3}".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
+
 
     def __str__(self):
         return "CSVImage:[{0}]".format(self.ini)

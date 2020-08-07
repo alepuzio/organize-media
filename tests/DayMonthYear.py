@@ -1,4 +1,5 @@
 import unittest
+import re
 
 class DayMonthYear:
     '''@overview: this class incapsulate the data about the year'''
@@ -38,15 +39,19 @@ class Slash:
 
 class Space:
     '''@overview: decorator with one space'''
-    def __init__(self, newdaymonthyear):
-        self.daymonthyear = newdaymonthyear
+    def __init__(self, new_data_as_string):
+        self.data = new_data_as_string
         self.sep = " "
 
-    def show(self):
-        return self.daymonthyear.show( self.sep )
+    def replace(self, old_sep):
+        '''@return the substitution from dash to space separator'''
+        return re.sub(old_sep, self.sep, self.data)
 
-    def inverse(self):
-        return self.daymonthyear.inverse(self.sep)
+    def from_dash(self):
+        return self.replace ( "-" )
+
+    #def inverse(self):
+     #   return self.replace ( self.data )
 
 
 class Dash:
@@ -77,7 +82,7 @@ class TestDayYearMonth(unittest.TestCase):
         year = "2020"
         month = "06"
         day = "10"
-        dayMonthYear = Space(DayMonthYear(day, month, year)).show()
+        dayMonthYear = Space ( Dash ( DayMonthYear(day, month, year) ).show() ).from_dash()
         expected = "10 06 2020"
         self.assertEqual( dayMonthYear, expected)
 
