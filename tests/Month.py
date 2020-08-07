@@ -1,13 +1,10 @@
-import os
-import re
-from PersonalLogging import PersonalLogging
-import time
+#import time
 import datetime
 import platform
-from AsString import AsString
-
 import unittest
 
+from PersonalLogging import PersonalLogging
+from AsString import AsString
 
 
 class Month:
@@ -22,7 +19,6 @@ class Month:
         date = self.timefile
         self.log.print("Month.show():" + str(date))
         tmp = date.split(" ")
-        #return tmp[1]
         return self.timefile
 
     def single_number(self):
@@ -49,8 +45,6 @@ class TestMonth(unittest.TestCase):
             self.assertEqual(result, "Jun")
                 
         def test_eq(self):
-            #time_one = "Wed Jun 10 17:04:28 2020"
-            #time_two = "Wed Jun 10 17:04:28 2020"
             time_one = "Jul"
             time_two = "Jul"
             month_one = Month(time_one)

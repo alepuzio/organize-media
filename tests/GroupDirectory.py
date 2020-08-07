@@ -20,7 +20,6 @@ class GroupDirectory:
             self.logging.print("filetmp:" + str(filetmp))
             data_tmp = filetmp.tupla()
             data = ( data_tmp[0], data_tmp[1],  YearMonth(data_tmp[1], data_tmp[2]).show(),  data_tmp[3], data_tmp[4].directory(), data_tmp[5] )
-            self.logging.print("data" + ">" + str(data) )
             limit = len(data)
             for place in range(1, limit ):
                 result.append(os.sep.join(data[0:place]))
