@@ -37,8 +37,8 @@ class CSVImage:
 
     def name(self):
         '''@return name as concatenation fo Description, date creation , city, country'''
-        return "{0}, {1} - {2}: {3}".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
-
+        result = "{0}, {1} - {2}: {3}".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
+        return result[0:79]
 
     def __str__(self):
         return "CSVImage:[{0}]".format(self.ini)
@@ -89,3 +89,13 @@ class TestCSVImage(unittest.TestCase):
     def test_data(self):
         print ( "Hard work to create fake object " ) 
         pass
+
+    def test_substring_slice(self):
+        more_than_80_char =  "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 123456789012345678901234567890234567890 "
+        res = more_than_80_char[0:79] 
+        print("res_more_than_80_char(" + str(len(more_than_80_char)) + "):" + res)
+        self.assertTrue( res )
+        less_than_80_char =  "11234567890" 
+        res = less_than_80_char[0:79] 
+        print("res_less_than_80_char(" + str(len (less_than_80_char)) + ") :" + res)
+        self.assertTrue( res )
