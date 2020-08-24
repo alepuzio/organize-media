@@ -1,6 +1,7 @@
 import unittest
 import os
 from PersonalLogging import PersonalLogging
+from Extension import Extension
 
 class ReadFileINI:
     '''@overview: it contains the properties in file INI'''
@@ -16,39 +17,107 @@ class ReadFileINI:
         except ImportError:
             from ConfigParser import ConfigParser  # ver. < 3.0
         config = ConfigParser()
-        path =  self.dir + os.sep+ "common.ini" #TODO concatenation of string to improve
+        path =  self.dir + os.sep + "common.ini" #TODO concatenation of string to improve
         config.read(path)
-        return ReadINI(config)
+        #TODO centralize in an object
+        path = self.dir.split ( os.sep )
+        path.reverse()
+        extension = Extension ( path[0] )
+        file_ini = ReadFileINI(self.dir)
+        if extension.image():
+            file_ini = Image ( ReadINI ( config ) ) 
+        elif extension.video():
+            file_ini = Video ( ReadINI ( config ) ) 
+        else:
+            raise Error ("Unkown type of file")
+        return file_ini
 
+class Image:
+    '''@overview: this class contains the configuration about the images'''
+    def __init__(self, new_read_ini):
+        self.name = 'Image'
+        self.read = new_read_ini
+
+    def copyright(self):
+        return "\"" + self.read.copyright(self.name) + "\""
+
+    def city(self):
+        return self.read.city(self.name)
+    
+    def price(self):
+        return self.read.price(self.name)
+    
+    def specifysource(self):
+        return self.read.specifysource(self.name)
+    
+    def region(self):
+        return self.read.region(self.name)
+    
+    def imagetype(self):
+        return 'photo'
+
+    def country(self):
+        return self.read.country(self.name)
+   
+    def __str__(self):
+       return "Image:[{0}]".format(self.name)
+
+class Video:
+    '''@overview: this class contains the configuration about the videos'''
+    def __init__(self, new_read_ini):
+        self.name = 'Video'
+        self.read = new_read_ini
+
+    def copyright(self):
+        return "\"" + self.read.copyright(self.name) + "\""
+
+    def city(self):
+        return self.read.city(self.name)
+    
+    def price(self):
+        return self.read.price(self.name)
+    
+    def specifysource(self):
+        return self.read.specifysource(self.name)
+    
+    def region(self):
+        return self.read.region(self.name)
+    
+    def imagetype(self):
+        return 'video'
+
+    def country(self):
+        return self.read.country(self.name)
+   
+    def __str__(self):
+       return "Video:[{0}]".format(self.name)
 
 
 class ReadINI:
-    '''overview: this class contains the configuration'''
+    '''@overview: this class contains the configuration'''
+    def __init__(self, new_config ):
+        self.config = new_config
 
+    def copyright(self, name):
+        return "\"" + self.config.get(name, 'Copyright' ) + "\""
+    
+    def city(self, name):
+        return self.config.get(name,'City')
+    
+    def price(self, name):
+        return self.config.get(name, 'Price')
+    
+    def specifysource(self, name):
+        return "\"" + self.config.get(name,'SpecifySource') + "\""
+    
+    def region(self, name):
+        return self.config.get(name,'Region')
+    
+    def imagetype(self, name):
+        return self.config.get(name,'ImageType')
 
-    def __init__(self, newconfig):
-        self.config = newconfig
-
-    def copyright(self):
-        return "\"" + self.config.get('Image', 'Copyright' ) + "\""
-    
-    def city(self):
-        return self.config.get('Image','City')
-    
-    def price(self):
-        return self.config.get('Image', 'Price')
-    
-    def specifysource(self):
-        return "\"" + self.config.get('Image','SpecifySource') + "\""
-    
-    def region(self):
-        return self.config.get('Image','Region')
-    
-    def imagetype(self):
-        return self.config.get('Image','ImageType')
-
-    def country(self):
-        return self.config.get('Image','Country')
+    def country(self, name ):
+        return self.config.get(name,'Country')
    
     def __str__(self):
        return "ReadINI:[{0}]".format(self.copyright())

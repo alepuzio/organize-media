@@ -15,7 +15,11 @@ class Extension:
     def name(self):
         return self.ext
 
-    def media(self, type_file, allowed_extensions):
+    def media(self):
+        '''@return True if the file has one of these extensions'''
+        return  self.image() or self.video()
+
+    def allowed_extension(self, type_file, allowed_extensions):
         '''@return True if the file has one of these extensions'''
         return  (type_file in allowed_extensions)
 
@@ -23,13 +27,13 @@ class Extension:
         '''@return True if the file is an img '''
         typeFile = self.name().upper()
         allowedExtensions = ["CR2", "JPG"]
-        return  self.media ( typeFile , allowedExtensions)
+        return  self.allowed_extension ( typeFile , allowedExtensions)
     
     def video ( self):
         '''@return True if the file is a video '''
         typeFile = self.name().upper()
         allowedExtensions = ["MOV"]
-        return  self.media ( typeFile , allowedExtensions)
+        return  self.allowed_extension ( typeFile , allowedExtensions)
 
     def __eq__(self, other):
         return (self.ext == other.ext)

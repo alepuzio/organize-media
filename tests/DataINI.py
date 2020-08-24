@@ -28,5 +28,16 @@ class Image:
     def data(self):
         list_rows = []
         list_rows.append("[Image]\n")
-        list_rows.append("ImageType=photo\n")#TODO in function of extension/media, it 's "photo" or "video"
+        list_rows.append("ImageType=photo\n")
+        return self.data_ini.data(list_rows)
+
+class Video:
+    def __init__(self, new_data_ini):
+        self.data_ini = new_data_ini
+        self.loggging = PersonalLogging("Video")
+
+    def data(self):
+        list_rows = []
+        list_rows.append("[Video]\n")
+        list_rows.append("ImageType=video\n")
         return self.data_ini.data(list_rows)

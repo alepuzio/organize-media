@@ -1,25 +1,75 @@
-import unittest
-import os
-from PersonalLogging import PersonalLogging
 import csv
+import os
 import re
+import unittest
+
+from Extension import Extension
+
+from PersonalLogging import PersonalLogging
+
+
+class Image:
+    '''@overview: it contains the properties in file CSV manual about images'''
+
+    def __init__(self, new_read_file_csv):
+        self.read_file_csv = new_read_file_csv
+        self.log = PersonalLogging("Image")
+
+    def read(self):
+        '''@return the object with the properties'''
+        if self.valid():
+            name = 'manual-data.csv'
+            res = self.read_file_csv.read(name)
+        else:
+            res = Video ( self.read_file_csv ).read()
+        return res
+    
+    def valid(self):
+        #TODO centralize in an object
+        path = self.read_file_csv.dir.split ( os.sep )
+        path.reverse()
+        extension = Extension ( path[0] )
+        return extension.image()
+
+class Video:
+    '''@overview: it contains the properties in file CSV manual about videos'''
+
+    def __init__(self, new_read_file_csv):
+        self.read_file_csv = new_read_file_csv
+        self.log = PersonalLogging("Video")
+
+    def read(self):
+        '''@return the object with the properties'''
+        if self.valid():
+            name = 'manual-data.csv'
+            res = self.read_file_csv.read(name)
+        else:
+            res = Video ( self.read_file_csv ).read()
+        return res
+ 
+    def valid(self):
+        #TODO centralize in an object
+        path = self.read_file_csv.dir.split ( os.sep )
+        path.reverse()
+        extension = Extension ( path[0] )
+        return extension.video()
 
 class ReadFileCSV:
     '''@overview: it contains the properties in file INI'''
 
     def __init__(self, new_dir):
         self.dir = new_dir
-        self.log = PersonalLogging("ReadCSV")
+        self.log = PersonalLogging("ReadFileCSV")
 
-    def read(self):
-        '''@return the object with the properties'''
-        path =  self.dir + os.sep + "images.csv" #TODO concatenation of string to improve
+    def read(self,name):
+        path =  self.dir + os.sep + name #TODO concatenation of string to improve
         result = []
         with open(path, newline = '') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 result.append ( ReadCSV(row) )
         return result 
+    
 
 class ReadCSV:
     '''@overview: this class contains the single row of manual CSV'''

@@ -13,7 +13,7 @@ class Media:
         self.log = PersonalLogging("Media", False)
 
     def directory(self):
-        '''@return the name of the directory abotu the media'''
+        '''@return the name of the directory about the media'''
         pieces = self.extension.name().split(".")
         pieces.reverse();
         return  pieces[0].upper() 

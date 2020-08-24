@@ -3,7 +3,7 @@ import unittest
 from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile
 from FileToWrite import FileToWrite
-from LabelImage import LabelImage
+from Label import LabelImage
 from CSVImage import CSVImage
 
 class FinalDataCSV:

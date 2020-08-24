@@ -15,6 +15,7 @@ class SafeFile:
     def safe(self, list_rows):
         '''@return create the file INI for the photos'''
         exists = os.path.exists(self.file_to_write.path)
+        self.logging.print("safe:" + str(self.file_to_write.path))
         if(exists):
             self.logging.print("Existing file: %s" % self.file_to_write)
         else:
@@ -23,7 +24,7 @@ class SafeFile:
                self.logging.print("Created file: %s" % self.file_to_write)
             except OSError as e:
                 if e.errno != errno.EEXIST:
-                    self.loggin.warn("Error in creating file: %s" % self.file_to_write)
+                    self.logging.warn("Error in creating file: %s" % self.file_to_write)
                     raise
 
     def __repr__ (self):
