@@ -37,8 +37,14 @@ class Final:
 
 class TestNameCSV(unittest.TestCase):
 
-    def test_name(self):
-        var = NameCSV("C:\\fake\\path")
+    def test_name_manual(self):
+        var = NameCSV("C:\\fake\\path", Manual()) 
         res = var.name()
         expected = "C:\\fake\\path\\images.csv"
+        self.assertEqual(res, expected)
+    
+    def test_name_final(self):
+        var = NameCSV("C:\\fake\\path", Final()) 
+        res = var.name()
+        expected = "C:\\fake\\path\\final-images.csv"
         self.assertEqual(res, expected)

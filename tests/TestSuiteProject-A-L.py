@@ -2,6 +2,8 @@ import unittest
 
 from AsString import TestAsString
 from Control import TestControl
+
+from DayMonthYear import TestDayMonthYear
 from Extension import TestExtension
 from InitialData import InitialData
 from LabelImage import LabelImage

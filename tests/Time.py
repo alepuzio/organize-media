@@ -59,7 +59,7 @@ class Time:
 
 
 
-class TestDatetime(unittest.TestCase):
+class TestTime(unittest.TestCase):
 
     def test_year(self):
         time = "Wed Jun 10 17:04:28 2020"

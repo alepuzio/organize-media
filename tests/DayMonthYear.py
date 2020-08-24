@@ -67,7 +67,7 @@ class Dash:
         return self.daymonthyear.inverse(self.sep)
 
 
-class TestDayYearMonth(unittest.TestCase):
+class TestDayMonthYear(unittest.TestCase):
 
     def test_show_slash(self):
         year = "2020"
