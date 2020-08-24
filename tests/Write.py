@@ -2,20 +2,25 @@ import os
 import sys
 import unittest
 
-from PersonalLogging import PersonalLogging
-from Filesystem import FileSystem
-from PersonalLogging import PersonalLogging
+
+from DataINI import DataINI
+from DataINI import Image
+
+from GroupDirectory import GroupDirectory
+from GroupFiles import GroupFiles
 from GroupOriginalFiles import GroupOriginalFiles
 from GroupReadFiles import GroupReadFiles
-from GroupFiles import GroupFiles
-from GroupDirectory import GroupDirectory
-from DataINI import DataINI
-from SafeFile import SafeFile
+
+from Filesystem import FileSystem
 from FileToWrite import FileToWrite
-from NameINI import NameINI
-from NameCSV import NameCSV
-from NameCSV import Manual
 from ManualDataCSV import ManualDataCSV
+from NameCSV import Manual
+from NameCSV import NameCSV
+from NameINI import NameINI
+
+from PersonalLogging import PersonalLogging
+from SafeFile import SafeFile
+
 
 
 
@@ -40,7 +45,7 @@ class Write:
 
     def run(self):
         dest = NameINI ( self.directory )
-        fileini = DataINI ( SafeFile ( FileToWrite ( NameINI ( self.directory ).name() ) ) )
+        fileini = Image ( DataINI ( SafeFile ( FileToWrite ( NameINI ( self.directory ).name() ) ) ) ) 
         fileini.data()# TODO put exception o r message if there's any image of video
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files  = GroupReadFiles ( FileSystem (self.directory).walk()   ).map()          

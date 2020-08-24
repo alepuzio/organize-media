@@ -46,7 +46,7 @@ class ReadINI:
     
     def imagetype(self):
         return self.config.get('Image','ImageType')
-    
+
     def country(self):
         return self.config.get('Image','Country')
    
