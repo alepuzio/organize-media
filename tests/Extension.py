@@ -29,27 +29,27 @@ class Extension:
 class TestExtension(unittest.TestCase):
     
     def test_show(self):
-        absolutepath = "jpg"
-        result = Extension(absolutepath).name().upper()
+        unkown_extension = "jpg"
+        result = Extension(unkown_extension).name().upper()
         expected = "JPG"
         self.assertEqual(result, expected)
     
     def test_media_supported(self):
-        absolutepath = "jpg"
-        result = Extension(absolutepath).media()
+        unkown_extension = "jpg"
+        result = Extension(unkown_extension).media()
         self.assertTrue(result)
     
     def test_media_unsupported(self):
-        absolutepath = "jpg2"
-        result = Extension(absolutepath).media()
+        unkown_extension = "jpg2"
+        result = Extension(unkown_extension).media()
         self.assertFalse(result)
 
 
     def test_equal(self):
-        absolutepath_one = "jpg"
-        absolutepath_two = "jpg"
-        result_one = Extension(absolutepath_one)
-        result_two = Extension(absolutepath_two)
+        unkown_extension_one = "jpg"
+        unkown_extension_two = "jpg"
+        result_one = Extension(unkown_extension_one)
+        result_two = Extension(unkown_extension_two)
         self.assertEqual(result_one, result_two)
 
 
