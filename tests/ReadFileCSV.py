@@ -41,8 +41,18 @@ class ReadCSV:
         the initial internal separator has to be ';'
         and become ','
         '''
-        list_tags = re.sub(";",", " , self.row['Keywords'].strip())
-        
+        manual_tags = self.row['Keywords'].strip()
+        list_tags = None
+        if ";" not in manual_tags:
+            '''error, it must be more than 1 tag with sep ;
+            '''
+            list_tags = ',,,,,,ERROR IN SEPARATOR TAGS IN MANUAL CSV,, THE TAG SEPARATOR HAS TO BE  ";" , CSV NOT UPLOABLE,,'
+        elif "\"" in manual_tags:
+            '''error, the char "\"" has not to be present
+            '''
+            list_tags = ',,,,,,ERROR IN LISTING TAG IN MANUAL CSV,,: \" HAS NOT TO BE PRESENT,, CSV NOT UPLOABLE,'
+        else: 
+            list_tags = re.sub(";",", " , manual_tags)
         return "\"" + list_tags + "\""
    
     def __str__(self):
