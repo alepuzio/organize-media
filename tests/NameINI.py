@@ -13,9 +13,6 @@ class NameINI:
 
     def name(self):
         '''@return complete path of the file ini'''    
-        self.logging.print("name1:" + str ( self.directory ) )
-        self.logging.print("name2:" + str ( self.directory + os.sep ) )
-
         res = self.directory + os.sep + "common.ini"
         return res
 

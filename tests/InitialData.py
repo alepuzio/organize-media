@@ -44,22 +44,3 @@ class InitialData:
 
 
 
-class TestInitialData(unittest.TestCase):
-        
-        def test_tupla(self):
-            pathtmp = ".\\resources\\lugano"
-            filetmp =  "vecchia.jpg"
-            filename = InitialData ( Position( pathtmp, filetmp ), Time ( TimeFile (  pathtmp + os.sep + filetmp ).complete() ) )    
-            result = filename.tupla() 
-            time = "Wed Aug 3 17:04:28 2020"
-            year = "2020"
-            month = Month("Aug")
-            topic = "lugano"
-            filename = "vecchia"
-            extension = Extension("jpg")
-            root = ".\\resources"
-            day = "3"
-            expected = (year, month, topic, filename, extension, root, day)
-            self.assertEqual(result, expected)
-        
-
