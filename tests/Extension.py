@@ -15,12 +15,21 @@ class Extension:
     def name(self):
         return self.ext
 
-    def media(self):
-        '''@return True se il fiel e' img o video'''
-        typeFile = self.name().upper()
-        allowedExtensions = ["CR2", "JPG", "MOV"]
-        return  (typeFile in allowedExtensions)
+    def media(self, type_file, allowed_extensions):
+        '''@return True if the file has one of these extensions'''
+        return  (type_file in allowed_extensions)
 
+    def image(self):
+        '''@return True if the file is an img '''
+        typeFile = self.name().upper()
+        allowedExtensions = ["CR2", "JPG"]
+        return  self.media ( typeFile , allowedExtensions)
+    
+    def video ( self):
+        '''@return True if the file is a video '''
+        typeFile = self.name().upper()
+        allowedExtensions = ["MOV"]
+        return  self.media ( typeFile , allowedExtensions)
 
     def __eq__(self, other):
         return (self.ext == other.ext)
@@ -34,15 +43,15 @@ class TestExtension(unittest.TestCase):
         expected = "JPG"
         self.assertEqual(result, expected)
     
-    def test_media_supported(self):
+    def test_image_supported(self):
         unkown_extension = "jpg"
-        result = Extension(unkown_extension).media()
+        result = Extension(unkown_extension).image()
         self.assertTrue(result)
     
-    def test_media_unsupported(self):
-        unkown_extension = "jpg2"
-        result = Extension(unkown_extension).media()
-        self.assertFalse(result)
+    def test_video_supported(self):
+        unkown_extension = "mov"
+        result = Extension(unkown_extension).video()
+        self.assertTrue(result)
 
 
     def test_equal(self):
