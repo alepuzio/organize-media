@@ -33,7 +33,6 @@ class ManualDataCSV:
         month = tmp_value.time.month().single_number()
         day = tmp_value.time.day()
         time = DayMonthYear(day, month, year)
-        self.logging.print( "time.inverse(): %s" % time.inverse() )
         return time
 
 
