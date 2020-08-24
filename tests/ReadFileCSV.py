@@ -2,8 +2,7 @@ import unittest
 import os
 from PersonalLogging import PersonalLogging
 import csv
-
-
+import re
 
 class ReadFileCSV:
     '''@overview: it contains the properties in file INI'''
@@ -14,9 +13,9 @@ class ReadFileCSV:
 
     def read(self):
         '''@return the object with the properties'''
-        path =  self.dir + os.sep+ "images.csv" #TODO concatenation of string to improve
+        path =  self.dir + os.sep + "images.csv" #TODO concatenation of string to improve
         result = []
-        with open(path, newline='') as csvfile:
+        with open(path, newline = '') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 result.append ( ReadCSV(row) )
@@ -29,16 +28,22 @@ class ReadCSV:
         self.row = newrow
 
     def created(self):
-        return self.row['Created']
+        return self.row['Created'].strip()
     
     def fileName(self):
         return self.row['OriginalFilename'].strip()
     
     def description(self):
-        return self.row['Description']
+        return self.row['Description'].strip()
     
     def keywords(self):
-        return "\"" + self.row['Keywords'].strip() + "\""
+        '''@return list of tags as one string
+        the initial internal separator has to be ';'
+        and become ','
+        '''
+        list_tags = re.sub(";",", " , self.row['Keywords'].strip())
+        
+        return "\"" + list_tags + "\""
    
     def __str__(self):
         return "ReadCSV:{0}".format(self.row)

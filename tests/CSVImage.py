@@ -37,7 +37,7 @@ class CSVImage:
 
     def name(self):
         '''@return name as concatenation fo Description, date creation , city, country'''
-        result = "{0}, {1} - {2}: {3}".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
+        result = "\"{0}, {1} - {2}: {3}\"".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
         return result[0:79]
 
     def __str__(self):
