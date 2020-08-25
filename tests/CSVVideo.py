@@ -5,20 +5,21 @@ from DayMonthYear import Slash
 
 
 
-class CSVImage:
-    '''@overview: class that format the rows of the data'''
+class CSVVideo:
+    '''@overview: class that format the rows of the data of a video'''
     def __init__(self, newini, newcsv):
-        self.log = PersonalLogging("CSVImage")
+        self.log = PersonalLogging("CSVVideo")
         self.ini = newini
         self.manualcsv = newcsv
-        self.staticcsv = CSVImageStatic()
+        self.staticcsv = CSVVideoStatic()
 
     
     def data(self):
-        '''@return list fo the row to be printed'''
+        '''@return list fo the row to be printed
+        "OriginalFilename","Copyright","Price","name","City","Region","Country,""Created","ClipSource","SpecifySource","FrameRendering","AspectRatio","Keywords","KeywordsCheckbox","PublicBin","Description"       
+        '''
         result = []
-        #result.append( Field("numero_clip") 
-        result.append( self.manualcsv.fileName() )#filename 
+        result.append( self.manualcsv.fileName() )#originalfilename 
         result.append( self.ini.copyright() )  #copyright
         result.append( self.ini.price() )#price
         result.append( self.name() ) #name
@@ -26,7 +27,10 @@ class CSVImage:
         result.append( self.ini.region() ) #Region
         result.append( self.ini.country() ) #Country
         result.append( self.manualcsv.created() ) #Created
+        result.append( self.staticcsv.clipsource() )  #clipsoucre
         result.append( self.ini.specifysource() ) #specififedsource
+        result.append( self.staticcsv.framerendering() )        #framerendering
+        result.append( self.staticcsv.aspectratio() )        #aspectratio
         result.append( self.manualcsv.keywords() )#keyword 
         result.append( self.staticcsv.keywordsCheckbox() )#keywordsCheckbox
         result.append( self.staticcsv.publicBin() )#publicbin
@@ -34,29 +38,46 @@ class CSVImage:
         result.append( self.ini.imagetype()  )#imagetype
         return ",".join(result)
 
-    def name(self):
+    def name(self):#TODO create class
         '''@return name as concatenation fo Description, date creation , city, country'''
         result = "\"{0}, {1} - {2}: {3}\"".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
         return result[0:79]
 
     def __str__(self):
-        return "CSVImage:[{0}]".format(self.ini)
+        return "CSVVideo:[{0}]".format(self.ini)
 
     def __repr__(self):
         return "[{0}]".format(self.data())
 
-class CSVImageStatic:
-    '''@overview: static value of a image in row CSV
+class CSVVideoStatic:
+    '''@overview: static value of a video in row CSV
     '''
     def __init__(self):
-        passi#TODO put the value inside, as CSVVideoStatic
+        self.values = {"keywordsCheckbox": "keywordscheckbox-static", 
+                "publicBin":  "publicBin-static", 
+                "clipSource":"other", 
+                "frameRendering":"unkwon",
+                "aspectRatio":"a16:9 native" }
 
     def keywordsCheckbox(self):
         '''@return list of static values'''
-        return "keywordscheckbox-static"
+        return self.values["keywordsCheckbox"]
 
     def publicBin(self):
-        return "publicBin-static"
+        return self.values["publicBin"]
+
+
+    def clipsource(self):
+        return self.values["clipSource"]
+
+    def framerendering(self):
+        return self.values["frameRendering"]
+
+    def aspectratio(self):
+        return self.values["aspectRatio"]
+
+
+
 
 class TestCSVImage(unittest.TestCase):
 

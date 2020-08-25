@@ -4,31 +4,26 @@ class LabelImage:
     '''@overview: list of fields'''
     
     def __init__(self):
-        pass
-
+        self.columns = ["OriginalFilename","Copyright" ,"Price","name" ,"City" , "Region" ,"Country", "Created" ,"SpecifySource" ,"Keywords","KeywordsCheckbox","PublicBin","Description"  ,"ImageType"  ]
+        
     def csv(self):
-        '''@return the fields as a string. The originay fields are:
-        Clipid,OriginalFilename,Copyright,Price,name,City,Region,Country,Created,SpecifySource" ,"Keywords","KeywordsCheckbox","PublicBin","Description"  ,"ImageType
+        '''@return the fields as a string. 
         '''
-        result = ["OriginalFilename","Copyright" ,"Price","name" ,"City" , "Region" ,"Country", "Created" ,"SpecifySource" ,"Keywords","KeywordsCheckbox","PublicBin","Description"  ,"ImageType"  ]
-        return ",".join ( result )
+        return ",".join ( self.columns )
 
 
 class LabelVideo:
     '''@overview: list of fields of the video'''
     
     def __init__(self):
-        pass
+        self.columns = [
+                "OriginalFilename","Copyright","Price","name","City","Region","Country","Created","ClipSource","SpecifySource","FrameRendering","AspectRatio","Keywords","KeywordsCheckbox","PublicBin","Description"       
+ ]
 
     def csv(self):
-        '''@return the fields as a string. The originay fields are:
-Clipid,OriginalFilename,Copyright,Price,name,City,Region,Country,
-Created,ClipSource,SpecifySource,FrameRendering,AspectRatio,Keywords,
-KeywordsCheckbox,PublicBin,Description        '''
-        result = [
-"OriginalFilename","Copyright","Price","name","City","Region","Country,""Created","ClipSource","SpecifySource","FrameRendering","AspectRatio","Keywords","KeywordsCheckbox","PublicBin","Description"       
- ]
-        return ",".join ( result )
+        '''@return the fields as a string.
+        '''
+        return ",".join ( self.columns )
 
 class TestLabel(unittest.TestCase):
 
