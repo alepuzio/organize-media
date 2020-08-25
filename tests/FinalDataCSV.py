@@ -1,10 +1,15 @@
 import unittest
 
-from PersonalLogging import PersonalLogging
-from SafeFile import SafeFile
+from CSVImage import CSVImage
+from CSVVideo import CSVVideo
+
 from FileToWrite import FileToWrite
 from Label import LabelImage
-from CSVImage import CSVImage
+from Label import LabelVideo
+from PersonalLogging import PersonalLogging
+from SafeFile import SafeFile
+
+
 
 class FinalDataCSV:
     '''@overview: class for the partial csv fil'''
@@ -18,14 +23,25 @@ class FinalDataCSV:
     def data(self):
         '''@return list of data file'''
         list_rows = []
-        list_rows.append( "{0}\n".format ( LabelImage().csv() ) ) 
+        if self.image():#TODO creare decorator
+            self.logging.print("label image")
+            list_rows.append( "{0}\n".format ( LabelImage().csv() ) ) 
+        else:
+            self.logging.print("label video")
+            list_rows.append( "{0}\n".format ( LabelVideo().csv() ) ) 
         for tmp_file in self.list_data:
-            tmp_value = CSVImage(self.properties_ini, tmp_file)
-            list_rows.append( "{0}\n".format ( tmp_value.data()))
-            self.logging.print( "tmp: %s" % str(list_rows) )
+            if self.image():
+                tmp_value = CSVImage(self.properties_ini, tmp_file)
+            else:
+                tmp_value = CSVVideo(self.properties_ini, tmp_file)
+        list_rows.append( "{0}\n".format ( tmp_value.data()))
+        self.logging.print( "tmp: %s" % str(list_rows) )
         return self.safefile.safe(list_rows)
         
-    
+    def image(self):
+        '''@return True if the row is about an image, False if it's abouta a video
+        '''
+        return self.properties_ini.imagetype() == "photo" #TODO create decorator
 
 
 class TestFinalDataCSV(unittest.TestCase):

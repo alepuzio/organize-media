@@ -24,9 +24,11 @@ class ReadFileINI:
         path.reverse()
         extension = Extension ( path[0] )
         file_ini = ReadFileINI(self.dir)
-        if extension.image():
+        if extension.image(): #TODO: create decorator and class
+            self.log.print("reo file immagine")
             file_ini = Image ( ReadINI ( config ) ) 
         elif extension.video():
+            self.log.print("creo file video")
             file_ini = Video ( ReadINI ( config ) ) 
         else:
             raise Error ("Unkown type of file")
@@ -39,7 +41,7 @@ class Image:
         self.read = new_read_ini
 
     def copyright(self):
-        return "\"" + self.read.copyright(self.name) + "\""
+        return  "\"" + self.read.copyright(self.name) + "\""
 
     def city(self):
         return self.read.city(self.name)
@@ -78,7 +80,7 @@ class Video:
         return self.read.price(self.name)
     
     def specifysource(self):
-        return self.read.specifysource(self.name)
+        return "\"" + self.read.specifysource(self.name) + "\"" 
     
     def region(self):
         return self.read.region(self.name)
@@ -88,7 +90,8 @@ class Video:
 
     def country(self):
         return self.read.country(self.name)
-   
+
+
     def __str__(self):
        return "Video:[{0}]".format(self.name)
 
@@ -99,7 +102,7 @@ class ReadINI:
         self.config = new_config
 
     def copyright(self, name):
-        return "\"" + self.config.get(name, 'Copyright' ) + "\""
+        return self.config.get(name, 'Copyright' )
     
     def city(self, name):
         return self.config.get(name,'City')
@@ -108,7 +111,7 @@ class ReadINI:
         return self.config.get(name, 'Price')
     
     def specifysource(self, name):
-        return "\"" + self.config.get(name,'SpecifySource') + "\""
+        return self.config.get(name,'SpecifySource')
     
     def region(self, name):
         return self.config.get(name,'Region')
