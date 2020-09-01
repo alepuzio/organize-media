@@ -49,7 +49,7 @@ class CSVImageStatic:
     '''@overview: static value of a image in row CSV
     '''
     def __init__(self):
-        passi#TODO put the value inside, as CSVVideoStatic
+        pass #TODO put the value inside, as CSVVideoStatic
 
     def keywordsCheckbox(self):
         '''@return list of static values'''
