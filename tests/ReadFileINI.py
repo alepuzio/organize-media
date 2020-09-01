@@ -18,20 +18,25 @@ class ReadFileINI:
             from ConfigParser import ConfigParser  # ver. < 3.0
         config = ConfigParser()
         path =  self.dir + os.sep + "common.ini" #TODO concatenation of string to improve
-        config.read(path)
-        #TODO centralize in an object
-        path = self.dir.split ( os.sep )
-        path.reverse()
-        extension = Extension ( path[0] )
-        file_ini = ReadFileINI(self.dir)
-        if extension.image(): #TODO: create decorator and class
-            self.log.print("reo file immagine")
-            file_ini = Image ( ReadINI ( config ) ) 
-        elif extension.video():
-            self.log.print("creo file video")
-            file_ini = Video ( ReadINI ( config ) ) 
+        exists = os.path.exists(path)
+        if exists :
+            config.read(path)
+            #TODO centralize in an object
+            path = self.dir.split ( os.sep )
+            path.reverse()
+            extension = Extension ( path[0] )
+            file_ini = ReadFileINI(self.dir)
+            if extension.image(): #TODO: create decorator and class
+                self.log.print("reo file immagine")
+                file_ini = Image ( ReadINI ( config ) ) 
+            elif extension.video():
+                self.log.print("creo file video")
+                file_ini = Video ( ReadINI ( config ) ) 
+            else:
+                raise Error ("Unkown type of file")
         else:
-            raise Error ("Unkown type of file")
+            self.log.warn("The file [[0}] is not present, I stop the elaboration".format(path)
+            raise
         return file_ini
 
 class Image:

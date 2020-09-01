@@ -64,10 +64,15 @@ class ReadFileCSV:
     def read(self,name):
         path =  self.dir + os.sep + name #TODO concatenation of string to improve
         result = []
-        with open(path, newline = '') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                result.append ( ReadCSV(row) )
+        exists = os.path.exists(path)
+        if exists :
+            with open(path, newline = '') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    result.append ( ReadCSV(row) )
+        else:
+            self.log.warn("The file [{0}] is not present, I stop the elaboration ")
+            raise
         return result 
     
 
