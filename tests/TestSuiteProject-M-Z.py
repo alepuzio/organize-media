@@ -10,6 +10,8 @@ from NameINI import TestNameINI
 
 from Position import TestPosition
 
+from QuotationMark import TestQuotationMark
+
 from Time import TestTime
 
 from Year import TestYear

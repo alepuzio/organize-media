@@ -43,7 +43,7 @@ class Time:
     def prepare(self):
         '''@return datetime in format DAY-OF-WEEK-space-month-name-space-dayofmonth-space-hours:minutes:second-space-year because of the different valeu in different OS'''
         date = self.datetime
-        ##remove double space 
+        #remove double space 
         return re.sub(' +', ' ', date)
         
 

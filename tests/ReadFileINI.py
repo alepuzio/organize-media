@@ -50,7 +50,7 @@ class Image:
         return self.read.price(self.name)
     
     def specifysource(self):
-        return self.read.specifysource(self.name)
+        return "\"" + self.read.specifysource(self.name) + "\""
     
     def region(self):
         return self.read.region(self.name)

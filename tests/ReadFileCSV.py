@@ -76,7 +76,7 @@ class ReadCSV:
 
     def __init__(self, newrow):
         self.row = newrow
-
+        
     def created(self):
         return self.row['Created'].strip()
     
@@ -84,7 +84,7 @@ class ReadCSV:
         return self.row['OriginalFilename'].strip()
     
     def description(self):
-        return self.row['Description'].strip()
+        return self.row['Description'].strip() #TODO create decorator
     
     def keywords(self):
         '''@return list of tags as one string
@@ -92,11 +92,13 @@ class ReadCSV:
         and become ','
         '''
         manual_tags = self.row['Keywords'].strip()
-        list_tags = None
+        list_tags = None #TODO put control if manual_tags is empty
+        print("manual_tags {0}".format(manual_tags ))
+
         if ";" not in manual_tags:
             '''error, it must be more than 1 tag with sep ;
             '''
-            list_tags = ',,,,,,ERROR IN SEPARATOR TAGS IN MANUAL CSV,, THE TAG SEPARATOR HAS TO BE  ";" , CSV NOT UPLOABLE,,'
+            list_tags = ', THE TAG SEPARATOR HAS TO BE  ";"  IN {0}, CSV NOT UPLOABLE '.format (manual_tags) 
         elif "\"" in manual_tags:
             '''error, the char "\"" has not to be present
             '''

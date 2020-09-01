@@ -47,12 +47,11 @@ class Space:
         '''@return the substitution from dash to space separator'''
         return re.sub(old_sep, self.sep, self.data)
 
-    def from_dash(self):
-        return self.replace ( "-" )
+    def from_slash(self):
+        return Space(self.replace ( "/" ))
 
-    #def inverse(self):
-     #   return self.replace ( self.data )
-
+    def inverse(self):#TODO centralize in a class
+        return self.data.inverse(self.sep)
 
 class Dash:
     '''@overview: decorator with one dash'''

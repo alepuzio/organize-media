@@ -66,7 +66,6 @@ class CSVVideoStatic:
     def publicBin(self):
         return self.values["publicBin"]
 
-
     def clipsource(self):
         return self.values["clipSource"]
 
