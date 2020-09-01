@@ -77,9 +77,15 @@ class ReadCSV:
     def __init__(self, newrow):
         self.row = newrow
         
-    def created(self):
-        return self.row['Created'].strip()
-    
+    def year(self):
+        return self.row['Year'].strip() #TODO another class TimeCreated
+   
+    def day(self):
+        return self.row['Day'].strip() #TODO another class TimeCreated
+
+    def month(self):
+        return self.row['Month'].strip() #TODO another class TimeCreated
+
     def fileName(self):
         return self.row['OriginalFilename'].strip()
     
@@ -93,7 +99,6 @@ class ReadCSV:
         '''
         manual_tags = self.row['Keywords'].strip()
         list_tags = None #TODO put control if manual_tags is empty
-        print("manual_tags {0}".format(manual_tags ))
 
         if ";" not in manual_tags:
             '''error, it must be more than 1 tag with sep ;
@@ -102,7 +107,7 @@ class ReadCSV:
         elif "\"" in manual_tags:
             '''error, the char "\"" has not to be present
             '''
-            list_tags = ',,,,,,ERROR IN LISTING TAG IN MANUAL CSV,,: \" HAS NOT TO BE PRESENT,, CSV NOT UPLOABLE,'
+            list_tags = ', THE CHAR \" HAS NOT TO BE PRESENT IN {0}, CSV NOT UPLOABLE,'.format(manual_tags)
         else: 
             list_tags = re.sub(";",", " , manual_tags)
         return "\"" + list_tags + "\""

@@ -1,5 +1,7 @@
 import unittest
 from PersonalLogging import PersonalLogging
+
+from DayMonthYear import DayMonthYear 
 from DayMonthYear import Space
 from DayMonthYear import Slash
 
@@ -21,43 +23,48 @@ class CSVImage:
         result.append( self.manualcsv.fileName() )#filename 
         result.append( self.ini.copyright() )  #copyright
         result.append( self.ini.price() )#price
-        result.append( self.name() ) #name
+        created = DayMonthYear ( self.manualcsv.day(), self.manualcsv.month(), self.manualcsv.year())
+        
+        result.append( self.name(created) ) #name
         result.append( self.ini.city() ) #city
         result.append( self.ini.region() ) #Region
         result.append( self.ini.country() ) #Country
-        result.append( self.manualcsv.created() ) #Created
+
+        result.append( Slash(created).show()  ) #Created
+        
         result.append( self.ini.specifysource() ) #specififedsource
         result.append( self.manualcsv.keywords() )#keyword 
         result.append( self.staticcsv.keywordsCheckbox() )#keywordsCheckbox
         result.append( self.staticcsv.publicBin() )#publicbin
+
         result.append( QuotationMark(self.manualcsv.description()).string() ) #description
+        
         result.append( self.ini.imagetype()  )#imagetype
         return ",".join(result)
 
-    def name(self):
+    def name(self, created):
         '''@return name as concatenation fo Description, date creation , city, country'''
-        return Name(self.ini, self.manualcsv).string()
+        return Name(self.ini, self.manualcsv, created).string()
 
     def __str__(self):
         return "CSVImage:[{0}]".format(self.ini)
 
     def __repr__(self):
         return "[{0}]".format(self.data())
-class Name():
+
+class Name:
     '''@overview: name fo the CSV final to upload'''
     
-    def __init__(self, new_ini, new_manual):
+    def __init__(self, new_ini, new_manual, new_created):
         self.city = new_ini.city()
         self.country = new_ini.country()
-        self.created = new_manual.created()
+        self.created = new_created
         self.description = new_manual.description()
 
-
     def string(self):
-        '''@returnt the name as concatenation of elementary data'''
-        result = QuotationMark("{0}, {1} - {2}: {3}".format(self.city, self.country, Space(self.created).from_slash().inverse(), self.description)).string()
+        '''@return the name as concatenation of elementary data'''
+        result = QuotationMark ( "{0}, {1} - {2}: {3}".format(self.city, self.country, Space(self.created).inverse(), self.description ) ).string()
         return result[0:79]
-
 
 
 class TestName(unittest.TestCase):
@@ -73,10 +80,10 @@ class CSVImageStatic:
 
     def keywordsCheckbox(self):
         '''@return list of static values'''
-        return "keywordscheckbox-static" #TODO delete
+        return " " #"keywordscheckbox-static" #TODO delete
 
     def publicBin(self):
-        return "publicBin-static" #TODO delete
+        return " "# "publicBin-static" #TODO delete
 
 class TestCSVImage(unittest.TestCase):
 

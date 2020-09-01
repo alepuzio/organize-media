@@ -14,7 +14,7 @@ class NameCSV:
 
     def name(self):
         '''@return complete path of the file ini'''    
-        res = self.directory + os.sep + self.namecsv.name()
+        res = self.directory + os.sep + self.namecsv.name()# TODO concatenation string
         return res
 
 class Manual:

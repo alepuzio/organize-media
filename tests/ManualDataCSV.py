@@ -19,11 +19,11 @@ class ManualDataCSV:
     def data(self, map_file_single_data):
         '''@return list of data file'''
         list_rows = []
-        list_rows.append("Created,OriginalFilename,Description,Keywords,\n") 
+        list_rows.append("Day,Month,Year,OriginalFilename,Description,Keywords,\n") 
         for tmp_file in map_file_single_data.keys():
             tmp_value = map_file_single_data[tmp_file]
-            list_rows.append( "%s\t,%s\t,%s\t,%s\n" % ( Slash( self.time( tmp_value.tupla() ) ).show(), self.filename( tmp_value.tupla() ), "  ", "  "))
-            #self.logging.print( "tmp: %s" % str(list_rows) )
+            list_rows.append( "%s,%s,%s,%s\t,%s\t,%s\n" % (tmp_value.tupla().time.day()  , tmp_value.tupla().time.month().single_number(), tmp_value.tupla().time.year()  , self.filename ( tmp_value.tupla() ), "  ", "  "))
+
         return self.safefile.safe(list_rows)
         
     

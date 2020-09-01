@@ -39,9 +39,19 @@ class Slash:
 
 class Space:
     '''@overview: decorator with one space'''
-    def __init__(self, new_data_as_string):
-        self.data = new_data_as_string
+    def __init__(self, newdaymonthyear):
+        self.daymonthyear = newdaymonthyear
         self.sep = " "
+
+    def show(self):
+        #TODO centralize in a class
+        return self.daymonthyear.show(self.sep)
+
+    def inverse(self):
+        #TODO centralize in a class
+        return self.daymonthyear.inverse(self.sep)
+
+   
 
     def replace(self, old_sep):
         '''@return the substitution from dash to space separator'''
@@ -50,8 +60,10 @@ class Space:
     def from_slash(self):
         return Space(self.replace ( "/" ))
 
-    def inverse(self):#TODO centralize in a class
-        return self.data.inverse(self.sep)
+    def inverse_ ( self ) :
+        #TODO centralize in a class
+        pass
+    #return self.data.(self.sep)
 
 class Dash:
     '''@overview: decorator with one dash'''
