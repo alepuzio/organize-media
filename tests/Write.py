@@ -59,7 +59,7 @@ class Write:
         elif extension.video():
             fileini = Video ( data_ini )
         else:
-            raise Error ("Unkown type of file")
+            raise Error ("Unkown type of file: {0}".format( extension ) )
         
         fileini.data()# TODO put exception o r message if there's any image of video
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 

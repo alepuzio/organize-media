@@ -33,10 +33,9 @@ class ReadFileINI:
                 self.log.print("creo file video")
                 file_ini = Video ( ReadINI ( config ) ) 
             else:
-                raise Error ("Unkown type of file")
+                raise Error ("Unkown type of file:{0}".format(extension) ) 
         else:
-            self.log.warn("The file [[0}] is not present, I stop the elaboration".format(path)
-            raise
+            raise Error( "The file [[0}] is not present, I stop the elaboration".format(path) )
         return file_ini
 
 class Image:
@@ -46,7 +45,7 @@ class Image:
         self.read = new_read_ini
 
     def copyright(self):
-        return  "\"" + self.read.copyright(self.name) + "\""
+        return  QuotationMark( self.read.copyright(self.name) ).string()
 
     def city(self):
         return self.read.city(self.name)
@@ -55,7 +54,7 @@ class Image:
         return self.read.price(self.name)
     
     def specifysource(self):
-        return "\"" + self.read.specifysource(self.name) + "\""
+        return QuotationMark ( self.read.specifysource(self.name) ).string()
     
     def region(self):
         return self.read.region(self.name)
@@ -76,7 +75,7 @@ class Video:
         self.read = new_read_ini
 
     def copyright(self):
-        return "\"" + self.read.copyright(self.name) + "\""
+        return QuotationMark( self.read.copyright(self.name) ).string()
 
     def city(self):
         return self.read.city(self.name)
@@ -85,7 +84,7 @@ class Video:
         return self.read.price(self.name)
     
     def specifysource(self):
-        return "\"" + self.read.specifysource(self.name) + "\"" 
+        return QuotationMark ( self.read.specifysource(self.name) ).string()
     
     def region(self):
         return self.read.region(self.name)
