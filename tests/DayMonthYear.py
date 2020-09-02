@@ -93,7 +93,7 @@ class TestDayMonthYear(unittest.TestCase):
         year = "2020"
         month = "06"
         day = "10"
-        dayMonthYear = Space ( Dash ( DayMonthYear(day, month, year) ).show() ).from_dash()
+        dayMonthYear = Space ( ( DayMonthYear(day, month, year) ) ).show()
         expected = "10 06 2020"
         self.assertEqual( dayMonthYear, expected)
 
