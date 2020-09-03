@@ -24,8 +24,9 @@ class FinalDataTag:
         list_rows = []
         for tmp_file in self.list_data:
                 tmp_value = tmp_file
-                list_rows.append( "{0}\n".format ( tmp_value )) 
+                list_rows.append( "{0};".format ( tmp_value )) 
         self.logging.print( "tmp: %s" % str(list_rows) )
+        list_rows.sort()
         return self.safefile.safe(list_rows)
         
 
