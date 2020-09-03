@@ -2,6 +2,8 @@ import unittest
 import os
 from PersonalLogging import PersonalLogging
 from Extension import Extension
+from QuotationMark import QuotationMark
+from QuotationMark import QuotationMark
 
 class ReadFileINI:
     '''@overview: it contains the properties in file INI'''

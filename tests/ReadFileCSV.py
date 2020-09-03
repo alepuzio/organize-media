@@ -69,10 +69,12 @@ class ReadFileCSV:
             with open(path, newline = '') as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
+                    self.log.print("File censito: {0}".format(row))
                     result.append ( ReadCSV(row) )
         else:
-            self.log.warn("The file [{0}] is not present, I stop the elaboration ")
-            raise
+            raise Error ("The file [{0}] is not present, I stop the elaboration ")
+        
+        self.log.print("File censito: {0}".format(result))
         return result 
     
 
@@ -121,4 +123,4 @@ class ReadCSV:
         return "ReadCSV:{0}".format(self.row)
     
     def __repr__(self):
-       return "ReadCSV[{0}][{1}][{2}][{3}]".format(self.created(), self.fileName(), self.description(), self.keywords())
+        return "ReadCSV[{0}]/[{1}]/[{2}]:[{3}]-[{4}]-[{5}]".format(self.day(), self.month(), self.year(), self.fileName(), self.description(), self.keywords())

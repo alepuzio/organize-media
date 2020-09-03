@@ -12,6 +12,7 @@ from Position import TestPosition
 
 from QuotationMark import TestQuotationMark
 
+from DayMonthYear import TestSpace
 from Time import TestTime
 
 from Year import TestYear

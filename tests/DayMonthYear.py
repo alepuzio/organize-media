@@ -23,7 +23,12 @@ class DayMonthYear:
            @param separator = string
         '''
         return separator.join ( [self.year, self.month , self.day] )
-
+    
+    def mmddyyyy(self, separator):
+        '''@return mmddyyyy
+           @param separator = string
+        '''
+        return separator.join ( [self.month , self.day, self.year] )
 
 class Slash:
     '''@overview: decorator with slash'''
@@ -50,7 +55,10 @@ class Space:
     def inverse(self):
         #TODO centralize in a class
         return self.daymonthyear.inverse(self.sep)
-
+    
+    def mmddyyyy(self):
+        #TODO centralize in a class
+        return self.daymonthyear.mmddyyyy(self.sep)
    
 
     def replace(self, old_sep):
@@ -60,10 +68,17 @@ class Space:
     def from_slash(self):
         return Space(self.replace ( "/" ))
 
-    def inverse_ ( self ) :
-        #TODO centralize in a class
-        pass
-    #return self.data.(self.sep)
+
+class TestSpace(unittest.TestCase):
+
+    def test_mmddyyyy(self):
+        year = "2020"
+        month = "06"
+        day = "10"
+        dayMonthYear = Space(DayMonthYear(day, month, year)).mmddyyyy()
+        expected = "06 10 2020"
+        self.assertEqual( dayMonthYear, expected)
+
 
 class Dash:
     '''@overview: decorator with one dash'''
