@@ -4,7 +4,7 @@ from PersonalLogging import PersonalLogging
 from Write import Write
 from Copy import Copy
 from Join import Join
-
+from ListTag import ListTag
 
 class Control:
     '''@overview the class control the params'''
@@ -31,6 +31,12 @@ class Control:
         elif "-j" in opts:
             self.log.print("Join")
             var = Join(args) 
+        elif "-l" in opts:
+            self.log.print("List")
+            var = ListTag(args) 
+        else:
+            self.log.warn("The flag [{0}] is unkown".format (opts) )
+
         return var
 
         
@@ -49,8 +55,15 @@ class TestControl(unittest.TestCase):
         expected = Copy([source, dest])
         self.assertEqual(expected, result)
 
+    def test_list_ok(self):
+        print("********* test_list_ok***************")
+        source  = "./aa"
+        control = Control(["Main.py", "-l", source])
+        result = control.act()
+        expected = ListTag ( [source] )
+        self.assertEqual(expected, result)
 
-    def st_Join_ok(self):
+    def test_Join_ok(self):
         print("********* test_join_ok***************")
         source  = "./aa"
         control = Control(["Main.py", "-j", source])

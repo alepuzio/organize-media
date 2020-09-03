@@ -7,8 +7,8 @@ from CSVImage import CSVImage
 
 from FileToWrite import FileToWrite
 from FinalDataCSV import FinalDataCSV
-from NameCSV import Final
-from NameCSV import NameCSV
+from NameFile import Final
+from NameFile import NameCSV
 
 from PersonalLogging import PersonalLogging
 
@@ -53,5 +53,14 @@ class Join:
         the list is passed to a class that creates the file'
         this object is formatted as CSV
         '''
-        filecsv = FinalDataCSV ( SafeFile ( FileToWrite ( NameCSV ( self.directory, Final() ).name() ) ), properties_file_csv, properties_ini ) 
+        filecsv = FinalDataCSV ( 
+                SafeFile ( 
+                    FileToWrite ( 
+                        NameCSV ( self.directory, 
+                            Final() 
+                            ).name() 
+                        ) 
+                    ), 
+                properties_file_csv, 
+                properties_ini ) 
         filecsv.data ( )
