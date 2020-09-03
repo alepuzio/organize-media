@@ -35,8 +35,9 @@ class GroupTags:
         '''@return list of good tags to sell'''
         mean = self.mean()
         choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with more than mean
-        if len(choosen_tags) < 10:
-            print("median")
+        if len(choosen_tags) > 40:
+           choosen_tags =   [tmp.name for tmp in self.tags if tmp.rating() > (mean*2 )] 
+        elif len(choosen_tags) < 10:
             median = self.median()
             choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
         return choosen_tags
