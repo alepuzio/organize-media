@@ -1,0 +1,37 @@
+import unittest
+
+from CSVImage import CSVImage
+from CSVVideo import CSVVideo
+
+from FileToWrite import FileToWrite
+from Label import LabelImage
+from Label import LabelVideo
+from PersonalLogging import PersonalLogging
+from SafeFile import SafeFile
+
+
+
+class FinalDataTag:
+    '''@overview: class for the good tags'''
+    
+    def __init__(self, new_safe_file, new_list_tag):
+        self.safefile = new_safe_file
+        self.list_data = new_list_tag
+        self.logging = PersonalLogging("FinalDataTag")
+
+    def data(self):
+        '''@return list of data file'''
+        list_rows = []
+        for tmp_file in self.list_data:
+                tmp_value = tmp_file
+                list_rows.append( "{0}\n".format ( tmp_value )) 
+        self.logging.print( "tmp: %s" % str(list_rows) )
+        return self.safefile.safe(list_rows)
+        
+
+
+class TestFinalDataTag(unittest.TestCase):
+
+    def st_data(self):
+        '''TODO heavy to prepare the input data'''
+        pass

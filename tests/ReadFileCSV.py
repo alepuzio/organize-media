@@ -4,7 +4,7 @@ import re
 import unittest
 
 from Extension import Extension
-
+from NameFile import Manual
 from PersonalLogging import PersonalLogging
 
 
@@ -18,7 +18,7 @@ class Image:
     def read(self):
         '''@return the object with the properties'''
         if self.valid():
-            name = 'manual-data.csv'
+            name =  Manual().name()            #'manual-data.csv'
             res = self.read_file_csv.read(name)
         else:
             res = Video ( self.read_file_csv ).read()
@@ -41,7 +41,7 @@ class Video:
     def read(self):
         '''@return the object with the properties'''
         if self.valid():
-            name = 'manual-data.csv'
+            name = Manual().name() #'manual-data.csv'
             res = self.read_file_csv.read(name)
         else:
             res = Video ( self.read_file_csv ).read()

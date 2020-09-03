@@ -4,6 +4,46 @@ import os
 
 
 
+class NameINI:
+    '''@overview: class about the name of the initial ini file of properties'''
+    
+    def __init__(self, new_directory):
+        self.directory = new_directory
+        self.logging = PersonalLogging("NameINI")
+
+    def name(self):
+        '''@return complete path of the file ini'''    
+        res = self.directory + os.sep + "common.ini"
+        return res
+
+class TestNameINI(unittest.TestCase):
+
+    def test_name(self):
+        var = NameINI("C:\\fake\\path")
+        res = var.name()
+        expected = "C:\\fake\\path\\common.ini"
+        self.assertEqual(res, expected)
+
+class NameDraft:
+    '''@overview: class about the name of the file with selected tags'''
+    
+    def __init__(self, new_directory):
+        self.directory = new_directory
+        self.logging = PersonalLogging("NameDraft")
+
+    def name(self):
+        '''@return complete path of the file draft'''    
+        res = "{0}{1}{2}".format(self.directory , os.sep , "selected_tags.txt")
+        return res
+
+class TestNameDraft(unittest.TestCase):
+
+    def test_name(self):
+        var = NameDraft("C:\\fake\\path")
+        res = var.name()
+        expected = "C:\\fake\\path\\selected_tags.txt"
+        self.assertEqual(res, expected)
+
 class NameCSV:
     '''@overview: class about the name of the initial csv file of the files'''
     
@@ -14,7 +54,7 @@ class NameCSV:
 
     def name(self):
         '''@return complete path of the file ini'''    
-        res = self.directory + os.sep + self.namecsv.name()# TODO concatenation string
+        res = "{0}{1}{2}".format( self.directory , os.sep , self.namecsv.name() )
         return res
 
 class Manual:

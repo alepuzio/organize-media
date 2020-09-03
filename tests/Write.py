@@ -19,9 +19,9 @@ from FileToWrite import FileToWrite
 
 from ManualDataCSV import ManualDataCSV
 
-from NameCSV import Manual
-from NameCSV import NameCSV
-from NameINI import NameINI
+from NameFile import Manual
+from NameFile import NameCSV
+from NameFile import NameINI
 
 from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile

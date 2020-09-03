@@ -1,18 +1,14 @@
-import os
-import sys
 import unittest
 
-from Copy import Copy
 
 from FileToWrite import FileToWrite
-from FinalDataCSV import FinalDataCSV
-from NameCSV import Final
-from NameCSV import NameCSV
+from FinalDataTag import FinalDataTag
+
+from GroupTags import GroupTags
+from NameFile import NameDraft
 
 from PersonalLogging import PersonalLogging
-
 from ReadFileTag import ReadFileTag
-
 from SafeFile import SafeFile
 from Write import Write
 
@@ -42,5 +38,16 @@ class ListTag:
         - print the tags in a row
         '''
         print("run")
-        ReadFileTag(self.directory).read()
+        FinalDataTag(
+                SafeFile ( 
+                    FileToWrite ( 
+                        NameDraft(self.directory).name(), 
+                    )
+                ), 
+                GroupTags ( 
+                    ReadFileTag(
+                        self.directory
+                        ).read()
+                    ).calculate( ) 
+            ).data()
 

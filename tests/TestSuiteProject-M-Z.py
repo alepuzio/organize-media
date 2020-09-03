@@ -5,8 +5,8 @@ from ManualDataCSV import ManualDataCSV
 from Media import TestMedia
 from Month import TestMonth
 
-from NameCSV import TestNameCSV
-from NameINI import TestNameINI
+from NameFile import TestNameCSV
+from NameFile import TestNameINI
 
 from Position import TestPosition
 

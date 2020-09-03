@@ -28,7 +28,8 @@ class ReadFileTag:
                     else:
                         provvisory_tag = row
                     number_row = number_row + 1
-                    result.append (   Tag(name, provvisory_tag) )
+                    if  name != "UNOKWN_NAME" and provvisory_tag != "UNKWON_TAGS" :
+                        result.append (   Tag(name, provvisory_tag) )
         else:
             raise Exception("The file [{0}] is not present, I stop the elaboration ".format ( path ) ) 
         return result 
@@ -45,7 +46,7 @@ class Tag:
         return self.name
    
     def rating(self):
-        return float( self.tags.split( " " )[2] )
+        return float( self.tags.split( "\t" )[2] )
     
     def __str__(self):
         return "Tag-{0}-{1}".format(self.name, self.tags)
