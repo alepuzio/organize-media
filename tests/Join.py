@@ -46,12 +46,12 @@ class Join:
         
         #TODO centralize in an object
         properties_ini = ReadFileINI(self.directory).read()# has INI
-        '''TODO control that every property has a value, othrwise exception'''
-        properties_csv = Image ( ReadFileCSV ( self.directory ) ).read() 
+        #TODO control that every property has a value, othrwise exception
+        properties_file_csv = Image ( ReadFileCSV ( self.directory ) ).read() 
         '''  every row-obejct is put inside another object with the optional data and the INI object  
         this object will be in another list
         the list is passed to a class that creates the file'
         this object is formatted as CSV
         '''
-        filecsv = FinalDataCSV ( SafeFile ( FileToWrite ( NameCSV ( self.directory, Final() ).name() ) ), properties_csv, properties_ini ) 
+        filecsv = FinalDataCSV ( SafeFile ( FileToWrite ( NameCSV ( self.directory, Final() ).name() ) ), properties_file_csv, properties_ini ) 
         filecsv.data ( )

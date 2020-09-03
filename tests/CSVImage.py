@@ -63,7 +63,7 @@ class Name:
 
     def string(self):
         '''@return the name as concatenation of elementary data'''
-        result = QuotationMark ( "{0}, {1} - {2}: {3}".format(self.city, self.country, Space(self.created).inverse(), self.description ) ).string()
+        result = QuotationMark ( "{0}, {1} - {2}: {3}".format(self.city, self.country, Space(self.created).mmddyyyy(), self.description ) ).string()
         return result[0:79]
 
 
