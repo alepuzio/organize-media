@@ -31,13 +31,19 @@ class GroupTags:
             median = n_num[number_element//2] 
         return median 
 
+
     def calculate(self):
         '''@return list of good tags to sell'''
+        elements = [ tmp.label()  for tmp in  self.tags]
+        elements.sort()
+        self.log.print("tags:{0} " .format(elements  ) )  
         mean = self.mean()
         choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with more than mean
-        if len(choosen_tags) > 40:
-           choosen_tags =   [tmp.name for tmp in self.tags if tmp.rating() > (mean*2 )] 
-        elif len(choosen_tags) < 10:
+        number_tags = len(choosen_tags)
+        if number_tags > 400:
+            self.log.warn ("There are {0} tags over the mean {1}, too much".format(number_tags, mean ) )
+            choosen_tags =   [tmp.name for tmp in self.tags if tmp.rating() > (mean * 2/3 )] 
+        elif number_tags < 10:
             median = self.median()
             choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
         return choosen_tags

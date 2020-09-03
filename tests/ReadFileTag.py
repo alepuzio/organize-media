@@ -21,6 +21,7 @@ class ReadFileTag:
                 number_row = 0;
                 name = "UNOKWN_NAME"
                 provvisory_tag = "UNKWON_TAGS"
+                '''
                 lines = [ line.rstrip() for line in file_tags ]#TODO using another class
                 for row in lines:#TODO use decorator for txt, ini and csv
                     if  0 ==(number_row % 2) :
@@ -30,6 +31,14 @@ class ReadFileTag:
                     number_row = number_row + 1
                     if  name != "UNOKWN_NAME" and provvisory_tag != "UNKWON_TAGS" :
                         result.append (   Tag(name, provvisory_tag) )
+                '''
+                while True:
+                    name = file_tags.readline()
+                    provvisory_tag = file_tags.readline()
+                    if not name or not provvisory_tag:
+                        break
+                    result.append (   Tag(name.rstrip(), provvisory_tag.rstrip()) )
+
         else:
             raise Exception("The file [{0}] is not present, I stop the elaboration ".format ( path ) ) 
         return result 
