@@ -11,7 +11,7 @@ from NameCSV import NameCSV
 
 from PersonalLogging import PersonalLogging
 
-
+from ReadFileTag import ReadFileTag
 
 from SafeFile import SafeFile
 from Write import Write
@@ -42,5 +42,5 @@ class ListTag:
         - print the tags in a row
         '''
         print("run")
-#        filecsv = FinalDataCSV ( SafeFile ( FileToWrite ( NameCSV ( self.directory, Final() ).name() ) ), properties_file_csv, properties_ini ) 
- #       filecsv.data ( )
+        ReadFileTag(self.directory).read()
+

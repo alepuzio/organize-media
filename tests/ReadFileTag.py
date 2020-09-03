@@ -12,24 +12,25 @@ class ReadFileTag:
         self.dir = new_dir
         self.log = PersonalLogging("ReadFileTag")
 
-    def read(self,name):
+    def read(self):
         path =  "{0}{1}{2}".format(self.dir, os.sep, "draft-tag.txt")  #TODO concatenation of string to improve
         result = []
         exists = os.path.exists(path)
         if exists :
             with open(path, newline = '') as file_tags:
-                reader = csv.DictReader(csvfile)
                 number_row = 0;
                 name = "UNOKWN_NAME"
                 provvisory_tag = "UNKWON_TAGS"
-                for row in reader:
+                lines = [ line.rstrip() for line in file_tags ]
+                for row in lines:#TODO use decorator for txt, ini and csv
                     if  0 ==(number_row % 2) :
                         name = row
                     else:
                         provvisory_tag = row
+                    number_row = number_row + 1
                     result.append (   Tag(name, provvisory_tag) )
         else:
-            raise Error ("The file [{0}] is not present, I stop the elaboration ") 
+            raise Exception("The file [{0}] is not present, I stop the elaboration ".format ( path ) ) 
         return result 
     
 
@@ -44,7 +45,7 @@ class Tag:
         return self.name
    
     def rating(self):
-        return self.tags.split( " " )[2]
+        return float( self.tags.split( " " )[2] )
     
     def __str__(self):
         return "Tag-{0}-{1}".format(self.name, self.tags)
