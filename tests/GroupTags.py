@@ -36,16 +36,21 @@ class GroupTags:
         '''@return list of good tags to sell'''
         elements = [ tmp.label()  for tmp in  self.tags]
         elements.sort()
-        self.log.print("tags:{0} " .format(elements  ) )  
+        self.log.print("There are {0} tags".format(elements  ) )  
         mean = self.mean()
         choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with more than mean
         number_tags = len(choosen_tags)
-        if number_tags > 400:
+        if number_tags > 39:
             self.log.warn ("There are {0} tags over the mean {1}, too much".format(number_tags, mean ) )
-            choosen_tags =   [tmp.name for tmp in self.tags if tmp.rating() > (mean * 2/3 )] 
+            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > (mean * 3/2 )] 
+        if number_tags < 15:
+            self.log.warn ("There are {0} tags over the mean {1}, too few".format(number_tags, mean ) )
+            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > (mean * 1/2 )] 
         elif number_tags < 10:
             median = self.median()
             choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
+        
+        self.log.warn ("There are {0} tags about the keywords".format( len(choosen_tags ) ) )
         return choosen_tags
 
 class TestGroupTags(unittest.TestCase):

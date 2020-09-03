@@ -9,7 +9,7 @@ from NameFile import NameDraft
 
 from PersonalLogging import PersonalLogging
 from ReadFileTag import ReadFileTag
-from SafeFile import SafeFile
+from UnsafeFile import UnsafeFile
 from Write import Write
 
 
@@ -39,11 +39,12 @@ class ListTag:
         '''
         print("run")
         FinalDataTag(
-                SafeFile ( 
-                    FileToWrite ( 
-                        NameDraft(self.directory).name(), 
+            UnsafeFile(
+                FileToWrite ( 
+                    NameDraft(self.directory).name(), 
                     )
-                ), 
+                )
+                , 
                 GroupTags ( 
                     ReadFileTag(
                         self.directory
