@@ -21,7 +21,7 @@ class ReadFileTag:
                 number_row = 0;
                 name = "UNOKWN_NAME"
                 provvisory_tag = "UNKWON_TAGS"
-                lines = [ line.rstrip() for line in file_tags ]
+                lines = [ line.rstrip() for line in file_tags ]#TODO using another class
                 for row in lines:#TODO use decorator for txt, ini and csv
                     if  0 ==(number_row % 2) :
                         name = row
