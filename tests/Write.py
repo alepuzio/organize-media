@@ -6,6 +6,7 @@ import unittest
 from DataINI import DataINI
 from DataINI import Image
 from DataINI import Video
+from DataINI import DataDraft
 
 from Extension import Extension
 
@@ -65,3 +66,6 @@ class Write:
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files = GroupReadFiles ( FileSystem ( self.directory ).walk()   ).map()          
         filecsv.data ( map_original_files )
+
+        DataDraft ( SafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data
+
