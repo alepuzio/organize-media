@@ -37,7 +37,7 @@ class FinalDataCSV:
                 tmp_value = CSVVideo(self.properties_ini, tmp_file)
                 list_rows.append( "{0}\n".format ( tmp_value.data())) #TODO centralize
         
-        self.logging.print( "tmp: %s" % str(list_rows) )
+        self.logging.print( "Elaborated: %s" % str ( len ( list_rows ) ) )
         return self.safefile.safe(list_rows)
         
     def image(self):
