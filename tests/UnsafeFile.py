@@ -19,8 +19,7 @@ class UnsafeFile:
             self.logging.print("Created file: %s" % self.file_to_write)
         except OSError as e:
             if e.errno != errno.EEXIST:
-                self.logging.warn("Error in creating file: %s" % self.file_to_write)
-                raise
+                raise Exception("Error in creating file: %s" % self.file_to_write)
 
     def __repr__ (self):
         return self.file_to_write
