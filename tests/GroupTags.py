@@ -40,18 +40,24 @@ class GroupTags:
         mean = round ( self.mean()) 
         choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with more than mean
         number_tags = len(choosen_tags)
-        if number_tags > 39:
+        #TODO keep in mind using recursion instead of the if-else cascade
+        if number_tags < 10:
+            raise Exception("The input tags are {0}, too few. Please add some other tags")
+        elif number_tags > 30:
             correction = round (mean * 1.5)
-            self.log.warn ("There are {0} tags over the mean {1}, too much".format(number_tags, mean, correction ) )
+            self.log.warn ("There are {0} tags over the mean {1}, too much, I'm calculating using the new mean {2}".format(number_tags, mean, correction ) )
             choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > correction ] 
-        if number_tags < 15:
+        elif number_tags < 15:
             correction = round(mean * 0.5)
             self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using mean {2}".format(number_tags, mean, correction ) )
             choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > correction ] 
-        elif number_tags < 10:
+        elif number_tags < 7:
             median = round(self.median())
             self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using median {2}".format(number_tags, mean, median ) )
             choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
+        else:
+            correct_tags = True
+            
         self.log.warn ("There are {0} tags about the keywords".format( len(choosen_tags ) ) )
         return choosen_tags
 
