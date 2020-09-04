@@ -59,22 +59,21 @@ class ReadFileCSV:
 
     def __init__(self, new_dir):
         self.dir = new_dir
-        self.log = PersonalLogging("ReadFileCSV")
+        self.log = PersonalLogging("ReadFileCSV", False)
 
     def read(self,name):
-        path =  self.dir + os.sep + name #TODO concatenation of string to improve
+        path =  "{0}{1}{2}".format(self.dir, os.sep , name)
         result = []
         exists = os.path.exists(path)
         if exists :
             with open(path, newline = '') as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
-                    self.log.print("File censito: {0}".format(row))
                     result.append ( ReadCSV(row) )
         else:
             raise Error ("The file [{0}] is not present, I stop the elaboration ")
         
-        self.log.print("File censito: {0}".format(result))
+        self.log.print("Elaborated file: {0}".format( len(result) ) )
         return result 
     
 
