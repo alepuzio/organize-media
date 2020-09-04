@@ -21,6 +21,7 @@ class DataINI:
         
 
 class Image:
+    '''@overview: label about the image INI file'''
     def __init__(self, new_data_ini):
         self.data_ini = new_data_ini
         self.loggging = PersonalLogging("Image")
@@ -32,6 +33,8 @@ class Image:
         return self.data_ini.data(list_rows)
 
 class Video:
+    '''@overview: labels about the video INI file'''
+
     def __init__(self, new_data_ini):
         self.data_ini = new_data_ini
         self.loggging = PersonalLogging("Video")
@@ -41,3 +44,15 @@ class Video:
         list_rows.append("[Video]\n")
         list_rows.append("ImageType=video\n")
         return self.data_ini.data(list_rows)
+
+class DataDraft:
+    '''@class for the initial draft file about the tags'''
+    
+    def __init__(self, new_safe_file):
+        self.safefile = new_safe_file
+        self.logging = PersonalLogging("DataiDraft")
+
+    def data(self, list_rows):
+        '''@return list of the field'''
+        list_rows.append("empty file, only temporary data\n")
+        return self.safefile.safe(list_rows)

@@ -1,7 +1,6 @@
 import os
 import platform
 import time
-import unittest
 from datetime import datetime
 
 

@@ -26,16 +26,17 @@ class ReadFileINI:
             #TODO centralize in an object
             path = self.dir.split ( os.sep )
             path.reverse()
-            extension = Extension ( path[0] )
+            extension = Extension ( path[0] )#TODO put control if the path finish in \ or \\
+            
             file_ini = ReadFileINI(self.dir)
             if extension.image(): #TODO: create decorator and class
-                self.log.print("reo file immagine")
+                self.log.print("I will writing a images file ")
                 file_ini = Image ( ReadINI ( config ) ) 
             elif extension.video():
-                self.log.print("creo file video")
+                self.log.print("I will writing a video file")
                 file_ini = Video ( ReadINI ( config ) ) 
             else:
-                raise Error ("Unkown type of file:{0}".format(extension) ) 
+                raise Exception ("Unkown type of file:{0}".format(extension) ) 
         else:
             raise Error( "The file [[0}] is not present, I stop the elaboration".format(path) )
         return file_ini

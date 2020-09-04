@@ -12,12 +12,12 @@ class FileToWrite:
         self.logging = PersonalLogging ("FileToWrite", False)
 
     def hard_disk(self, list_rows):
-        '''crete the physicalfile'''
-        self.logging.print("<head_disk:" + str(list_rows))
-        with open(self.path, "w") as fileini:
+        '''@effects: create the physicalfile'''
+        self.logging.print("<hard_disk:" + str(list_rows))
+        with open(self.path, "w") as file_tmp:
             for tmp in list_rows:
                 self.logging.print(tmp)
-                fileini.write(tmp)
+                file_tmp.write(tmp)
 
 
     def __repr__(self):
