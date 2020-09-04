@@ -17,7 +17,7 @@ class FinalDataTag:
     def __init__(self, new_safe_file, new_list_tag):
         self.safefile = new_safe_file
         self.list_data = new_list_tag
-        self.logging = PersonalLogging("FinalDataTag")
+        self.logging = PersonalLogging("FinalDataTag", False )
 
     def data(self):
         '''@return list of data file'''

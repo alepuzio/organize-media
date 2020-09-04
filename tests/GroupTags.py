@@ -36,20 +36,22 @@ class GroupTags:
         '''@return list of good tags to sell'''
         elements = [ tmp.label()  for tmp in  self.tags]
         elements.sort()
-        self.log.print("There are {0} tags".format(elements  ) )  
-        mean = self.mean()
+        self.log.print("There are {0} tags".format( len(elements)  ) )  
+        mean = round ( self.mean()) 
         choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with more than mean
         number_tags = len(choosen_tags)
         if number_tags > 39:
-            self.log.warn ("There are {0} tags over the mean {1}, too much".format(number_tags, mean ) )
-            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > (mean * 3/2 )] 
+            correction = round (mean * 1.5)
+            self.log.warn ("There are {0} tags over the mean {1}, too much".format(number_tags, mean, correction ) )
+            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > correction ] 
         if number_tags < 15:
-            self.log.warn ("There are {0} tags over the mean {1}, too few".format(number_tags, mean ) )
-            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > (mean * 1/2 )] 
+            correction = round(mean * 0.5)
+            self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using mean {2}".format(number_tags, mean, correction ) )
+            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > correction ] 
         elif number_tags < 10:
-            median = self.median()
+            median = round(self.median())
+            self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using median {2}".format(number_tags, mean, median ) )
             choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
-        
         self.log.warn ("There are {0} tags about the keywords".format( len(choosen_tags ) ) )
         return choosen_tags
 
