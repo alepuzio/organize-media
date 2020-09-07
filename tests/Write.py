@@ -67,6 +67,9 @@ class Write:
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files = GroupReadFiles ( FileSystem ( self.directory ).walk()   ).map()          
         filecsv.data ( map_original_files )
-
+        print(">datadraft")
         DataDraft ( SafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data
+
+        print("<datadraft")
+
 

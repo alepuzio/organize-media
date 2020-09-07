@@ -9,7 +9,7 @@ class FileToWrite:
 
     def __init__(self, new_path):
         self.path = new_path
-        self.logging = PersonalLogging ("FileToWrite", False)
+        self.logging = PersonalLogging ("FileToWrite", True)
 
     def hard_disk(self, list_rows):
         '''@effects: create the physicalfile'''
