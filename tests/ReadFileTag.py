@@ -2,7 +2,7 @@ import os
 import unittest
 
 from PersonalLogging import PersonalLogging
-
+from NameFile import NameDraft
 
 class ReadFileTag:
     '''@overview: it contains the properties in file of tag and number:w
