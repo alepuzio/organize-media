@@ -42,7 +42,14 @@ class GroupTags:
         number_tags = len(choosen_tags)
         #TODO keep in mind using recursion instead of the if-else cascade
         if number_tags < 10:
-            raise Exception("The input tags are {0}, too few. Please add some other tags")
+            choosen_tags.append("\n***************************\nThe input tags are {0}, too few. Please add some other tag\n************************\n".format( number_tags ).upper())
+        else:
+            correct_tags = True
+        
+        self.log.warn ("There are {0} tags about the keywords".format( len(choosen_tags ) ) )
+        return choosen_tags
+
+        '''
         elif number_tags > 30:
             correction = round (mean * 1.5)
             self.log.warn ("There are {0} tags over the mean {1}, too much, I'm calculating using the new mean {2}".format(number_tags, mean, correction ) )
@@ -55,12 +62,7 @@ class GroupTags:
             median = round(self.median())
             self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using median {2}".format(number_tags, mean, median ) )
             choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
-        else:
-            correct_tags = True
-            
-        self.log.warn ("There are {0} tags about the keywords".format( len(choosen_tags ) ) )
-        return choosen_tags
-
+        '''
 class TestGroupTags(unittest.TestCase):
 
     def test_calculate_by_mean(self):

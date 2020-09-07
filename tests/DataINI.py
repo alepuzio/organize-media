@@ -52,8 +52,9 @@ class DataDraft:
         self.safefile = new_safe_file
         self.logging = PersonalLogging("DataDraft", True)
 
-    def data(self, list_rows):
+    def data(self):
         '''@return list of the field'''
+        list_rows = []
         self.logging.print("data")
         list_rows.append("empty file, only temporary data\n")
         return self.safefile.safe(list_rows)

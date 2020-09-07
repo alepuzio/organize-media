@@ -2,7 +2,7 @@ import os
 import unittest
 
 from PersonalLogging import PersonalLogging
-
+from NameFile import NameDraft
 
 class ReadFileTag:
     '''@overview: it contains the properties in file of tag and number:w
@@ -13,7 +13,7 @@ class ReadFileTag:
         self.log = PersonalLogging("ReadFileTag")
 
     def read(self):
-        path =  "{0}{1}{2}".format(self.dir, os.sep, "draft-tag.txt")  #TODO concatenation of string to improve
+        path =  NameDraft( self.dir).name()  #TODO concatenation of string to improve
         result = []
         exists = os.path.exists(path)
         if exists :
@@ -21,17 +21,6 @@ class ReadFileTag:
                 number_row = 0;
                 name = "UNOKWN_NAME"
                 provvisory_tag = "UNKWON_TAGS"
-                '''
-                lines = [ line.rstrip() for line in file_tags ]#TODO using another class
-                for row in lines:#TODO use decorator for txt, ini and csv
-                    if  0 ==(number_row % 2) :
-                        name = row
-                    else:
-                        provvisory_tag = row
-                    number_row = number_row + 1
-                    if  name != "UNOKWN_NAME" and provvisory_tag != "UNKWON_TAGS" :
-                        result.append (   Tag(name, provvisory_tag) )
-                '''
                 while True:
                     name = file_tags.readline()
                     provvisory_tag = file_tags.readline()

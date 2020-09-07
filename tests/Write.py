@@ -24,10 +24,12 @@ from NameFile import Manual
 from NameFile import NameCSV
 from NameFile import NameINI
 from NameFile import NameDraft
+from NameFile import NameSelected
 
 from PersonalLogging import PersonalLogging
-from SafeFile import SafeFile
 
+from SafeFile import SafeFile
+from UnsafeFile import UnsafeFile
 
 
 
@@ -67,9 +69,7 @@ class Write:
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files = GroupReadFiles ( FileSystem ( self.directory ).walk()   ).map()          
         filecsv.data ( map_original_files )
-        print(">datadraft")
-        DataDraft ( SafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data
-
-        print("<datadraft")
-
+        DataDraft ( UnsafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data()
+    
+        DataDraft ( UnsafeFile ( FileToWrite ( NameSelected ( self.directory ).name() ) ) ) .data()
 
