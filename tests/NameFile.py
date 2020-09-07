@@ -40,7 +40,7 @@ class NameDraft:
         return res
 
 
-class NameSelect:
+class NameSelected:
     '''@overview: class about the name of the file with selected tags'''
     
     def __init__(self, new_directory):
