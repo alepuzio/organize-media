@@ -42,7 +42,7 @@ class GroupTags:
         number_tags = len(choosen_tags)
         #TODO keep in mind using recursion instead of the if-else cascade
         if number_tags < 10:
-            raise Exception("The input tags are {0}, too few. Please add some other tags")
+            raise Exception("The input tags are {0}, too few. Please add some other tags".format( number_tags ))
         else:
             correct_tags = True
         
