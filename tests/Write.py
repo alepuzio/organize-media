@@ -26,8 +26,9 @@ from NameFile import NameINI
 from NameFile import NameDraft
 
 from PersonalLogging import PersonalLogging
-from SafeFile import SafeFile
 
+from SafeFile import SafeFile
+from UnsafeFile import UnsafeFile
 
 
 
@@ -68,8 +69,11 @@ class Write:
         map_original_files = GroupReadFiles ( FileSystem ( self.directory ).walk()   ).map()          
         filecsv.data ( map_original_files )
         print(">datadraft")
-        DataDraft ( SafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data
-
+        DataDraft ( UnsafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data()
+        print("<datadraft")
+         '''
+        print(">datadraft")
+        DataDraft ( UnSafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data
         print("<datadraft")
 
-
+        '''
