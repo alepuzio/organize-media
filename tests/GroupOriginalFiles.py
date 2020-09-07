@@ -20,7 +20,6 @@ class GroupOriginalFiles:
         self.logging.print("map: " + str(self.map_originalfiles))
         for filetmp in self.map_originalfiles.keys():
            disaggregated_data = self.map_originalfiles[filetmp] 
-           #self.logging.print( "filetmp: " + str(filetmp) )
            self.logging.print( "disaggregated_data: " + str(disaggregated_data) )
            var = SingleFinalData(output_dir, disaggregated_data.tupla())
            self.logging.print( "var: " + str(var))
