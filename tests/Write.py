@@ -23,6 +23,7 @@ from ManualDataCSV import ManualDataCSV
 from NameFile import Manual
 from NameFile import NameCSV
 from NameFile import NameINI
+from NameFile import NameDraft
 
 from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile
