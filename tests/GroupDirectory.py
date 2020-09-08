@@ -11,7 +11,7 @@ class GroupDirectory:
 
     def __init__(self, new_list_finaltupla):
         self.list_final_tupla = new_list_finaltupla
-        self.logging = PersonalLogging("GroupDirectory", True)
+        self.logging = PersonalLogging("GroupDirectory", False)
 
     def various_directory(self):
         '''@return  the list of the new directory with complete path'''

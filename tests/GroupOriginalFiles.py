@@ -12,7 +12,7 @@ class GroupOriginalFiles:
 
     def __init__(self, new_map_originalfiles):
         self.map_originalfiles = new_map_originalfiles
-        self.logging = PersonalLogging("GroupOriginalFiles", True)
+        self.logging = PersonalLogging("GroupOriginalFiles", False)
 
     def map(self, output_dir):
         '''@return la mappa tra persorso assoluto del file letto e dati disaggregati del file da copiare'''
