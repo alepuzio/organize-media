@@ -63,8 +63,8 @@ class Write:
         elif extension.video():
             fileini = Video ( data_ini )
         else:
-            raise Error ("Unkown type of file: {0}".format( extension ) )
-        
+            raise Exception ("Unkown type of file: {0} on [{1}]".format( extension, path[0] ) )
+ 
         fileini.data()# TODO put exception o r message if there's any image of video
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files = GroupReadFiles ( FileSystem ( self.directory ).walk()   ).map()          
