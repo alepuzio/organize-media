@@ -4,7 +4,9 @@ import unittest
 from FileToWrite import FileToWrite
 from FinalDataTag import FinalDataTag
 
+from GroupTags import FailFirst
 from GroupTags import GroupTags
+
 from NameFile import NameSelected
 
 from PersonalLogging import PersonalLogging
@@ -45,10 +47,12 @@ class ListTag:
                     )
                 )
                 , 
-                GroupTags ( 
-                    ReadFileTag(
-                        self.directory
-                        ).read()
+                FailFirst(
+                    GroupTags ( 
+                        ReadFileTag(
+                            self.directory
+                            ).read()
+                        )
                     ).calculate( ) 
             ).data()
 

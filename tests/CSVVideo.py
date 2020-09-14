@@ -1,8 +1,16 @@
 import unittest
-from PersonalLogging import PersonalLogging
+
+from CSVImageName import FailFirst
+from CSVImageName import Name
+
+from DayMonthYear import DayMonthYear 
 from DayMonthYear import Space
 from DayMonthYear import Slash
 
+
+from PersonalLogging import PersonalLogging
+
+from QuotationMark import QuotationMark
 
 
 class CSVVideo:
@@ -38,16 +46,17 @@ class CSVVideo:
         result.append( self.ini.imagetype()  )#imagetype
         return ",".join(result)
 
-    def name(self):#TODO create class
+    def name(self, created):
         '''@return name as concatenation fo Description, date creation , city, country'''
-        result = "\"{0}, {1} - {2}: {3}\"".format(self.ini.city(), self.ini.country(), Space(self.manualcsv.created()).from_dash(), self.manualcsv.description())
-        return result[0:79]
+        return FailFirst ( Name ( self.ini, self.manualcsv, created) ) .string()
 
     def __str__(self):
         return "CSVVideo:[{0}]".format(self.ini)
 
     def __repr__(self):
         return "[{0}]".format(self.data())
+
+
 
 class CSVVideoStatic:
     '''@overview: static value of a video in row CSV

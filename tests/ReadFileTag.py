@@ -12,8 +12,8 @@ class ReadFileTag:
         self.dir = new_dir
         self.log = PersonalLogging("ReadFileTag")
 
-    def read(self):
-        path =  NameDraft( self.dir).name()  #TODO concatenation of string to improve
+    def read(self):#TODO control 100 line and the format of the single row
+        path =  NameDraft( self.dir).name()
         result = []
         exists = os.path.exists(path)
         if exists :

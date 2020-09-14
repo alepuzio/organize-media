@@ -36,33 +36,48 @@ class GroupTags:
         '''@return list of good tags to sell'''
         elements = [ tmp.label()  for tmp in  self.tags]
         elements.sort()
-        self.log.print("There are {0} tags".format( len(elements)  ) )  
+        self.log.print("At beginning, there are {0} tags".format( len(elements)  ) )  
         mean = round ( self.mean()) 
-        choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with more than mean
-        number_tags = len(choosen_tags)
-        #TODO keep in mind using recursion instead of the if-else cascade
-        if number_tags < 10:
-            choosen_tags.append("\n***************************\nThe input tags are {0}, too few. Please add some other tag\n************************\n".format( number_tags ).upper())
-        else:
-            correct_tags = True
-        
-        self.log.warn ("There are {0} tags about the keywords".format( len(choosen_tags ) ) )
-        return choosen_tags
+        choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > mean] #filter only element with higher rating than mean
+        return CorrectTags(choosen_tags).control()
 
-        '''
-        elif number_tags > 30:
-            correction = round (mean * 1.5)
-            self.log.warn ("There are {0} tags over the mean {1}, too much, I'm calculating using the new mean {2}".format(number_tags, mean, correction ) )
-            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > correction ] 
-        elif number_tags < 15:
-            correction = round(mean * 0.5)
-            self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using mean {2}".format(number_tags, mean, correction ) )
-            choosen_tags =  [tmp.name for tmp in self.tags if tmp.rating() > correction ] 
-        elif number_tags < 7:
-            median = round(self.median())
-            self.log.warn ("There are {0} tags over the mean {1}, too few: I'm calculating using median {2}".format(number_tags, mean, median ) )
-            choosen_tags = [tmp.name for tmp in self.tags if tmp.rating() > median] # filter element with more than median
-        '''
+class CorrectTags:
+    
+    def __init__(self, new_list_tags):
+        self.tags = new_list_tags
+
+    def control(self):
+        number_tags = len(self.tags)
+        str_tags = str ( self.tags)
+        if number_tags < 10:#TODO correct magic number
+            raise Exception ("The input tags are {0}, too few. Please add some other tags".format( number_tags ).upper())
+        if ":" in str_tags:
+            raise Exception("There' a comma in tags are {0}, please remove it".format( str_tags) ) 
+        else:
+            self.log.warn ("There are {0} tags about the keywords".format( number_tags ) ) 
+        return self.tags
+        
+
+
+class FailFirst:
+
+    def __init__(self, new_origin):
+        self.origin = new_origin
+
+    def mean(self):
+        return self.origin.mean()
+    
+    def median (self):
+        return self.origin.median()
+
+    def calculate(self):
+        number_tags = len(self.origin.tags)
+        if (0 == number_tags):
+            raise Exception ("No Tags in mean, please write the file")
+        else:
+            return self.origin.calculate()
+ 
+
 class TestGroupTags(unittest.TestCase):
 
     def test_calculate_by_mean(self):
