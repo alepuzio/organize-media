@@ -6,7 +6,7 @@ class GroupFiles:
     '''@overview:  class that copies the file from original path to final path'''
 
     def __init__(self, new_map_files):
-        self.logging = PersonalLogging("GroupFiles", True)
+        self.logging = PersonalLogging("GroupFiles", False)
         self.map_files = new_map_files
 
 
@@ -24,7 +24,7 @@ class Transfert:
     def __init__(self, new_source, new_destination):
         self.source = new_source
         self.destination = new_destination
-        self.logging = PersonalLogging("Transfert", True)
+        self.logging = PersonalLogging("Transfert", False)
 
     def copy(self):
         '''copy one file'''

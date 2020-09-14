@@ -11,7 +11,7 @@ class GroupDirectory:
 
     def __init__(self, new_list_finaltupla):
         self.list_final_tupla = new_list_finaltupla
-        self.logging = PersonalLogging("GroupDirectory", True)
+        self.logging = PersonalLogging("GroupDirectory", False)
 
     def various_directory(self):
         '''@return  the list of the new directory with complete path'''
@@ -19,10 +19,13 @@ class GroupDirectory:
         for filetmp in self.list_final_tupla:
             self.logging.print("filetmp:" + str(filetmp))
             data_tmp = filetmp.tupla()
-            data = ( data_tmp[0], data_tmp[1],  YearMonth(data_tmp[1], data_tmp[2]).show(),  data_tmp[3], data_tmp[4].directory(), data_tmp[5] )
+            #data = ( data_tmp[0], data_tmp[1],  YearMonth(data_tmp[1], data_tmp[2]).show(), "original", data_tmp[3], data_tmp[4].directory(), data_tmp[5] )
+            data = ( data_tmp[0], data_tmp[1],  YearMonth(data_tmp[1], data_tmp[2]).show(), data_tmp[3], data_tmp[4].directory(), data_tmp[5] )
             limit = len(data)
             for place in range(1, limit ):
-                result.append(os.sep.join(data[0:place]))
+                path = os.sep.join(data[0:place])
+                result.append ( path )
+                self.logging.print( "path {0}".format(path) )
         return result
 
     def unique(self, listtmp):
@@ -44,7 +47,7 @@ class GroupDirectory:
     def write(self):
         '''create the directory and doesn't modifiy the existing'''
         list_dir = self.various_directory()
-        to_write = self.unique(list_dir)
-        self.createDirectories(to_write)
-        return to_write
+        dirs_to_write = self.unique(list_dir)
+        self.createDirectories(dirs_to_write)
+        return dirs_to_write
 

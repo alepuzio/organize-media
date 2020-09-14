@@ -11,7 +11,7 @@ class FileSystem:
         '''It read a directory and the subdirectory
         inputDIr: complete path of the root directory'''
         self.inputDir = newInputDir;
-        self.log = PersonalLogging("FileSystem", True)
+        self.log = PersonalLogging("FileSystem", False)
 
     def walk(self):
         '''@return the list of the read file
