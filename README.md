@@ -1,17 +1,22 @@
 # Organize Media (photos and videos)
 --------
-Questa applicazione crea, in una directory esistente passata come argomento, una lista di directory dove sono memorizzati file video e foto in base all'anno e al mese di creazione.
+This application writes, inside an input existing directory , one directory list where the videos and photos are copied and organized in subdirectories following the year of creation, month of creation and topic.
+In detail:
+* I declared a ( relative or absolute) path where there are the videos and photos organized in subdirectories ('topic') and another path where writing the copied files
+* The application writes the directories and subdirectories of they don't exist, otherwise they are not modified
+* The structure of the final directories is based on the extension and the topic of the files
 
-Più precisamente:
-* Passo un path dove ci sono le mie fotografie divise per soggetto ('topic') e un path dove scrivere le copie organizzate
-* Il programma crea le directory se già non eistono, altrimenti le lascia invariate
-* La struttura delle directory finali si basa sull'estensione e il soggetto dei file
 
+## Feature
 
-## Evolutive
+* In copying the files, every directory also will have a CSV file (different from media type) with the list of the files and the data (this feature will remove the -w flag in input)
+* Package the project
+* Organize the structure following the guidelines in[The Hitchhiker's Guide to Python!] (https://docs.python-guide.org/)
 
-* Quando i file sono stati copiati, in ogni directory sarà creato un file CSV adatto (in funzione del Media) con la lista dei file e i dati da caricare su Pond5
-* Preparare sistemare di pacchettizzazione
+## Bug
+* Fix the unit test
+* fix the Test Suite
+* Resolve the TODO in the code
 
 ## Status CI Integration
  
@@ -61,7 +66,7 @@ Please read the [Contributing.md](http://github.com/alepuzio/organize-media/CONT
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/alepuzio/organize-media/tags). 
 
 ## Authors
 
