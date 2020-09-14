@@ -4,8 +4,10 @@ import unittest
 from FileToWrite import FileToWrite
 from FinalDataTag import FinalDataTag
 
+from GroupTags import FailFirst
 from GroupTags import GroupTags
-from NameFile import NameDraft
+
+from NameFile import NameSelected
 
 from PersonalLogging import PersonalLogging
 from ReadFileTag import ReadFileTag
@@ -41,14 +43,16 @@ class ListTag:
         FinalDataTag(
             UnsafeFile(
                 FileToWrite ( 
-                    NameDraft(self.directory).name(), 
+                    NameSelected(self.directory).name(), 
                     )
                 )
                 , 
-                GroupTags ( 
-                    ReadFileTag(
-                        self.directory
-                        ).read()
+                FailFirst(
+                    GroupTags ( 
+                        ReadFileTag(
+                            self.directory
+                            ).read()
+                        )
                     ).calculate( ) 
             ).data()
 

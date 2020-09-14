@@ -33,8 +33,32 @@ class NameDraft:
 
     def name(self):
         '''@return complete path of the file draft'''    
+        res = "{0}{1}{2}".format(self.directory , os.sep , "draft_tags.txt")
+        
+
+        self.logging.print("name:{0}".format(res))
+        return res
+
+
+class NameSelected:
+    '''@overview: class about the name of the file with selected tags'''
+    
+    def __init__(self, new_directory):
+        self.directory = new_directory
+        self.logging = PersonalLogging("NameSelected")
+
+    def name(self):
+        '''@return complete path of the file selected'''
         res = "{0}{1}{2}".format(self.directory , os.sep , "selected_tags.txt")
         return res
+
+
+
+
+
+
+
+
 
 class TestNameDraft(unittest.TestCase):
 

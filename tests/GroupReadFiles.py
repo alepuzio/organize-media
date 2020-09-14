@@ -11,7 +11,7 @@ class GroupReadFiles:
 
     def __init__(self, new_list_readfiles):
         self.list_readfiles = new_list_readfiles
-        self.logging = PersonalLogging("GroupReadFiles", True)
+        self.logging = PersonalLogging("GroupReadFiles", False)
 
     def map(self):
         '''@return la mappa tra percorso assoluto del file letto e la class originalFile'''

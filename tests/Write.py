@@ -23,10 +23,13 @@ from ManualDataCSV import ManualDataCSV
 from NameFile import Manual
 from NameFile import NameCSV
 from NameFile import NameINI
+from NameFile import NameDraft
+from NameFile import NameSelected
 
 from PersonalLogging import PersonalLogging
-from SafeFile import SafeFile
 
+from SafeFile import SafeFile
+from UnsafeFile import UnsafeFile
 
 
 
@@ -60,12 +63,13 @@ class Write:
         elif extension.video():
             fileini = Video ( data_ini )
         else:
-            raise Error ("Unkown type of file: {0}".format( extension ) )
-        
+            raise Exception ("Unkown type of file: {0} on [{1}]".format( extension, path[0] ) )
+ 
         fileini.data()# TODO put exception o r message if there's any image of video
         filecsv = ManualDataCSV ( SafeFile ( FileToWrite ( NameCSV(self.directory, Manual() ). name() ) ) ) 
         map_original_files = GroupReadFiles ( FileSystem ( self.directory ).walk()   ).map()          
         filecsv.data ( map_original_files )
-
-        DataDraft ( SafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data
+        DataDraft ( UnsafeFile ( FileToWrite ( NameDraft ( self.directory ).name() ) ) ) .data()
+    
+        DataDraft ( UnsafeFile ( FileToWrite ( NameSelected ( self.directory ).name() ) ) ) .data()
 
