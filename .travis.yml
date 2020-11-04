@@ -5,7 +5,7 @@ python: 3.8.6
 install:
   - pip install -r requirements.txt
 # put testing framework
-script: unitest
+script: unittest
 # allowed only these branch
 branches:
   only:
