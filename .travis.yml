@@ -1,8 +1,9 @@
 language: python
 #python version
 python: 3.8.6 
-#define dependencsy
-install:
+#define dependencies
+before_script:
+#install:
   - pip install -r requirements.txt
 # put testing framework
 script: pytest
@@ -11,4 +12,4 @@ branches:
   only:
   - master
   - develop
-#- develop
+  - feature-join-travis
