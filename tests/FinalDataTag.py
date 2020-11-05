@@ -4,8 +4,8 @@ from CSVImage import CSVImage
 from CSVVideo import CSVVideo
 
 from FileToWrite import FileToWrite
-from Label import LabelImage
-from Label import LabelVideo
+from test_label import LabelImage
+from test_label import LabelVideo
 from PersonalLogging import PersonalLogging
 from SafeFile import SafeFile
 
