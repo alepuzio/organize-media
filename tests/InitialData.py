@@ -1,6 +1,5 @@
 import unittest
 from PersonalLogging import PersonalLogging
-from AsString import AsString
 import os
 from Extension import Extension
 from Month import Month

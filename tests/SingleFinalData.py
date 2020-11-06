@@ -1,5 +1,4 @@
 from PersonalLogging import PersonalLogging
-from AsString import AsString
 import os
 import unittest
 from Month import Month
@@ -23,7 +22,7 @@ class SingleFinalData:
 
     def tupla(self):
         '''@return  data of the original file as tupla'''
-        self.log.print("tupla iniziale:\n" + AsString(self.originaltupla.tupla()[0]).show())
+        self.log.print("tupla iniziale:\n" + str(self.originaltupla.tupla()[0]) )
         year = self.originaltupla.time.year()
         month = self.originaltupla.time.month()
         topic = self.originaltupla.position.topic() 
@@ -38,18 +37,16 @@ class SingleFinalData:
     def physicalFile(self):
         '''@return the complete path as String'''
         data = self.tupla()
-        #listdata = [data[0], data[1], YearMonth(data[1], data[2]).show(), data[3], "original", data[4].directory() , data[5], data[6].name()]
         listdata = [data[0], data[1], YearMonth(data[1], data[2]).show(), data[3],  data[4].directory() , data[5], data[6].name()]
         path = os.sep.join(listdata[0:6])
         self.log.print("path: {0}".format( path ) )
-        return AsString(path + "." + data[6].name() ).show()
+        return str(path + "." + data[6].name() )
     
     def physicalPath(self):
         '''@return the complete path as String, no filename and extension'''
         data = self.tupla()
         listdata = [data[0], data[1], data[2].name(), data[3], data[4].directory() , data[5] ]
-        path = os.sep.join(listdata[0:5])
-        return AsString(path).show()
+        return os.sep.join(listdata[0:5])
         
     def __repr__(self):
         return "SingleFinalData[" + self.physicalFile() + "]\n>>>" + str(self.tupla())

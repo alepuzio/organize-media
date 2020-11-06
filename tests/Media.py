@@ -1,5 +1,4 @@
 from PersonalLogging import PersonalLogging
-from AsString import AsString
 import unittest
 from Extension import Extension
 

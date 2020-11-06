@@ -1,5 +1,4 @@
 from PersonalLogging import PersonalLogging
-from AsString import AsString
 import os
 from Extension import Extension
 import unittest
@@ -31,7 +30,7 @@ class OriginalFile:
 
     def physicalFileAsString(self):
         '''@return the complete path as String'''
-        return AsString(self.physicalFile()).show()
+        return str(self.physicalFile())
 
     def __str__(self):
         return self.physicalFileAsString()

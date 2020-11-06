@@ -1,6 +1,5 @@
 import unittest 
 
-from AsString import TestAsString
 from Control import TestControl
 
 from DayMonthYear import TestDayMonthYear

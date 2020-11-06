@@ -31,7 +31,6 @@ class LabelVideo:
         '''
         return ",".join ( self.columns )
 
-#class TestLabel(unittest.TestCase):
 
 def testImagesOK ( ) :
     var = LabelImage()
