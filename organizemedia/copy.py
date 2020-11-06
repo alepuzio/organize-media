@@ -1,7 +1,5 @@
 import sys
-import unittest
 import os
-import unittest
 
 from Filesystem import FileSystem
 from PersonalLogging import PersonalLogging

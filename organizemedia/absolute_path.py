@@ -1,5 +1,4 @@
 import os
-import unittest
 from PersonalLogging import PersonalLogging
 class AbsolutePath:
     '''@overview: leggo il path assoluto del file passato'''
