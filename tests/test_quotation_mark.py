@@ -10,8 +10,6 @@ class QuotationMark:
         return '{0}{1}{2}'.format(self.sep, self.value, self.sep)
 
 
-#class TestQuotationMark(unittest.TestCase):
-
 def test_string():
     value = "value"
     result = QuotationMark (value).string()

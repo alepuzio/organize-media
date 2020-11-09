@@ -1,10 +1,12 @@
-from CSVImage import CSVImage
-from CSVVideo import CSVVideo
-
-from .file_to_write import FileToWritefrom test_label import LabelImage
-from test.test_label import LabelVideo
+from .csv_image import CSVImage
+from .file_to_write import FileToWrite
 from .personal_logging import PersonalLogging
 from .safe_file import SafeFile
+
+from tests.test_csv_video import CSVVideo
+from tests.test_label import LabelVideo
+from tests.test_label import LabelImage
+
 
 class FinalDataCSV:
     """@overview: class for the partial csv fil"""
@@ -40,8 +42,3 @@ class FinalDataCSV:
         return self.properties_ini.imagetype() == "photo" #TODO create decorator
 
 
-class TestFinalDataCSV(unittest.TestCase):
-
-    def st_data(self):
-        """TODO heavy to prepare the input data"""
-        pass

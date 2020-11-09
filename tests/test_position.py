@@ -3,25 +3,25 @@ import os
 from .test_extension import Extension
 
 class Position:
-    '''@overview: class thant manage the physical data of the file abotu the path'''
+    """@overview: class thant manage the physical data of the file abotu the path"""
 
     def __init__(self, newabsolutepath, newfilename):
         self.absolutepath = newabsolutepath
         self.filename = newfilename
 
     def root(self):
-        '''@return the expected path of the topic'''    
+        """@return the expected path of the topic"""    
         path = self.absolutepath.split(os.sep)
         index_second_to_last = len(path) -1
         return os.sep.join(path[ 0 : index_second_to_last ] )
 
     def name(self):
-        '''@return the name of the file, wit no extension'''
+        """@return the name of the file, wit no extension"""
         name = self.filename.split(".")
         return  name[0]
 
     def extension(self):
-        '''@return the extension of the file'''
+        """@return the extension of the file"""
         pieces = self.filename.split(".")
         if ( 0 == len (pieces) ) :
             self.log.warn( "No extension:" + str(pieces) )
@@ -31,7 +31,7 @@ class Position:
         return  Extension ( file_extension )
 
     def topic(self):
-        '''@return the topic of a file, meaning the last part of the subdirectory'''
+        """@return the topic of a file, meaning the last part of the subdirectory"""
         listdirectory = self.absolutepath.split(os.sep)
         listdirectory.reverse()
         return listdirectory[0]
@@ -44,8 +44,6 @@ class Position:
 
     def __str__(self):
         return "Position[{0}][{1}]".format(self.absolutepath, self.filename) 
-
-#class TestPosition(unittest.TestCase):
 
 def test_root():
     path = "c:\\path\\absolute\\with\\no\\topic"

@@ -1,7 +1,8 @@
+from .personal_logging import PersonalLogging
+
 from tests.test_day_month_year import DayMonthYear 
 from tests.test_day_month_year import Space
 #from tests.test_day_month_year import Slash
-from .personal_logging import PersonalLogging
 from tests.test_quotation_mark import QuotationMark
 
 class Name:
@@ -33,8 +34,7 @@ class FailFirst:
             return QuotationMark (result).string()
 
 
-class TestName(unittest.TestCase):
 
-    def test_string(self):
-       pass 
+def test_string(self):
+   pass 
 

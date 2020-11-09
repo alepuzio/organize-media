@@ -1,14 +1,15 @@
-from CSVImageName import FailFirst 
-from CSVImageName import Name
+from .csv_image_name import FailFirst 
+from .csv_image_name import Name
+
+from .personal_logging import PersonalLogging
 
 from tests.test_day_month_year import DayMonthYear 
 from tests.test_day_month_year import Space
 from tests.test_day_month_year import Slash
+from tests.test_quotation_mark import QuotationMark
 
 
-from .personal_logging import PersonalLogging
 
-from QuotationMark import QuotationMark
 
 class CSVImage:
     '''@overview: class that format the rows of the data'''

@@ -2,8 +2,6 @@ import os
 from .personal_logging import PersonalLogging
 from .original_file import OriginalFile
 
-import unittest
-
 class FileSystem:
     '''@overview: this class reads the files inside a directory'''
 

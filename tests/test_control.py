@@ -1,10 +1,10 @@
 import sys
-import unittest
+import pytest
 from organizemedia.personal_logging import PersonalLogging
-from organizemedia.Write import Write
-from organizemedia.Copy import Copy
-from organizemedia.Join import Join
-from organizemedia.ListTag import ListTag
+from organizemedia.write import Write
+from organizemedia.copy import Copy
+from organizemedia.join import Join
+from organizemedia.list_tag import ListTag
 
 class Control:
     '''@overview the class control the params'''
@@ -43,38 +43,35 @@ class Control:
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
     # altrimenti ci saranno problemi con i file
 
-class TestControl(unittest.TestCase):
-    '''the class control the params'''
 
- 
-    def test_copy_ok(self):
-        source  = "./aa"
-        dest = "./f"
-        control = Control(["Main.py", "-c", source, dest])
-        result = control.act()
-        expected = Copy([source, dest])
-        self.assertEqual(expected, result)
+def test_copy_ok():
+    source  = "./aa"
+    dest = "./f"
+    control = Control(["Main.py", "-c", source, dest])
+    result = control.act()
+    expected = Copy([source, dest])
+    assert (result == expected)
 
-    def test_list_ok(self):
-        print("********* test_list_ok***************")
-        source  = "./aa"
-        control = Control(["Main.py", "-l", source])
-        result = control.act()
-        expected = ListTag ( [source] )
-        self.assertEqual(expected, result)
+def test_list_ok():
+    print("********* test_list_ok***************")
+    source  = "./aa"
+    control = Control(["Main.py", "-l", source])
+    result = control.act()
+    expected = ListTag ( [source] )
+    assert (result == expected)
 
-    def test_Join_ok(self):
-        print("********* test_join_ok***************")
-        source  = "./aa"
-        control = Control(["Main.py", "-j", source])
-        result = control.act()
-        expected = Join([source])
-        self.assertEqual(expected, result)
+def test_Join_ok():
+    print("********* test_join_ok***************")
+    source  = "./aa"
+    control = Control(["Main.py", "-j", source])
+    result = control.act()
+    expected = Join([source])
+    assert (result == expected)
 
-    def test_write_ok(self):
-        print("********* test_write_ok***************")
-        source  = "./aa"
-        control = Control(["Main.py", "-w", source])
-        result = control.act()
-        expected = Write([source])
-        self.assertEqual(expected, result)
+def test_write_ok():
+    print("********* test_write_ok***************")
+    source  = "./aa"
+    control = Control(["Main.py", "-w", source])
+    result = control.act()
+    expected = Write([source])
+    assert (result == expected)

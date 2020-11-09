@@ -1,7 +1,8 @@
 import os
 import platform
-from .personal_logging import PersonalLogging
 import errno
+
+from .personal_logging import PersonalLogging
 
 class SafeDirectory:
     """

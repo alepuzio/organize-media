@@ -8,14 +8,14 @@ from organizemedia.personal_logging import PersonalLogging
 from .test_quotation_mark  import QuotationMark  
 
 class Image:
-    '''@overview: it contains the properties in file CSV manual about images'''
+    """@overview: it contains the properties in file CSV manual about images"""
 
     def __init__(self, new_read_file_csv):
         self.read_file_csv = new_read_file_csv
         self.log = PersonalLogging("Image")
 
     def read(self):
-        '''@return the object with the properties'''
+        """@return the object with the properties"""
         if self.valid():
             name =  Manual().name()            #'manual-data.csv'
             res = self.read_file_csv.read(name)
@@ -31,14 +31,14 @@ class Image:
         return extension.image()
 
 class Video:
-    '''@overview: it contains the properties in file CSV manual about videos'''
+    """@overview: it contains the properties in file CSV manual about videos"""
 
     def __init__(self, new_read_file_csv):
         self.read_file_csv = new_read_file_csv
         self.log = PersonalLogging("Video")
 
     def read(self):
-        '''@return the object with the properties'''
+        """@return the object with the properties"""
         if self.valid():
             name = Manual().name() #'manual-data.csv'
             res = self.read_file_csv.read(name)
@@ -54,7 +54,7 @@ class Video:
         return extension.video()
 
 class ReadFileCSV:
-    '''@overview: it contains the properties in file INI'''
+    """@overview: it contains the properties in file INI"""
 
     def __init__(self, new_dir):
         self.dir = new_dir
@@ -77,7 +77,7 @@ class ReadFileCSV:
     
 
 class ReadCSV:
-    '''@overview: this class contains the single row of manual CSV'''
+    """@overview: this class contains the single row of manual CSV"""
 
     def __init__(self, newrow):
         self.row = newrow
@@ -108,17 +108,17 @@ class ReadCSV:
 
 
 class Keyword:
-    '''@overview: this class contains the list of keywords of the manual CSV'''
+    """@overview: this class contains the list of keywords of the manual CSV"""
 
     def __init__(self, new_row):
         self.manual_tag = new_row
         self.log = PersonalLogging("Keyword")
 
     def keyword(self):
-        '''@return list of tags as one string
+        """@return list of tags as one string
         the initial internal separator has to be ';'
         and become ','
-        '''
+        """
         list_tags = None #TODO put control if manual_tags is empty
         #TODO code defensive decorator
         print("manual_tags: {0}".format ( self.manual_tag ) )
@@ -131,18 +131,17 @@ class Keyword:
         else: 
             list_tags = re.sub(";",", " , self.manual_tag)
         
-        '''
+        """
         Being a csv rw, it's impossible that I can receive a CSV fielad with 1 comma between the 0 and len(field)
         I'm writing this comment for the future
         elif "," in self.manual_tag:
             list_tags = ', THE CHAR \" , \" HAS NOT TO BE PRESENT IN {0}, CSV NOT UPLOABLE,'.format(self.manual_tag)
             raise Exception (list_tags)
-        '''
+        """
         print ( "list_tags:{0}".format( list_tags) )
         return QuotationMark( list_tags  ).string()
 
 
-#class TestKeyword(unittest.TestCase):
 
 def test_standard_keyword():
     var = "tag1;tag2;tag3"
@@ -162,7 +161,7 @@ def test_wrong_separator():
 def test_wrong_quotation_mark():
     pass
 
-'''TODO draft of the defensive decorator
+"""TODO draft of the defensive decorator
 class KeywordInvalidQuotationMark:
     @overview: controle the absence of comma in the input tag
         
@@ -176,4 +175,4 @@ class KeywordInvalidQuotationMark:
         else:
             return self.origin.data()
 
-'''
+"""

@@ -2,7 +2,7 @@ import os
 from .original_file import OriginalFile
 from .absolute_path import AbsolutePath
 from .personal_logging import PersonalLogging
-from .tests.test_extension import Extension
+from tests.test_extension import Extension
 from tests.test_position import Position
 
 class GroupReadFiles:

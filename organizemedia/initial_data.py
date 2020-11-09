@@ -1,11 +1,10 @@
-import unittest
 from .personal_logging import PersonalLogging
 import os
-from test.extension import Extension
-from tests.month import Month
-from tests.timeFile import TimeFile
+from tests.test_extension import Extension
+from tests.test_month import Month
+from organizemedia.time_file import TimeFile
 from tests.test_time import Time
-from tests.position import Position
+from tests.test_position import Position
 
 class InitialData:
     '''@overview class about hthe data of the read files'''

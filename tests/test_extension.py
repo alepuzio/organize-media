@@ -2,7 +2,7 @@ import pytest
 from organizemedia.personal_logging import PersonalLogging
 
 class Extension:
-    '''@overview: this class extract the extension of the read file'''
+    """@overview: this class extract the extension of the read file"""
     
     def __init__(self, new_extension):
         self.ext = new_extension
@@ -15,21 +15,21 @@ class Extension:
         return self.ext
 
     def media(self):
-        '''@return True if the file has one of these extensions'''
+        """@return True if the file has one of these extensions"""
         return  self.image() or self.video()
 
     def allowed_extension(self, type_file, allowed_extensions):
-        '''@return True if the file has one of these extensions'''
+        """@return True if the file has one of these extensions"""
         return  (type_file in allowed_extensions)
 
     def image(self):
-        '''@return True if the file is an img '''
+        """@return True if the file is an img """
         typeFile = self.name().upper()
         allowedExtensions = ["CR2", "JPG"]
         return  self.allowed_extension ( typeFile , allowedExtensions)
     
     def video ( self):
-        '''@return True if the file is a video '''
+        """@return True if the file is a video """
         typeFile = self.name().upper()
         allowedExtensions = ["MOV"]
         return  self.allowed_extension ( typeFile , allowedExtensions)

@@ -1,8 +1,9 @@
 import os
 import platform
-from .personal_logging import PersonalLogging
 import errno
+
 from .file_to_write import FileToWrite 
+from .personal_logging import PersonalLogging
 
 class SafeFile:
     '''@overview: this class creates the file if it does'nt exists, otherwise it does'nt modify the file''' 

@@ -1,23 +1,24 @@
 import time
 import pytest
-from datetime import datetime
-from .test_month import Month
 import re
 
+from datetime import datetime
+from .test_month import Month
+
 class Time:
-    '''@overview: this class incapsulate the data about the datetime of a file'''
+    """@overview: this class incapsulate the data about the datetime of a file"""
 
     def __init__(self, newdatetime):
         self.datetime = newdatetime
 
     def year(self):
-        '''@return creation year as 'yyyy' '''
+        """@return creation year as 'yyyy' """
         date = self.prepare()
         tmp = date.split(" ")
         return tmp[4]
 
     def day(self):
-        '''@return creationday as 'dd' '''
+        """@return creationday as 'dd' """
         date = self.prepare()
         tmp = date.split(" ")
         res = None
@@ -28,20 +29,20 @@ class Time:
         return res
 
     def month(self):
-        '''@return creationday as 'JUN, Jan, Apr, etc' '''
+        """@return creationday as 'JUN, Jan, Apr, etc' """
         date = self.prepare()
         tmp = date.split(" ")
         return Month(tmp[1])
 
     def yearMonth ( self ) :
-        '''@return yyyymm '''
+        """@return yyyymm """
         year = self.year()
         month = self.month().single_number()
         return str(year) + str(month)
 
 
     def prepare(self):
-        '''@return datetime in format DAY-OF-WEEK-space-month-name-space-dayofmonth-space-hours:minutes:second-space-year because of the different valeu in different OS'''
+        """@return datetime in format DAY-OF-WEEK-space-month-name-space-dayofmonth-space-hours:minutes:second-space-year because of the different valeu in different OS"""
         date = self.datetime
         #remove double space 
         return re.sub(' +', ' ', date)
@@ -57,9 +58,6 @@ class Time:
     def __str__(self):
         return "Time[" + self.datetime + "]"
 
-
-
-#class TestTime(unittest.TestCase):
 
 def test_year_in_year_OK():
     time = "Wed Jun 10 17:04:28 2020"

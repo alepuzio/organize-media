@@ -1,13 +1,15 @@
-from .personal_logging import PersonalLogging
 import os
+from .initial_data import InitialData
+
+from .original_file import OriginalFile
+from .personal_logging import PersonalLogging
 from tests.test_month import Month
 from tests.test_media import Media
-from .original_file import OriginalFile
 from tests.test_year_month import YearMonth 
 from tests.test_position import Position
 from tests.test_time import Time
-from tests.test_time_file import TimeFile
-from .initial_data import InitialData
+#from organizemedia.time_file import TimeFile
+from .time_file import TimeFile
 
 
 

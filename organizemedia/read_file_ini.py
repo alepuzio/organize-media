@@ -1,6 +1,6 @@
 import os
 from .personal_logging import PersonalLogging
-from .tests.test_extension import Extension
+from tests.test_extension import Extension
 from tests.test_quotation_mark import QuotationMark
 
 class ReadFileINI:

@@ -35,7 +35,7 @@ class ReadFileTag:
     
 
 class Tag:
-    '''@overview: this class contains the data of a tag'''
+    """@overview: this class contains the data of a tag"""
 
     def __init__(self, new_name, new_tags):
         self.name = new_name
@@ -53,8 +53,6 @@ class Tag:
     
     def __repr__(self):
         return "Tag:{0}{1}".format(self.name, self.tags)
-
-#class TestTag(unittest.TestCase):
  
 def test_label():
     single = Tag("name", "12 23.4 1234 ")

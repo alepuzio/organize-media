@@ -1,18 +1,17 @@
-#import os
 import platform
 import time
 import pytest
 from datetime import datetime
 
 class Year:
-    '''@overview: this class incapsulate the data about the year
-    '''
+    """@overview: this class incapsulate the data about the year
+    """
 
     def __init__(self, newformattedtimestamp):
         self.timefile = newformattedtimestamp
 
     def show(self):
-        '''@return creation year as 'yyyy' '''
+        """@return creation year as 'yyyy' """
         date = self.timefile
         tmp = date.split(" ")
         return tmp[4]
@@ -22,8 +21,6 @@ class Year:
 
     def __repr__():
         return "Year[" + self.show() + "]"
-
-#class TestYear(unittest.TestCase)
 
 def test_show():
     time = "Wed Jun 10 17:04:28 2020"

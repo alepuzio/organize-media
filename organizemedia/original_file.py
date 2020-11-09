@@ -1,8 +1,8 @@
 from .personal_logging import PersonalLogging
 import os
-from .tests.test_extension import Extension
+from tests.test_extension import Extension
 from tests.test_month import Month
-from tests.test_time_file import TimeFile
+from .time_file import TimeFile
 from tests.test_time import Time
 from tests.test_position import Position
 from .initial_data import InitialData

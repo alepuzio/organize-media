@@ -1,13 +1,10 @@
-import unittest
-
-from CSVImage import CSVImage
-from CSVVideo import CSVVideo
-
-from .file_to_write import FileToWritefrom test_label import LabelImage
-from tests.test_label import LabelVideo
+from .csv_image import CSVImage
+from .file_to_write import FileToWrite
+from tests.test_label import LabelImage
 from .personal_logging import PersonalLogging
 from .safe_file import SafeFile
-
+from tests.test_label import LabelVideo
+from tests.test_csv_video import CSVVideo
 
 
 class FinalDataTag:
@@ -27,10 +24,3 @@ class FinalDataTag:
         list_rows.sort()
         return self.safefile.safe ( list_rows )
         
-
-
-class TestFinalDataTag(unittest.TestCase):
-
-    def st_data(self):
-        '''TODO heavy to prepare the input data'''
-        pass

@@ -2,8 +2,8 @@
 import pytest
 
 from organizemedia.personal_logging import PersonalLogging
+from .test_read_file_tag import Tag
 
-from read_file_tag import Tag
 class GroupTags:
     '''@overview: it contains the tags with every rating
     '''

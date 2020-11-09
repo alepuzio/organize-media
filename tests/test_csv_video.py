@@ -1,17 +1,13 @@
-import unittest
+import pytest
 
-from CSVImageName import FailFirst
-from CSVImageName import Name
+from organizemedia.csv_image_name import FailFirst
+from organizemedia.csv_image_name import Name
+from organizemedia.personal_logging import PersonalLogging
 
-from DayMonthYear import DayMonthYear 
-from DayMonthYear import Space
-from DayMonthYear import Slash
-
-
-from PersonalLogging import PersonalLogging
-
-from QuotationMark import QuotationMark
-
+from .test_day_month_year import DayMonthYear 
+from .test_day_month_year import Space
+from .test_day_month_year import Slash
+from .test_quotation_mark import QuotationMark
 
 class CSVVideo:
     '''@overview: class that format the rows of the data of a video'''
@@ -86,19 +82,16 @@ class CSVVideoStatic:
 
 
 
+def test_data(self):
+    print ( "Hard work to create fake object " ) 
+    pass
 
-class TestCSVImage(unittest.TestCase):
-
-    def test_data(self):
-        print ( "Hard work to create fake object " ) 
-        pass
-
-    def test_substring_slice(self):
-        more_than_80_char =  "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 123456789012345678901234567890234567890 "
-        res = more_than_80_char[0:79] 
-        print("res_more_than_80_char(" + str(len(more_than_80_char)) + "):" + res)
-        self.assertTrue( res )
-        less_than_80_char =  "11234567890" 
-        res = less_than_80_char[0:79] 
-        print("res_less_than_80_char(" + str(len (less_than_80_char)) + ") :" + res)
-        self.assertTrue( res )
+def test_substring_slice(self):
+    more_than_80_char =  "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 123456789012345678901234567890234567890 "
+    res = more_than_80_char[0:79] 
+    print("res_more_than_80_char(" + str(len(more_than_80_char)) + "):" + res)
+    assert True == res 
+    less_than_80_char =  "11234567890" 
+    res = less_than_80_char[0:79] 
+    print("res_less_than_80_char(" + str(len (less_than_80_char)) + ") :" + res)
+    assert True == res 

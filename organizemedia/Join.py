@@ -1,23 +1,22 @@
 import os
 import sys
 
-from Copy import Copy
-from CSVImage import CSVImage
-
-from .file_to_write import FileToWritefrom FinalDataCSV import FinalDataCSV
-from NameFile import Final
-from NameFile import NameCSV
-
+from .copy import Copy
+from .csv_image import CSVImage
+from .file_to_write import FileToWrite
+from .final_data_csv import FinalDataCSV
 from .personal_logging import PersonalLogging
-
-from ReadFileCSV import Image
-from ReadFileINI import ReadFileINI
-from ReadFileINI import Video
-
-from ReadFileCSV import ReadFileCSV
-
 from .safe_file import SafeFile
 from .write import Write
+
+from tests.test_read_file_csv import Image
+from tests.test_read_file_csv import ReadFileCSV
+from organizemedia.read_file_ini import ReadFileINI
+from organizemedia.read_file_ini import Video
+from tests.test_name_file import Final
+from tests.test_name_file import NameCSV
+
+
 
 
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
