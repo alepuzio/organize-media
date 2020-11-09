@@ -1,21 +1,20 @@
-import pytest
+import unittest
 
-from organizemedia.csv_image_name import FailFirst
-from organizemedia.csv_image_name import Name
+from CSVImageName import FailFirst
+from CSVImageName import Name
 
-from organizemedia.day_month_year import DayMonthYear 
-from organizemedia.day_month_year import Space
-from organizemedia.day_mMonth_year import Slash
+from DayMonthYear import DayMonthYear 
+from DayMonthYear import Space
+from DayMonthYear import Slash
 
-from organizemedia.personal_logging import PersonalLogging
 
-from qorganizemedia.cuotation_mark import QuotationMark
+from PersonalLogging import PersonalLogging
+
+from QuotationMark import QuotationMark
 
 
 class CSVVideo:
-    """
-    @overview: class that format the rows of the data of a video
-    """
+    '''@overview: class that format the rows of the data of a video'''
     def __init__(self, newini, newcsv):
         self.log = PersonalLogging("CSVVideo")
         self.ini = newini
@@ -24,10 +23,9 @@ class CSVVideo:
 
     
     def data(self):
-        """
-        @return list fo the row to be printed
+        '''@return list fo the row to be printed
         "OriginalFilename","Copyright","Price","name","City","Region","Country,""Created","ClipSource","SpecifySource","FrameRendering","AspectRatio","Keywords","KeywordsCheckbox","PublicBin","Description"       
-        """
+        '''
         result = []
         result.append( self.manualcsv.fileName() )#originalfilename 
         result.append( self.ini.copyright() )  #copyright
@@ -59,10 +57,10 @@ class CSVVideo:
         return "[{0}]".format(self.data())
 
 
+
 class CSVVideoStatic:
-    """
-    @overview: static value of a video in row CSV
-    """
+    '''@overview: static value of a video in row CSV
+    '''
     def __init__(self):
         self.values = {"keywordsCheckbox": "keywordscheckbox-static", 
                 "publicBin":  "publicBin-static", 
@@ -71,9 +69,7 @@ class CSVVideoStatic:
                 "aspectRatio":"a16:9 native" }
 
     def keywordsCheckbox(self):
-        """
-        @return list of static values
-        """
+        '''@return list of static values'''
         return self.values["keywordsCheckbox"]
 
     def publicBin(self):
@@ -90,16 +86,19 @@ class CSVVideoStatic:
 
 
 
-def test_data():
-    print ( "Hard work to create fake object " ) 
-    pass
 
-def test_substring_slicei_OK():
-    more_than_80_char =  "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 123456789012345678901234567890234567890 "
-    res = more_than_80_char[0:79] 
-    print("res_more_than_80_char(" + str(len(more_than_80_char)) + "):" + res)
-    assert True == res
-    less_than_80_char =  "11234567890" 
-    res = less_than_80_char[0:79] 
-    print("res_less_than_80_char(" + str(len (less_than_80_char)) + ") :" + res)
-    assert True == res
+class TestCSVImage(unittest.TestCase):
+
+    def test_data(self):
+        print ( "Hard work to create fake object " ) 
+        pass
+
+    def test_substring_slice(self):
+        more_than_80_char =  "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 123456789012345678901234567890234567890 "
+        res = more_than_80_char[0:79] 
+        print("res_more_than_80_char(" + str(len(more_than_80_char)) + "):" + res)
+        self.assertTrue( res )
+        less_than_80_char =  "11234567890" 
+        res = less_than_80_char[0:79] 
+        print("res_less_than_80_char(" + str(len (less_than_80_char)) + ") :" + res)
+        self.assertTrue( res )

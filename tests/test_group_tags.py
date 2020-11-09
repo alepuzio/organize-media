@@ -1,9 +1,9 @@
-import os
-import unittest
+#import os
+import pytest
 
-from PersonalLogging import PersonalLogging
+from organizemedia.personal_logging import PersonalLogging
 
-from ReadFileTag import Tag
+from read_file_tag import Tag
 class GroupTags:
     '''@overview: it contains the tags with every rating
     '''
@@ -78,24 +78,23 @@ class FailFirst:
             return self.origin.calculate()
  
 
-class TestGroupTags(unittest.TestCase):
 
-    def test_calculate_by_mean(self):
-        tags = []
-        for i in range(20):
-            values =  str(i) + " " + str(i+1) + " " + str(i+3)
-            tags.append( Tag("{0}".format(i), values ) )  
-        var = GroupTags(tags) 
-        result = var.calculate()
-        expected = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19'] 
-        self.assertEqual(result, expected)
+def test_calculate_by_mean_ok ():
+    tags = []
+    for i in range(20):
+        values =  str(i) + " " + str(i+1) + " " + str(i+3)
+        tags.append( Tag("{0}".format(i), values ) )  
+    var = GroupTags(tags) 
+    result = var.calculate()
+    expected = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19'] 
+    assert result == expected
 
-    def test_calculate_by_median(self):
-        tags = []
-        for i in range(5):
-            values =  str(i) + " " + str(i+1) + " " + str(i+3)
-            tags.append( Tag("{0}".format(i), values ) )  
-        var = GroupTags(tags) 
-        result = var.calculate()
-        expected = ['3', '4']
-        self.assertEqual(result, expected)
+def test_calculate_by_median_ok ():
+    tags = []
+    for i in range(5):
+        values =  str(i) + " " + str(i+1) + " " + str(i+3)
+        tags.append( Tag("{0}".format(i), values ) )  
+    var = GroupTags(tags) 
+    result = var.calculate()
+    expected = ['3', '4']
+    assert result == expected
