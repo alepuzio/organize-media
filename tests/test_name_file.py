@@ -14,12 +14,6 @@ class NameINI:
         res = self.directory + os.sep + "common.ini"#TODO fix the concatenation
         return res
 
-def test_name():
-    var = NameINI("C:\\fake\\path")
-    res = var.name()
-    expected = "C:\\fake\\path\\common.ini"
-    assert (res == expected)
-
 class NameDraft:
     """@overview: class about the name of the file with selected tags"""
     
@@ -95,3 +89,10 @@ def test_name_final():
     res = var.name()
     expected = "C:\\fake\\path\\final-data-to-upload.csv"
     assert (res == expected)
+
+def test_name():
+    var = NameINI("C:\\fake\\path")
+    res = var.name()
+    expected = "C:\\fake\\path\\common.ini"
+    assert (res == expected)
+

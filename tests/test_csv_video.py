@@ -82,16 +82,19 @@ class CSVVideoStatic:
 
 
 
-def test_data(self):
+def test_data():
     print ( "Hard work to create fake object " ) 
     pass
 
-def test_substring_slice(self):
+def test_substring_more_than_80_char():
     more_than_80_char =  "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 123456789012345678901234567890234567890 "
     res = more_than_80_char[0:79] 
-    print("res_more_than_80_char(" + str(len(more_than_80_char)) + "):" + res)
-    assert True == res 
-    less_than_80_char =  "11234567890" 
-    res = less_than_80_char[0:79] 
-    print("res_less_than_80_char(" + str(len (less_than_80_char)) + ") :" + res)
-    assert True == res 
+    expected = "111234567890 1234567890 234567890 1234567890 1234567890 1234567890 1234567890 1"
+    assert expected == res 
+    
+def test_substring_less_thank_79_char():
+    less_thank_79_char =  "11234567890" 
+    res = less_thank_79_char[0:79] 
+    expected = "11234567890"
+    assert expected == res 
+    

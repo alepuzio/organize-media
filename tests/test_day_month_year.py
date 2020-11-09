@@ -70,15 +70,6 @@ class Space:
 
 
 
-def test_mmddyyyy(self):
-    year = "2020"
-    month = "06"
-    day = "10"
-    result = Space(DayMonthYear(day, month, year)).mmddyyyy()
-    expected = "06 10 2020"
-    assert (result == expected)
-
-
 class Dash:
     """@overview: decorator with one dash"""
     def __init__(self, newdaymonthyear):
@@ -92,8 +83,7 @@ class Dash:
         return self.daymonthyear.inverse(self.sep)
 
 
-
-def test_show_slash(self):
+def test_show_slash():
     year = "2020"
     month = "06"
     day = "10"
@@ -102,7 +92,7 @@ def test_show_slash(self):
     assert (result == expected)
 
 
-def test_show_space(self):
+def test_show_space():
     year = "2020"
     month = "06"
     day = "10"
@@ -110,10 +100,19 @@ def test_show_space(self):
     expected = "10 06 2020"
     assert (result == expected)
 
-def test_inverse_dash(self):
+def test_inverse_dash():
     year = "2020"
     month = "06"
     day = "10"
     result = Dash(DayMonthYear(day, month, year)).inverse()
     expected = "2020-06-10"
     assert (result == expected)
+
+def test_mmddyyyy():
+    year = "2020"
+    month = "06"
+    day = "10"
+    result = Space(DayMonthYear(day, month, year)).mmddyyyy()
+    expected = "06 10 2020"
+    assert (result == expected)
+
