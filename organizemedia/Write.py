@@ -3,22 +3,22 @@ import sys
 import unittest
 
 
-from DataINI import DataINI
-from DataINI import Image
-from DataINI import Video
-from DataINI import DataDraft
+from .data_ini import DataINI
+from .data_ini import Image
+from .data_ini import Video
+from .data_ini import DataDraft
 
-from Extension import Extension
+from tests.extension import Extension
 
-from GroupDirectory import GroupDirectory
-from GroupFiles import GroupFiles
-from GroupOriginalFiles import GroupOriginalFiles
-from GroupReadFiles import GroupReadFiles
+from .group_directory import GroupDirectory
+from .group_files import GroupFiles
+from .group_original_files import GroupOriginalFiles
+from .group_read_files import GroupReadFiles
 
-from Filesystem import FileSystem
-from FileToWrite import FileToWrite
+from .filesystem import FileSystem
+from .file_to_write import FileToWrite
 
-from ManualDataCSV import ManualDataCSV
+from .manual_data_CSV import ManualDataCSV
 
 from NameFile import Manual
 from NameFile import NameCSV

@@ -1,10 +1,10 @@
 import sys
 import unittest
-from PersonalLogging import PersonalLogging
-from Write import Write
-from Copy import Copy
-from Join import Join
-from ListTag import ListTag
+from organizemedia.personal_logging import PersonalLogging
+from organizemedia.Write import Write
+from organizemedia.Copy import Copy
+from organizemedia.Join import Join
+from organizemedia.ListTag import ListTag
 
 class Control:
     '''@overview the class control the params'''

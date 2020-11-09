@@ -1,5 +1,5 @@
-from FileToWrite import FileToWrite
-from PersonalLogging import PersonalLogging
+from .file_to_write import FileToWrite
+from .personal_logging import PersonalLogging
 from SafeFile import SafeFile
 
 class DataINI:
