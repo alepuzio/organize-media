@@ -2,7 +2,7 @@ REM
 python -m pytest tests/test_control.py
 python -m pytest tests/test_csv_video.py 
 python -m pytest tests/test_day_month_year.py
-REM python -m pytest tests/test_extension.py 
+python -m pytest tests/test_extension.py 
 REM python -m pytest tests/test_group_tags.py
 REM python -m pytest tests/test_label.py 
 REM python -m pytest tests/test_manual_data_csv.py
