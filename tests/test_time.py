@@ -1,7 +1,7 @@
 import time
-import unittest
+import pytest
 from datetime import datetime
-from Month import Month
+from .test_month import Month
 import re
 
 class Time:
@@ -59,45 +59,42 @@ class Time:
 
 
 
-class TestTime(unittest.TestCase):
+#class TestTime(unittest.TestCase):
 
-    def test_year(self):
-        time = "Wed Jun 10 17:04:28 2020"
-        year = Time(time)
-        expected = "2020"
-        self.assertEqual(year.year(), expected) 
-        time = "Mon Aug  3 17:04:28 2020"
-        year = Time(time)
-        expected = "2020"
-        self.assertEqual(year.year(), expected)
+def test_year_in_year_OK():
+    time = "Wed Jun 10 17:04:28 2020"
+    year = Time(time)
+    expected = "2020"
+    assert year.year()== expected 
 
+def test_yearmonth_OK():
+    time = "Wed Jun 10 17:04:28 2020"
+    year = Time(time)
+    expected = "202006"
+    assert year.yearMonth()== expected
 
-    def test_yearmonth(self):
-        time = "Wed Jun 10 17:04:28 2020"
-        year = Time(time)
-        expected = "202006"
-        self.assertEqual(year.yearMonth(), expected)
+def test_eq_OK():
+    time_one = "Wed Jun 10 17:04:28 2020"
+    time_two = "Wed Jun 10 17:04:28 2020"
+    year_one = Time(time_one)
+    year_two = Time(time_two)
+    assert year_one == year_two
 
-    def test_eq(self):
-        time_one = "Wed Jun 10 17:04:28 2020"
-        time_two = "Wed Jun 10 17:04:28 2020"
-        year_one = Time(time_one)
-        year_two = Time(time_two)
-        self.assertEqual(year_one, year_two)
-    
-    def test_day(self):
-        time = "Wed Jun 10 17:04:28 2020"
-        year = Time(time)
-        expected = "10"
-        self.assertEqual(year.day(), expected)
-        time = "Wed Jun 5 17:04:28 2020"
-        year = Time(time)
-        expected = "05"
-        self.assertEqual(year.day(), expected)
+def test_day_OK():
+    time = "Wed Jun 10 17:04:28 2020"
+    year = Time(time)
+    expected = "10"
+    assert year.day()== expected
 
-    def test_Month(self):
-        time = "Wed Jun 10 17:04:28 2020"
-        year = Time(time)
-        expected = Month("Jun")
-        self.assertEqual(year.month(), expected)
+def test_day_OK():    
+    time = "Wed Jun 26 17:04:28 2020"
+    year = Time(time)
+    expected = "26"
+    assert year.day()== expected
+
+def test_Month_OK():
+    time = "Wed Jun 10 17:04:28 2020"
+    year = Time(time)
+    expected = Month("Jun")
+    assert year.month()== expected
 
