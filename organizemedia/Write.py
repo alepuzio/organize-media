@@ -1,14 +1,12 @@
 import os
 import sys
-import unittest
-
 
 from .data_ini import DataINI
 from .data_ini import Image
 from .data_ini import Video
 from .data_ini import DataDraft
 
-from tests.extension import Extension
+from tests.test_extension import Extension
 
 from .group_directory import GroupDirectory
 from .group_files import GroupFiles
@@ -20,16 +18,16 @@ from .file_to_write import FileToWrite
 
 from .manual_data_CSV import ManualDataCSV
 
-from NameFile import Manual
-from NameFile import NameCSV
-from NameFile import NameINI
-from NameFile import NameDraft
-from NameFile import NameSelected
+from tests.test_name_file import Manual
+from tests.test_name_file import NameCSV
+from tests.test_name_file import NameINI
+from tests.test_name_file import NameDraft
+from tests.test_name_file import NameSelected
 
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 
-from SafeFile import SafeFile
-from UnsafeFile import UnsafeFile
+from .safe_file import SafeFile
+from .unsafe_file import UnsafeFile
 
 
 

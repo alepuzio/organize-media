@@ -1,15 +1,14 @@
 import sys
 import os
 
-from Filesystem import FileSystem
-from PersonalLogging import PersonalLogging
+from .filesystem import FileSystem
+from .personal_logging import PersonalLogging
 from GroupOriginalFiles import GroupOriginalFiles
 from GroupReadFiles import GroupReadFiles
 from GroupFiles import GroupFiles
 from GroupDirectory import GroupDirectory
-from SafeFile import SafeFile
-from FileToWrite import FileToWrite
-
+from .safeFile import SafeFile
+from .file_to_write import FileToWrite
 
 class Copy:
     '''@overview: class to copy file'''

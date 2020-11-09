@@ -1,6 +1,6 @@
 from .file_to_write import FileToWrite
 from .personal_logging import PersonalLogging
-from SafeFile import SafeFile
+from .safe_file import SafeFile
 
 class DataINI:
     '''@class for the initial ini file of properties'''

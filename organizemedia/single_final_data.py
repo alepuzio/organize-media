@@ -1,14 +1,13 @@
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 import os
-import unittest
-from Month import Month
-from Media import Media
-from OriginalFile import OriginalFile
-from YearMonth import YearMonth 
-from Position import Position
-from Time import Time
-from TimeFile import TimeFile
-from InitialData import InitialData
+from tests.test_month import Month
+from tests.test_media import Media
+from .original_file import OriginalFile
+from tests.test_year_month import YearMonth 
+from tests.test_position import Position
+from tests.test_time import Time
+from tests.test_time_file import TimeFile
+from .initial_data import InitialData
 
 
 

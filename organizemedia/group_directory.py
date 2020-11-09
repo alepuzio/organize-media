@@ -1,10 +1,9 @@
-import unittest
 import os
-from PersonalLogging import PersonalLogging
-from OriginalFile import OriginalFile
-from SingleFinalData import SingleFinalData
-from SafeDirectory import SafeDirectory
-from YearMonth import YearMonth
+from .personal_logging import PersonalLogging
+from .original_file import OriginalFile
+from .single_final_data import SingleFinalData
+from .safe_directory import SafeDirectory
+from tests.test_year_month import YearMonth
 
 class GroupDirectory:
     '''@overivew: this class create the new directory  fro mthe final data tupla'''

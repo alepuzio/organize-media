@@ -1,16 +1,14 @@
 import os
 import sys
-import unittest
 
 from Copy import Copy
 from CSVImage import CSVImage
 
-from FileToWrite import FileToWrite
-from FinalDataCSV import FinalDataCSV
+from .file_to_write import FileToWritefrom FinalDataCSV import FinalDataCSV
 from NameFile import Final
 from NameFile import NameCSV
 
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 
 from ReadFileCSV import Image
 from ReadFileINI import ReadFileINI
@@ -18,8 +16,8 @@ from ReadFileINI import Video
 
 from ReadFileCSV import ReadFileCSV
 
-from SafeFile import SafeFile
-from Write import Write
+from .safe_file import SafeFile
+from .write import Write
 
 
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
@@ -27,7 +25,7 @@ from Write import Write
 
 
 class Join:
-    '''@overview: class to join CSV and INI file'''
+    """@overview: class to join CSV and INI file"""
     def __init__(self, new_args ):
         self.directory = new_args[0]
 
@@ -41,18 +39,18 @@ class Join:
         return self.directory == other.directory
     
     def run(self):
-        '''run the join between data of INI file and CSV file
-        take the dir and put the ini inside an object'''
+        """run the join between data of INI file and CSV file
+        take the dir and put the ini inside an object"""
         
         #TODO centralize in an object
         properties_ini = ReadFileINI(self.directory).read()# has INI
         #TODO control that every property has a value, othrwise exception
         properties_file_csv = Image ( ReadFileCSV ( self.directory ) ).read() 
-        '''  every row-obejct is put inside another object with the optional data and the INI object  
+        """  every row-obejct is put inside another object with the optional data and the INI object  
         this object will be in another list
         the list is passed to a class that creates the file'
         this object is formatted as CSV
-        '''
+        """
         filecsv = FinalDataCSV ( 
                 SafeFile ( 
                     FileToWrite ( 

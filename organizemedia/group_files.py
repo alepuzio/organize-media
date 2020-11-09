@@ -1,6 +1,6 @@
 import shutil
 import os
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 
 class GroupFiles:
     '''@overview:  class that copies the file from original path to final path'''

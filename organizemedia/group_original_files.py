@@ -1,11 +1,9 @@
-import unittest
 import os
-from OriginalFile import OriginalFile
-from AbsolutePath import AbsolutePath
-from PersonalLogging import PersonalLogging
-from Extension import Extension
-from SingleFinalData import SingleFinalData
-
+from .original_file import OriginalFile
+from .absolute_path import AbsolutePath
+from .personal_logging import PersonalLogging
+from .tests.test_extension import Extension
+from .single_final_data import SingleFinalData
 
 class GroupOriginalFiles:
     '''@overview: classe che riceve gli OriginalFiles e li trasforma in FinalFiles'''

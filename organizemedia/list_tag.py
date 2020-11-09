@@ -1,18 +1,15 @@
-import unittest
-
-
-from FileToWrite import FileToWrite
-from FinalDataTag import FinalDataTag
+from .file_to_write import FileToWrite
+from .final_data_tag import FinalDataTag
 
 from GroupTags import FailFirst
 from GroupTags import GroupTags
 
 from NameFile import NameSelected
 
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 from ReadFileTag import ReadFileTag
-from UnsafeFile import UnsafeFile
-from Write import Write
+from .unsafe_file import UnsafeFile
+from .write import Write
 
 
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
@@ -20,7 +17,7 @@ from Write import Write
 
 
 class ListTag:
-    '''@overview: class to list the tags in one row'''
+    """@overview: class to list the tags in one row"""
     def __init__(self, new_args ):
         self.directory = new_args[0]
 
@@ -34,11 +31,11 @@ class ListTag:
         return self.directory == other.directory
     
     def run(self):
-        '''run the list 
+        """run the list 
         - reading the file draft
         - building TagList
         - print the tags in a row
-        '''
+        """
         print("run")
         FinalDataTag(
             UnsafeFile(

@@ -1,6 +1,6 @@
 import os
-from PersonalLogging import PersonalLogging
-from OriginalFile import OriginalFile
+from .personal_logging import PersonalLogging
+from .original_file import OriginalFile
 
 import unittest
 

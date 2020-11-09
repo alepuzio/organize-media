@@ -1,17 +1,20 @@
 import os
 import platform
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 import errno
 
-
 class SafeDirectory:
-    '''@overview: this class creates the directory if it does'nt exists, otherwise it does'nt modify the directory'''    
+    """
+    @overview: this class creates the directory if it does'nt exists, otherwise it does'nt modify the directory
+    """    
     def __init__(self, newpath):
         self.path = newpath
         self.logging = PersonalLogging("SafeDirectory")
  
     def create(self):
-        '''create the directoryy''' 
+        """
+        create the directory
+        """ 
         exists = os.path.exists(self.path)
         if(exists):
             self.logging.print("Existing directory: %s" % self.path)

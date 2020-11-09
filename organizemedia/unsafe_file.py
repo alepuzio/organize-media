@@ -1,9 +1,8 @@
+import errno
 import os
 import platform
-from PersonalLogging import PersonalLogging
-import errno
-from FileToWrite import FileToWrite
- 
+from .personal_logging import PersonalLogging
+from .file_to_write import FileToWrite 
 
 class UnsafeFile:
     '''@overview: this class creates the file if it does'nt exists, otherwise it modifies the file''' 

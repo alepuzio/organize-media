@@ -1,22 +1,21 @@
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 import os
-from Extension import Extension
-import unittest
-from Month import Month
-from TimeFile import TimeFile
-from Time import Time
-from Position import Position
-from InitialData import InitialData
+from .tests.test_extension import Extension
+from tests.test_month import Month
+from tests.test_time_file import TimeFile
+from tests.test_time import Time
+from tests.test_position import Position
+from .initial_data import InitialData
 
 class OriginalFile:
-    '''@overview this class represent the logical representation of a file to copy'''
+    """@overview this class represent the logical representation of a file to copy"""
     def __init__(self, newabsolutepath, newfilename):
        self.log = PersonalLogging("OriginalFile", False)
        self.absolutepath = newabsolutepath
        self.filename = newfilename
 
     def tupla(self):
-        '''@return the elementary data of the original file in tupla'''
+        """@return the elementary data of the original file in tupla"""
         self.log.print(">OriginalFIle.tupla(" + self.physicalFileAsString() + ")")
         completeDateTime = Time(TimeFile(self.physicalFileAsString()).complete())
         position = Position(self.absolutepath, self.filename)        
@@ -25,11 +24,11 @@ class OriginalFile:
         return res
     
     def physicalFile(self):
-        '''@return the complete path '''
+        """@return the complete path """
         return self.absolutepath + os.sep + self.filename
 
     def physicalFileAsString(self):
-        '''@return the complete path as String'''
+        """@return the complete path as String"""
         return str(self.physicalFile())
 
     def __str__(self):

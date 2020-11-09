@@ -1,4 +1,4 @@
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 import os
 import platform
 

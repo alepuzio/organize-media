@@ -1,5 +1,6 @@
 import os
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
+
 class AbsolutePath:
     '''@overview: leggo il path assoluto del file passato'''
 

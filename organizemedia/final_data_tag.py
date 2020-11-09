@@ -3,11 +3,10 @@ import unittest
 from CSVImage import CSVImage
 from CSVVideo import CSVVideo
 
-from FileToWrite import FileToWrite
-from test_label import LabelImage
-from test_label import LabelVideo
-from PersonalLogging import PersonalLogging
-from SafeFile import SafeFile
+from .file_to_write import FileToWritefrom test_label import LabelImage
+from tests.test_label import LabelVideo
+from .personal_logging import PersonalLogging
+from .safe_file import SafeFile
 
 
 

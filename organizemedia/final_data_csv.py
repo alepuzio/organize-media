@@ -1,18 +1,13 @@
-import unittest
-
 from CSVImage import CSVImage
 from CSVVideo import CSVVideo
 
-from FileToWrite import FileToWrite
-from test_label import LabelImage
-from test_label import LabelVideo
-from PersonalLogging import PersonalLogging
-from SafeFile import SafeFile
-
-
+from .file_to_write import FileToWritefrom test_label import LabelImage
+from test.test_label import LabelVideo
+from .personal_logging import PersonalLogging
+from .safe_file import SafeFile
 
 class FinalDataCSV:
-    '''@overview: class for the partial csv fil'''
+    """@overview: class for the partial csv fil"""
     
     def __init__(self, new_safe_file, new_list_manual_csv, new_properties_ini):
         self.safefile = new_safe_file
@@ -21,7 +16,7 @@ class FinalDataCSV:
         self.logging = PersonalLogging("FinalDataCSV")
 
     def data(self):
-        '''@return list of data file'''
+        """@return list of data file"""
         list_rows = []
         if self.image():#TODO creare decorator
             self.logging.print("label image")
@@ -40,13 +35,13 @@ class FinalDataCSV:
         return self.safefile.safe(list_rows)
         
     def image(self):
-        '''@return True if the row is about an image, False if it's abouta a video
-        '''
+        """@return True if the row is about an image, False if it's abouta a video
+        """
         return self.properties_ini.imagetype() == "photo" #TODO create decorator
 
 
 class TestFinalDataCSV(unittest.TestCase):
 
     def st_data(self):
-        '''TODO heavy to prepare the input data'''
+        """TODO heavy to prepare the input data"""
         pass

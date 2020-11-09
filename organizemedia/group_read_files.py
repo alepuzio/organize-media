@@ -1,20 +1,23 @@
-import unittest
 import os
-from OriginalFile import OriginalFile
-from AbsolutePath import AbsolutePath
-from PersonalLogging import PersonalLogging
-from Extension import Extension
-from Position import Position
+from .original_file import OriginalFile
+from .absolute_path import AbsolutePath
+from .personal_logging import PersonalLogging
+from .tests.test_extension import Extension
+from tests.test_position import Position
 
 class GroupReadFiles:
-    '''@overview: classe che riceve i file letti e li trasforma in OriginalFiles'''
+    """
+    @overview: classe che riceve i file letti e li trasforma in OriginalFiles
+    """
 
     def __init__(self, new_list_readfiles):
         self.list_readfiles = new_list_readfiles
         self.logging = PersonalLogging("GroupReadFiles", False)
 
     def map(self):
-        '''@return la mappa tra percorso assoluto del file letto e la class originalFile'''
+        """
+        @return la mappa tra percorso assoluto del file letto e la class originalFile
+        """
         result = {}
         for filetmp in self.list_readfiles:
             self.logging.print("filetmp: " + str(filetmp))

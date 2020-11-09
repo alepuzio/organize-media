@@ -1,14 +1,12 @@
-import unittest
-
 from CSVImageName import FailFirst 
 from CSVImageName import Name
 
-from DayMonthYear import DayMonthYear 
-from DayMonthYear import Space
-from DayMonthYear import Slash
+from tests.test_day_month_year import DayMonthYear 
+from tests.test_day_month_year import Space
+from tests.test_day_month_year import Slash
 
 
-from PersonalLogging import PersonalLogging
+from .personal_logging import PersonalLogging
 
 from QuotationMark import QuotationMark
 
