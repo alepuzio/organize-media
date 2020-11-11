@@ -1,4 +1,3 @@
-#import os
 import pytest
 
 from organizemedia.personal_logging import PersonalLogging
@@ -17,7 +16,8 @@ class GroupTags:
         return sum ( tmp.rating() for tmp in self.tags)/len(self.tags) 
 
     def median (self):
-        '''@return  the rating median of the list of tags
+        '''
+        @return  the rating median of the list of tags
             from https://www.geeksforgeeks.org/finding-mean-median-mode-in-python-without-libraries/
         '''
         n_num = [ tmp.rating() for tmp in  self.tags]
@@ -33,7 +33,9 @@ class GroupTags:
 
 
     def calculate(self):
-        '''@return list of good tags to sell'''
+        '''
+        @return list of good tags to sell
+        '''
         elements = [ tmp.label()  for tmp in  self.tags]
         elements.sort()
         self.log.print("At beginning, there are {0} tags".format( len(elements)  ) )  

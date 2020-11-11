@@ -68,7 +68,9 @@ class Video:
         return "Video:{0}".format ( str (self.read_file_csv) ) 
 
 class ReadFileCSV:
-    """@overview: it contains the properties in file INI"""
+    """
+    @overview: it contains the properties in file INI
+    """
 
     def __init__(self, new_dir):
         self.dir = new_dir
@@ -76,6 +78,7 @@ class ReadFileCSV:
 
     def read(self,name):
         path =  "{0}{1}{2}".format(self.dir, os.sep , name)
+        print("read:{0}".format (path ))
         result = []
         exists = os.path.exists(path)
         if exists : #TODO decorator

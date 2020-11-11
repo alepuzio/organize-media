@@ -74,7 +74,10 @@ class Image:
         return self.read.country(self.name)
    
     def __str__(self):
-       return "Image:[{0}]".format(self.name)
+       return "Image:{0};{1}".format(self.name, self.read )
+    
+    def __repr__(self):
+       return "Image:{0};{1}".format(self.name, self.read )
 
 class Video:
     '''@overview: this class contains the configuration about the videos'''
@@ -138,7 +141,7 @@ class ReadINI:
         return self.config.get(name,'Country')
    
     def __repr__(self):
-       return "ReadINI:[{0}]".format(self.copyright())
+       return "ReadINI:[{0}]".format(self.config)
 
     def __str__(self):
-       return "ReadINI:[{0}]".format(self.copyright())
+       return "ReadINI:[{0}]".format(self.config )

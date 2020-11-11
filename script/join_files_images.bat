@@ -1,1 +1,1 @@
-python C:\\Users\\apuzielli\\Documents\\personale\\mio-github\\organize-media\\tests\\Main.py -j C:\\Users\\apuzielli\\Documents\\personale\\mio-github\\organize-media\\tests\\resources\\output\\2020\\202008\\lugano\\JPG
+python Main.py -j .\\output\\2020\\202011\\lugano\\JPG
