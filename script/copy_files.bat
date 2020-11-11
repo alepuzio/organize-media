@@ -1,1 +1,1 @@
-python ..\\..\\Main.py -c ..\\ ..\\output
+python Main.py -c .\\resources\\ output
