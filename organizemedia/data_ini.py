@@ -18,7 +18,12 @@ class DataINI:
         list_rows.append("Region=\n")
         list_rows.append("Country=\n")
         return self.safefile.safe(list_rows)
-        
+
+    def __str__(self):
+        return "DataINI:{0}".format( str ( self.safefile) )
+
+    def __repr__(self):
+        return "DataINI:{0}".format( str ( self.safefile) )
 
 class Image:
     '''@overview: label about the image INI file'''
@@ -32,6 +37,14 @@ class Image:
         list_rows.append("ImageType=photo\n")
         return self.data_ini.data(list_rows)
 
+
+    def __str__(self):
+        return "Image:{0}".format( str ( self.data_ini) )
+
+    def __repr__(self):
+        return "Image:{0}".format( str ( self.data_ini) )
+
+
 class Video:
     '''@overview: labels about the video INI file'''
 
@@ -44,6 +57,12 @@ class Video:
         list_rows.append("[Video]\n")
         list_rows.append("ImageType=video\n")
         return self.data_ini.data(list_rows)
+    
+    def __str__(self):
+        return "Video:{0}".format( str ( self.data_ini) )
+
+    def __repr__(self):
+        return "Video:{0}".format( str ( self.data_ini) )
 
 class DataDraft:
     '''@class for the initial draft file about the tags'''
@@ -58,3 +77,10 @@ class DataDraft:
         self.logging.print("data")
         list_rows.append("empty file, only temporary data\n")
         return self.safefile.safe(list_rows)
+
+    def __str__(self):
+        return "DataDraft:{0}".format( str ( self.safefile ) )
+
+    def __repr__(self):
+        return "DataDraft:{0}".format( str ( self.safeilfile ) )
+

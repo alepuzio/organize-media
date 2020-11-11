@@ -43,8 +43,10 @@ class ManualDataCSV:
         return filename
 
 
-
-    def st_filename(self):
+    """
+    Test area
+    """
+    def st_filename():
         """TODO rifare"""
         tmp_value = ( "2020", Month("Jun"), "30", "topic", "filename", Extension("jpg") )
         result = ManualDataCSV(None).filename(tmp_value)

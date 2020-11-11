@@ -28,5 +28,7 @@ class SafeFile:
                     raise
 
     def __repr__ (self):
-        return self.file_to_write
+        return "SafeFile:{0}".format ( str (self.file_to_write) )
 
+    def __str__ (self):
+        return "SafeFile:{0}".format ( str (self.file_to_write) )

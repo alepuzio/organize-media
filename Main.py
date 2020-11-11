@@ -1,7 +1,6 @@
 import sys
-import unittest
-from PersonalLogging import PersonalLogging
-from Control import Control
+from organizemedia.personal_logging import PersonalLogging
+from tests.test_control import Control
 
 #class Main:
  
