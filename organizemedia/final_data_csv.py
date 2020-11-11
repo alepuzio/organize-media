@@ -9,7 +9,9 @@ from tests.test_label import LabelImage
 
 
 class FinalDataCSV:
-    """@overview: class for the partial csv fil"""
+    """
+    @overview: class for the partial csv file
+    """
     
     def __init__(self, new_safe_file, new_list_manual_csv, new_properties_ini):
         self.safefile = new_safe_file
@@ -18,13 +20,13 @@ class FinalDataCSV:
         self.logging = PersonalLogging("FinalDataCSV")
 
     def data(self):
-        """@return list of data file"""
+        """
+        @return list of data file
+        """
         list_rows = []
         if self.image():#TODO creare decorator
-            self.logging.print("label image")
             list_rows.append( "{0}\n".format ( LabelImage().csv() ) ) 
         else:
-            self.logging.print("label video")
             list_rows.append( "{0}\n".format ( LabelVideo().csv() ) ) 
         for tmp_file in self.list_data:
             if self.image():
@@ -33,11 +35,12 @@ class FinalDataCSV:
             else:
                 tmp_value = CSVVideo(self.properties_ini, tmp_file)
                 list_rows.append( "{0}\n".format ( tmp_value.data())) #TODO centralize
-        self.logging.print( "Elaborated: %s" % str ( len ( list_rows ) ) )
+        self.logging.print( "Elaborated: %s rows" % str ( len ( list_rows ) ) )
         return self.safefile.safe(list_rows)
         
     def image(self):
-        """@return True if the row is about an image, False if it's abouta a video
+        """
+        @return True if the row is about an image, False if it's abouta a video
         """
         return self.properties_ini.imagetype() == "photo" #TODO create decorator
 

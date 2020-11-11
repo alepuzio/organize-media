@@ -146,8 +146,10 @@ class Keyword:
         """
         list_tags = None #TODO put control if manual_tags is empty
         #TODO code defensive decorator
-        print("manual_tags: {0}".format ( self.manual_tag ) )
-        if "," in self.manual_tag:
+        if 0 == len (self.manual_tag):
+            list_tags = 'IT HAS TO BE AT LEAST 2 TAGS  IN {0}, CSV NOT UPLOABLE '.format (self.manual_tag) 
+            raise Exception (list_tags)
+        elif "," in self.manual_tag:
             list_tags = 'THE TAG SEPARATOR \',\' IS NOT ALLOWED, YOU HAVE TO USE ";"  IN {0}, CSV NOT UPLOABLE '.format (self.manual_tag) 
             raise Exception (list_tags)
         elif ";" not in self.manual_tag:
@@ -166,7 +168,6 @@ class Keyword:
             list_tags = ', THE CHAR \" , \" HAS NOT TO BE PRESENT IN {0}, CSV NOT UPLOABLE,'.format(self.manual_tag)
             raise Exception (list_tags)
         """
-        print ( "list_tags:{0}".format( list_tags) )
         return QuotationMark( list_tags  ).string()
 
     def __str__(self):
