@@ -12,34 +12,28 @@ In detail:
 ### Future
 * In copying the files, every directory also will have a CSV file (different from media type) with the list of the files and the data (this feature will remove the -w flag in input)
 * Package the project
-* Organize the structure following the guidelines in[The Hitchhiker's Guide to Python!] (https://docs.python-guide.org/)
-* levare classi di test dove c è import date o datetime
-* sistemare il logging con qualcosa già interno a python
-* aggiungere controllo che draft-tag deve avere massimo 100 righe
-* Creare directory topic exported e original in write - c
-* creare file ad hoc per shutterstock: metto nome file, descrizione e tag in righe diverse
-* fare chain of command in mio applicativo
-* creo un fle draft-tag- per ogni immagine o video, nel list creo i rispetti vi selected-tags e poi nel join per ogni file presente trovo il file tag, lo leggo e lo unisco nel final
-* prima di scrivere i tag, controllo che il rigo non ne abbiano (eventualmente ciclando l'intero file prima)
-* quando creo i file ne devo creare più di uno, in modo da non avere super file ma solo un TOT a batch così sono più veloce
-* mettere realtime e timelaspe in directory di copy
-* scrivere file contribuing in mio github in  https://gist.github.com/PurpleBooth/b24679402957c63ec426/forks)
-* write defensive class to manage the input parameters
-### Next
+* use the internal logging in python
+* add the control that _draft-tag_ must has'nt not more than 100 row
+* create the specific file for Shutterstock: ( I put the filename, description and tags in different rows)
+* Using _chain of command_ desing pattern
+* Create one file _draft-tag-_ for every image or video, in the list I create the _selected-tags_ and after, into _join_ phase, for every file I'm looking for the specific file tag, I read this and I join in the final file
+* Before writing the tags, I control that the rows have'nt it
+* When I create the final file CSV to upload, I have to create more than 1, so I can upload in batch way
+* Create directroy _realtime_ and _timelapse_ in directory di _copy_ phase
 
-* lanciare run prima di merge con develop
+### Next
+* write the file _Contribuing_ like  [this](https://gist.github.com/PurpleBooth/b24679402957c63ec426/forks)
 
 ### Running
 
-* organizzare codice: ci sono classi anche nella directory test ( sistemare gli import nella directory organizemedia )
 
 ### Past
 
-* aggancio con travis
-* levare classe asstring
-* correggere stile dei moduli 
-* mettere classi con test in test e importo test in pacchetto src (-> creare directory specifico src)
-
+* Organize the code: there are classes into directory test ( sistemare gli import nella directory organizemedia )
+* use travis for CI
+* delete class _AsString_
+* fix the style in the modules
+* put classes with the tests in _tests_ and importo _test classes_ in package _organizedmedia_, where there are only the classes withou test
 
 
 ## Bug
@@ -48,10 +42,13 @@ In detail:
 * Fix the unit test
 * fix the Test Suite
 * Resolve the TODO in the code
-* correggere stile delle classi (camelcase invece di trattino) facendole però compilare ed eseguire senza errore
-
+* Organize the structure following the guidelines in[The Hitchhiker's Guide to Python!] (https://docs.python-guide.org/)
+* Delete the test classes where it s _import date_ or _import datetime_
+* Create directories _exported_ and _original_ in _topic_ in _copy_ command
+* review the system of the calculation of the more important tags
 
 ### Next
+* Write defensive class to manage the input parameters
 
 ### Running
 
