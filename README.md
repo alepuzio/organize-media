@@ -7,16 +7,58 @@ In detail:
 * The structure of the final directories is based on the extension and the topic of the files
 
 
-## Feature
+## Features
 
+### Future
 * In copying the files, every directory also will have a CSV file (different from media type) with the list of the files and the data (this feature will remove the -w flag in input)
 * Package the project
 * Organize the structure following the guidelines in[The Hitchhiker's Guide to Python!] (https://docs.python-guide.org/)
+* levare classi di test dove c è import date o datetime
+* sistemare il logging con qualcosa già interno a python
+* aggiungere controllo che draft-tag deve avere massimo 100 righe
+* Creare directory topic exported e original in write - c
+* creare file ad hoc per shutterstock: metto nome file, descrizione e tag in righe diverse
+* fare chain of command in mio applicativo
+* creo un fle draft-tag- per ogni immagine o video, nel list creo i rispetti vi selected-tags e poi nel join per ogni file presente trovo il file tag, lo leggo e lo unisco nel final
+* prima di scrivere i tag, controllo che il rigo non ne abbiano (eventualmente ciclando l'intero file prima)
+* quando creo i file ne devo creare più di uno, in modo da non avere super file ma solo un TOT a batch così sono più veloce
+* mettere realtime e timelaspe in directory di copy
+
+### Next
+
+* lanciare run prima di merge con develop
+* scrivere file contribuing in mio github in  https://gist.github.com/PurpleBooth/b24679402957c63ec426/forks)
+
+### Running
+
+* organizzare codice: ci sono classi anche nella directory test ( sistemare gli import nella directory organizemedia )
+
+### Past
+
+* aggancio con travis
+* levare classe asstring
+* correggere stile dei moduli 
+* mettere classi con test in test e importo test in pacchetto src (-> creare directory specifico src)
+
+
 
 ## Bug
+
+### Future
 * Fix the unit test
 * fix the Test Suite
 * Resolve the TODO in the code
+* correggere stile delle classi (camelcase invece di trattino) facendole però compilare ed eseguire senza errore
+
+
+### Next
+
+### Running
+
+### Past
+
+
+
 
 ## Status CI Integration
  
