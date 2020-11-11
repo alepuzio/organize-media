@@ -30,6 +30,14 @@ class Image:
         extension = Extension ( path[0] )
         return extension.image()
 
+    def __str__(self):
+        return "Image:{0}".format ( str (self.read_file_csv) ) 
+    
+    def __repr__(self):
+        return "Image:{0}".format ( str (self.read_file_csv) ) 
+
+
+
 class Video:
     """@overview: it contains the properties in file CSV manual about videos"""
 
@@ -39,7 +47,7 @@ class Video:
 
     def read(self):
         """@return the object with the properties"""
-        if self.valid():
+        if self.valid(): #TODO decorator
             name = Manual().name() #'manual-data.csv'
             res = self.read_file_csv.read(name)
         else:
@@ -52,6 +60,12 @@ class Video:
         path.reverse()
         extension = Extension ( path[0] )
         return extension.video()
+    
+    def __str__(self):
+        return "Video:{0}".format ( str (self.read_file_csv) ) 
+    
+    def __repr__(self):
+        return "Video:{0}".format ( str (self.read_file_csv) ) 
 
 class ReadFileCSV:
     """@overview: it contains the properties in file INI"""
@@ -64,7 +78,7 @@ class ReadFileCSV:
         path =  "{0}{1}{2}".format(self.dir, os.sep , name)
         result = []
         exists = os.path.exists(path)
-        if exists :
+        if exists : #TODO decorator
             with open(path, newline = '') as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
@@ -75,6 +89,11 @@ class ReadFileCSV:
         self.log.print("Elaborated file: {0}".format( len(result) ) )
         return result 
     
+    def __str__(self):
+        return "ReadFileCSV:{0}".format ( str (self.dir) ) 
+    
+    def __repr__(self):
+        return "ReadFileCSV:{0}".format ( str (self.dir) ) 
 
 class ReadCSV:
     """@overview: this class contains the single row of manual CSV"""
@@ -108,7 +127,9 @@ class ReadCSV:
 
 
 class Keyword:
-    """@overview: this class contains the list of keywords of the manual CSV"""
+    """
+    @overview: this class contains the list of keywords of the manual CSV
+    """
 
     def __init__(self, new_row):
         self.manual_tag = new_row
@@ -141,19 +162,24 @@ class Keyword:
         print ( "list_tags:{0}".format( list_tags) )
         return QuotationMark( list_tags  ).string()
 
+    def __str__(self):
+        return "Keyword:{0}".format( str ( self.manual_tag) )
+
+    def __repr__(self):
+        return "Keyword:{0}".format( str ( self.manual_tag) )
 
 
 def test_standard_keyword():
     var = "tag1;tag2;tag3"
     result =  Keyword(var).keyword()
     expected = "\"tag1, tag2, tag3\""
-    assert(result==expected)
+    assert (result==expected)
 
 def test_problem_losing_words():
     var = "entrance;facade,tree;blue;building;historical;landmark;museum;old;outdoor;palace;sky;square;state;symbol;view;army;historic"
     result =  Keyword(var).keyword()
     expected = "\"entrance, facade\""
-    assert(result==expected)
+    assert (result==expected)
 
 def test_wrong_separator():
     pass

@@ -19,7 +19,7 @@ class ReadFileINI:
         config = ConfigParser()
         path =  self.dir + os.sep + "common.ini" #TODO concatenation of string to improve
         exists = os.path.exists(path)
-        if exists :
+        if exists : #TODO decorator
             config.read(path)
             #TODO centralize in an object
             path = self.dir.split ( os.sep )
@@ -30,7 +30,7 @@ class ReadFileINI:
             if extension.image(): #TODO: create decorator and class
                 self.log.print("I will writing a images file ")
                 file_ini = Image ( ReadINI ( config ) ) 
-            elif extension.video():
+            elif extension.video(): #TODO decorator
                 self.log.print("I will writing a video file")
                 file_ini = Video ( ReadINI ( config ) ) 
             else:
@@ -38,6 +38,13 @@ class ReadFileINI:
         else:
             raise Exception ( "The file [{0}] is not present, I stop the elaboration".format(path) )
         return file_ini
+
+    def __str__(self):
+        return "ReadFileINI:{0}".format ( str ( self.dir) )
+
+    def __repr__(self):
+        return "ReadFileINI:{0}".format ( str ( self.dir) )
+
 
 class Image:
     '''@overview: this class contains the configuration about the images'''
@@ -98,7 +105,10 @@ class Video:
 
 
     def __str__(self):
-       return "Video:[{0}]".format(self.name)
+       return "organizemedia.Video:[{0}]".format(self.name)
+    
+    def __repr__(self):
+       return "organizemedia.Video:[{0}]".format(self.name)
 
 
 class ReadINI:
@@ -127,5 +137,8 @@ class ReadINI:
     def country(self, name ):
         return self.config.get(name,'Country')
    
+    def __repr__(self):
+       return "ReadINI:[{0}]".format(self.copyright())
+
     def __str__(self):
        return "ReadINI:[{0}]".format(self.copyright())
