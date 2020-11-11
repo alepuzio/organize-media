@@ -23,11 +23,11 @@ In detail:
 * prima di scrivere i tag, controllo che il rigo non ne abbiano (eventualmente ciclando l'intero file prima)
 * quando creo i file ne devo creare più di uno, in modo da non avere super file ma solo un TOT a batch così sono più veloce
 * mettere realtime e timelaspe in directory di copy
-
+* scrivere file contribuing in mio github in  https://gist.github.com/PurpleBooth/b24679402957c63ec426/forks)
+* write defensive class to manage the input parameters
 ### Next
 
 * lanciare run prima di merge con develop
-* scrivere file contribuing in mio github in  https://gist.github.com/PurpleBooth/b24679402957c63ec426/forks)
 
 ### Running
 
