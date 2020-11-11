@@ -8,7 +8,7 @@ from .test_day_month_year  import DayMonthYear
 from .test_day_month_year import Slash
 from .test_extension import Extension
 from .test_month import Month
-
+from .test_position import PositionFake
 
 class ManualDataCSV:
     """@overview: class for the partial csv fil"""
@@ -18,7 +18,9 @@ class ManualDataCSV:
         self.logging = PersonalLogging("ManualDataCSV")
 
     def data(self, map_file_single_data):
-        """@return list of data file"""
+        """
+        @return list of data file
+        """
         list_rows = []
         list_rows.append("Day,Month,Year,OriginalFilename,Description,Keywords,\n") 
         for tmp_file in map_file_single_data.keys():
@@ -43,20 +45,18 @@ class ManualDataCSV:
         return filename
 
 
-    """
-    Test area
-    """
-    def st_filename():
-        """TODO rifare"""
-        tmp_value = ( "2020", Month("Jun"), "30", "topic", "filename", Extension("jpg") )
-        result = ManualDataCSV(None).filename(tmp_value)
-        expected = "filename.jpg"
-        assert (result == expected)
+"""
+Test area TODO code again after use ad-hoc class instead of tuplas
+def test_filename():
+    tmp_value = ( "2020", Month("Jun"), "30", "topic", "filename", Extension("jpg") )
+    result = ManualDataCSV(None).filename(tmp_value)
+    expected = "filename.jpg"
+    assert (result == expected)
 
 
     def st_time(self):
-        """TODO rifare"""
         tmp_value = ( "2020", Month("Jun"), "30", "topic", "filename", Extension("jpg") )
         result = ManualDataCSV(None).time(tmp_value)
         expected = "30/03/2020"
         assert (result == expected)
+"""

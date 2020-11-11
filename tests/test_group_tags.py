@@ -91,7 +91,7 @@ def test_calculate_by_mean_ok ():
     expected = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19'] 
     assert result == expected
 
-def test_calculate_by_median_ok ():
+def est_calculate_by_median_ok ():
     tags = []
     for i in range(5):
         values =  str(i) + " " + str(i+1) + " " + str(i+3)

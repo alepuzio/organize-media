@@ -77,8 +77,7 @@ class ReadFileCSV:
         self.log = PersonalLogging("ReadFileCSV", False)
 
     def read(self,name):
-        path =  "{0}{1}{2}".format(self.dir, os.sep , name)
-        print("read:{0}".format (path ))
+        path = "{0}{1}{2}".format(self.dir, os.sep , name)
         result = []
         exists = os.path.exists(path)
         if exists : #TODO decorator
@@ -88,7 +87,6 @@ class ReadFileCSV:
                     result.append ( ReadCSV(row) )
         else:
             raise Exception ("The file [{0}] is not present, I stop the elaboration ".format (path) )
-        
         self.log.print("Elaborated file: {0}".format( len(result) ) )
         return result 
     
@@ -99,7 +97,9 @@ class ReadFileCSV:
         return "ReadFileCSV:{0}".format ( str (self.dir) ) 
 
 class ReadCSV:
-    """@overview: this class contains the single row of manual CSV"""
+    """
+    @overview: this class contains the single row of manual CSV
+    """
 
     def __init__(self, newrow):
         self.row = newrow
@@ -139,18 +139,22 @@ class Keyword:
         self.log = PersonalLogging("Keyword")
 
     def keyword(self):
-        """@return list of tags as one string
+        """
+        @return list of tags as one string
         the initial internal separator has to be ';'
         and become ','
         """
         list_tags = None #TODO put control if manual_tags is empty
         #TODO code defensive decorator
         print("manual_tags: {0}".format ( self.manual_tag ) )
-        if ";" not in self.manual_tag:
-            list_tags = ', THE TAG SEPARATOR HAS TO BE  ";"  IN {0}, CSV NOT UPLOABLE '.format (self.manual_tag) 
+        if "," in self.manual_tag:
+            list_tags = 'THE TAG SEPARATOR \',\' IS NOT ALLOWED, YOU HAVE TO USE ";"  IN {0}, CSV NOT UPLOABLE '.format (self.manual_tag) 
+            raise Exception (list_tags)
+        elif ";" not in self.manual_tag:
+            list_tags = 'THE TAG SEPARATOR HAS TO BE  ";"  IN {0}, CSV NOT UPLOABLE '.format (self.manual_tag) 
             raise Exception (list_tags)
         elif "\"" in self.manual_tag:
-            list_tags = ', THE CHAR \" HAS NOT TO BE PRESENT IN {0}, CSV NOT UPLOABLE,'.format(self.manual_tag)
+            list_tags = 'THE CHAR \" HAS NOT TO BE PRESENT IN {0}, CSV NOT UPLOABLE,'.format(self.manual_tag)
             raise Exception (list_tags)
         else: 
             list_tags = re.sub(";",", " , self.manual_tag)
@@ -180,9 +184,8 @@ def test_standard_keyword():
 
 def test_problem_losing_words():
     var = "entrance;facade,tree;blue;building;historical;landmark;museum;old;outdoor;palace;sky;square;state;symbol;view;army;historic"
-    result =  Keyword(var).keyword()
-    expected = "\"entrance, facade\""
-    assert (result==expected)
+    with pytest.raises(Exception):
+        assert Keyword(var).keyword()
 
 def test_wrong_separator():
     pass

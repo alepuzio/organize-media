@@ -3,20 +3,26 @@ import os
 from .test_extension import Extension
 
 class Position:
-    """@overview: class thant manage the physical data of the file abotu the path"""
+    """
+    @overview: class that manages the physical data of the file abotu the path
+    """
 
     def __init__(self, newabsolutepath, newfilename):
         self.absolutepath = newabsolutepath
         self.filename = newfilename
 
     def root(self):
-        """@return the expected path of the topic"""    
+        """
+        @return the expected path of the topic
+        """    
         path = self.absolutepath.split(os.sep)
         index_second_to_last = len(path) -1
         return os.sep.join(path[ 0 : index_second_to_last ] )
 
     def name(self):
-        """@return the name of the file, wit no extension"""
+        """
+        @return the name of the file, wit no extension
+        """
         name = self.filename.split(".")
         return  name[0]
 
@@ -82,4 +88,33 @@ def test_str():
 
 
 
+
+class PositionFake(Position):
+    """
+    @overview: test class that simulates the physical data of the file about the path
+    """
+
+    def __init__(self):
+        pass
+    def root(self):
+        return "root"
+        #return os.sep.join(path[ 0 : index_second_to_last ] )
+
+    def name(self):
+        return "name"
+
+    def extension(self):
+        return"ext"
+
+    def topic(self):
+        return "topic"
+
+    def __eq__(self, other):
+        return False
+
+    def __repr__(self):
+        return "PositionFake" 
+
+    def __str__(self):
+        return "PositionFake"
 
