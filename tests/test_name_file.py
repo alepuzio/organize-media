@@ -53,11 +53,6 @@ class NameSelected:
         return res
 
 
-def test_name():
-    var = NameDraft("C:\\fake\\path")
-    res = var.name()
-    expected = "C:\\fake\\path\\draft_tags.txt"
-    assert (res== expected)
 
 class NameCSV:
     """@overview: class about the name of the initial csv file of the files"""
@@ -95,7 +90,7 @@ class Final:
     def name(self):
         return str(self.filename)
 
-
+"""
 def test_name_manual():
     var = NameCSV("C:\\fake\\path", Manual()) 
     res = var.name()
@@ -114,3 +109,9 @@ def test_name():
     expected = "C:\\fake\\path\\common.ini"
     assert (res == expected)
 
+def test_name():
+    var = NameDraft("C:\\fake\\path")
+    res = var.name()
+    expected = "C:\\fake\\path\\draft_tags.txt"
+    assert (res== expected)
+"""
