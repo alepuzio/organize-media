@@ -14,4 +14,11 @@ branches:
   only:
   - master
   - develop
+deploy:
+  provider: pypi
+  username: "__token__"
+  password: "Your PyPI API token, including the pypi- prefix"
+  skip_cleanup: true
+  on:
+    branch: master
 
