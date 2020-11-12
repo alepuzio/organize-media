@@ -11,8 +11,8 @@ from .write import Write
 
 from tests.test_read_file_csv import Image
 from tests.test_read_file_csv import ReadFileCSV
-from organizemedia.read_file_ini import ReadFileINI
-from organizemedia.read_file_ini import Video
+from organizemedia.read_file_ini import ReadFileINI#TODO maybe . instead of organziemedia
+from organizemedia.read_file_ini import Video#TODO maybe . instead of organziemedia
 from tests.test_name_file import Final
 from tests.test_name_file import NameCSV
 
@@ -41,10 +41,8 @@ class Join:
         """        
         #TODO centralize in an object
         properties_ini = ReadFileINI(self.directory).read()# has INI
-        print ("properties_ini()->{0}".format ( str ( properties_ini ) ))
         #TODO control that every property has a value, othrwise exception
         properties_file_csv = Image ( ReadFileCSV ( self.directory ) ).read() 
-        print ("properties_file_csv()->{0}".format ( str ( properties_file_csv)) )
         """  
         every row-obejct is put inside another object with the optional data and the INI object  
         this object will be in another list
