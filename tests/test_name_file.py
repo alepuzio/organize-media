@@ -1,4 +1,4 @@
-from organizemedia.personal_logging import PersonalLogging
+from src.personal_logging import PersonalLogging
 import pytest
 import os
 

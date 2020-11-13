@@ -4,7 +4,7 @@ import re
 import pytest
 from .test_extension import Extension
 from .test_name_file import Manual
-from organizemedia.personal_logging import PersonalLogging
+from src.personal_logging import PersonalLogging
 from .test_quotation_mark  import QuotationMark  
 
 class Image:

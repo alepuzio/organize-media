@@ -2,7 +2,7 @@ import datetime
 import platform
 import pytest
 
-from organizemedia.personal_logging import PersonalLogging
+from src.personal_logging import PersonalLogging
 
 
 class Month:

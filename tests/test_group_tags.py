@@ -1,6 +1,6 @@
 import pytest
 
-from organizemedia.personal_logging import PersonalLogging
+from src.personal_logging import PersonalLogging
 from .test_read_file_tag import Tag
 
 class GroupTags:

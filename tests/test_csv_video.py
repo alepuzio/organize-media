@@ -1,8 +1,8 @@
 import pytest
 
-from organizemedia.csv_image_name import FailFirst
-from organizemedia.csv_image_name import Name
-from organizemedia.personal_logging import PersonalLogging
+from src.csv_image_name import FailFirst
+from src.csv_image_name import Name
+from src.personal_logging import PersonalLogging
 
 from .test_day_month_year import DayMonthYear 
 from .test_day_month_year import Space
