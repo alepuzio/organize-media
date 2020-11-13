@@ -1,8 +1,8 @@
 import pytest
 
-from organizemedia.personal_logging import PersonalLogging
-from organizemedia.safe_file import SafeFile
-from organizemedia.file_to_write import FileToWrite
+from src.personal_logging import PersonalLogging
+from src.safe_file import SafeFile
+from src.file_to_write import FileToWrite
 
 from .test_day_month_year  import DayMonthYear
 from .test_day_month_year import Slash

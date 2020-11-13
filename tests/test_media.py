@@ -1,5 +1,5 @@
-from organizemedia.personal_logging import PersonalLogging
 import pytest
+from src.personal_logging import PersonalLogging
 from .test_extension import Extension
 
 

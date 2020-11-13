@@ -1,5 +1,5 @@
 import pytest
-from organizemedia.personal_logging import PersonalLogging
+from src.personal_logging import PersonalLogging
 
 class Extension:
     """@overview: this class extract the extension of the read file"""

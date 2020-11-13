@@ -1,10 +1,10 @@
 import sys
 import pytest
-from organizemedia.personal_logging import PersonalLogging
-from organizemedia.write import Write
-from organizemedia.copy import Copy
-from organizemedia.join import Join
-from organizemedia.list_tag import ListTag
+from src.personal_logging import PersonalLogging
+from src.write import Write
+from src.copy import Copy
+from src.join import Join
+from src.list_tag import ListTag
 
 class Control:
     '''

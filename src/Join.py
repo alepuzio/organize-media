@@ -6,16 +6,15 @@ from .csv_image import CSVImage
 from .file_to_write import FileToWrite
 from .final_data_csv import FinalDataCSV
 from .personal_logging import PersonalLogging
+from .read_file_ini import ReadFileINI#TODO maybe . instead of organziemedia
+from .read_file_ini import Video#TODO maybe . instead of organziemedia
 from .safe_file import SafeFile
 from .write import Write
 
-from tests.test_read_file_csv import Image
-from tests.test_read_file_csv import ReadFileCSV
-from organizemedia.read_file_ini import ReadFileINI#TODO maybe . instead of organziemedia
-from organizemedia.read_file_ini import Video#TODO maybe . instead of organziemedia
 from tests.test_name_file import Final
 from tests.test_name_file import NameCSV
-
+from tests.test_read_file_csv import Image
+from tests.test_read_file_csv import ReadFileCSV
     #TODO mettere controllo che il path passato deve avere il sepratore os.sep corretto
     # altrimenti ci saranno problemi con i file
 

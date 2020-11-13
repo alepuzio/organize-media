@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from organizemedia.personal_logging import PersonalLogging
+from src.personal_logging import PersonalLogging
 from .test_name_file import NameDraft
 
 class ReadFileTag:
