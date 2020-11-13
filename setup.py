@@ -1,30 +1,30 @@
 from setuptools import setup
 
 def readme():
-    with open('README.rst') as f:
+    with open('README.md') as f:
         return f.read()
 
-setup(name='update-microstock-names',
-      version='0.1',
-      description='This script renames all images (RAW and JPG) and videos (MOV) in the root directory and his sub-directories',
-	  long_description=readme(),
+setup(name='organize-media',
+      version='1.1.0',
+      description='This script copies the media files in the correct path as described by Daniele Carrer',
+      long_description=readme(),
+      long_description_content_type="text/markdown",
       classifiers=[
         'Development Status :: 3 - Alpha',
-        'License :: OSI Approved :: GPL 3 License',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
         'Topic :: Text Processing',
       ],
-      url='http://github.com/alepuzio/update-microstock-names',
+      url='http://github.com/alepuzio/organize-media',
       author='Alessandro Puzielli aka Alepuzio',
       author_email='alessandro.puzielli@alepuzio.net',
       license='GPL 3',
-      packages=['explicate-img-names'],
-	  install_requires=[
+      packages=['src'],
+      install_requires=[
           'markdown',
       ],
-	  tests_require=['rivedere'],
       entry_points={
-          'console_scripts': ['explicate-img-names=funniest.command_line:main'],
+          'console_scripts': ['organize-media=main'],
       },
       include_package_data=True,
       zip_safe=False)
