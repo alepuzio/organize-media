@@ -53,6 +53,7 @@ In detail:
 * Write defensive class to manage the input parameters
 
 ### Running
+* Fix the OOP desing as suggested by [Yegor Bugayenko](http://www.yegor256.com8
 
 ### Past
 
