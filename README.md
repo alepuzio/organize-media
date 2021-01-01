@@ -9,25 +9,22 @@ In detail:
 * The structure of the final directories is based on the extension and the topic of the files
 
 
-## Features
+## Features and Bugs
 
-Tabella
+This is the list of the future issues
 
   | Requirement | type | Status |
   | ------------ | ----------- | ----- |
   | [] In copying the files, every directory also will have a CSV file (different from media type) with the list of the files and the data (this feature will remove the **-w** flag in input) | Feature | Future |
   | Package the project| Feature | Future |
-
-
-
-| use the internal logging in python | Feature | Future |
-| add the control that *draft-tag* must has'nt not more than 100 rows | Feature| Future|
-| create the specific file for Shutterstock: ( I put the filename, description and tags in different rows) | Feature | Future |
-| Using *chain of command* design pattern | Feature | Future |
-| Create one file *draft-tag-* for every image or video, in the list I create the *selected-tags* and after, into *join* phase, for every file I'm looking for the specific file tag, I read this and I join in the final file | Feature | Future |
-| Before writing the tags, I control that the rows have'nt it | Feature | Future |
-| When I create the final file CSV to upload, I have to create more than 1, so I can upload in batch way| Feature | Future |
-| Create directroy *realtime* and *timelapse* in directory di *copy* phase| Feature| Future |
+  | use the internal logging in python | Feature | Future |
+  | add the control that *draft-tag* must has'nt not more than 100 rows | Feature| Future|
+  | create the specific file for Shutterstock: ( I put the filename, description and tags in different rows) | Feature | Future |
+  | Using *chain of command* design pattern | Feature | Future |
+  | Create one file *draft-tag-* for every image or video, in the list I create the *selected-tags* and after, into *join* phase, for every file I'm looking for the specific file tag, I read this and I join in the final file | Feature | Future |
+  | Before writing the tags, I control that the rows have'nt it | Feature | Future |
+  | When I create the final file CSV to upload, I have to create more than 1, so I can upload in batch way| Feature | Future |
+  | Create directroy *realtime* and *timelapse* in directory di *copy* phase| Feature| Future |
 
 ### Future
 
