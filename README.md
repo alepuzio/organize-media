@@ -10,10 +10,16 @@ In detail:
 
 
 ## Features
-| Requirement  | Feature/Bug |Status|
-| -------------- | ------------- | Future |
-| [] In copying the files, every directory also will have a CSV file (different from media type) with the list of the files and the data (this feature will remove the **-w** flag in input) | Feature| Future |
-| Package the project| Feature | Future |
+
+Tabella
+
+  | Requirement | type | Status |
+  | ------------ | ----------- | ----- |
+  | [] In copying the files, every directory also will have a CSV file (different from media type) with the list of the files and the data (this feature will remove the **-w** flag in input) | Feature | Future |
+  | Package the project| Feature | Future |
+
+
+
 | use the internal logging in python | Feature | Future |
 | add the control that *draft-tag* must has'nt not more than 100 rows | Feature| Future|
 | create the specific file for Shutterstock: ( I put the filename, description and tags in different rows) | Feature | Future |
