@@ -26,38 +26,20 @@ This is the list of the future issues
   | When I create the final file CSV to upload, I have to create more than 1, so I can upload in batch way| Feature | [O] | [O] | [O] | 
   | Create directroy *realtime* and *timelapse* in directory di *copy* phase| Feature| [O] | [O] | [O] | 
   | write the file *Contribuing* like [this](https://gist.github.com/PurpleBooth/b246794O2957c63ec426/forks) | Feature | [O]| [O] | [O] |
-
-### Running
-
-
-### Past
-
-* Organize the code: there are classes into directory test ( sistemare gli import nella directory organizemedia )
-* use travis for CI
-* delete class *AsString*
-* fix the style in the modules
-* put classes with the tests in *tests* package and classes with no tests in *src* package, where there are only the classes without the tests
-
-
-## Bug
-
-### Future
-* Fix the unit test
-* fix the Test Suite
-* Resolve the TODO in the code
-* Organize the structure following the guidelines in[The Hitchhiker's Guide to Python!](https://docs.python-guide.org/)
-* Delete the test classes where it s *import date* or *import datetime*
-* Create directories *exported* and *original* in *topic* in *copy* command
-* review the system of the calculation of the more important tags
-
-### Next
-* Write defensive class to manage the input parameters
-
-### Running
-* Fix the OOP desing as suggested by [Yegor Bugayenko](http://www.yegor256.com8
-
-### Past
-
+| Organize the code: there are classes into directory test ( sistemare gli import nella directory organizemedia ) | Feature | [X] | [X] | [X] |
+| use travis for CI | Feature | [X] | [X] | [X] |
+| delete class *AsString* | Feature | [X] | [X] | [X] |
+| fix the style in the modules | Feature | [X] | [X] | [X] |
+| put classes with the tests in *tests* package and classes with no tests in *src* package, where there are only the classes without the tests | Feature | [X] | [X] | [X] |
+| Write defensive class to manage the input parameters | Bug | [O] | [O] | [X]
+| Fix the OOP desing as suggested by [Yegor Bugayenko](http://www.yegor256.com) | Bug | [O] | [X] | [X]
+| Fix the unit test | Bug | [O] | [O] | [O]
+| Fix the Test Suite | Bug | [O] | [O] |[O]
+| Resolve the TODO in the code | Bug | [O] | [O] | [O]
+| Organize the structure following the guidelines in[The Hitchhiker's Guide to Python!](https://docs.python-guide.org/) | Bug | [O] | [O] | [O]
+| Delete the test classes where it s *import date* or *import datetime* | Bug | [O] | [O] | [O]
+| Create directories *exported* and *original* in *topic* in *copy* command | Bug | [O] | [O] | [O]
+| Review the system of the calculation of the more important tags | Bug | [O] | [O] | [O]
 
 
 
