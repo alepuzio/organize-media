@@ -10,7 +10,7 @@ distlib==0.3.1
 docutils==0.16
 filelock==3.0.12
 Flask==1.1.2
-future==0.18.2
+future==0.18.3
 idna==2.10
 iniconfig==1.1.1
 itsdangerous==1.1.0
