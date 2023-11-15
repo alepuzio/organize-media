@@ -40,4 +40,4 @@ urllib3==1.26.18
 virtualenv==20.0.32
 virtualenvwrapper-win==1.2.6
 webencodings==0.5.1
-Werkzeug==2.2.3
+Werkzeug==3.0.1
